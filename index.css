@@ -20,7 +20,12 @@ body {
 }
 
 .sub-titles {
-    color: gainsboro;
+    color: #888888;
+}
+
+.social-icons {
+    height: 30px;
+    width: 30px;
 }
 
 h1, h2, h4, h5, h3, p {
