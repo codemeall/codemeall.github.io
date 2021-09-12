@@ -1,5 +1,6 @@
 body {
     padding: 15px;
+    /* background: #94bbe9 !important; */
 }
 .img-column {
     float: left;
@@ -26,6 +27,11 @@ body {
 .social-icons {
     height: 30px;
     width: 30px;
+}
+
+.header-background {
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 h1, h2, h4, h5, h3, p {
