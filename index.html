@@ -11,16 +11,465 @@
 		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
 
 	<style>
-		.contact-btn {
-			font-size: 16px;
-			padding: 10px 20px;
-			border-radius: 5px;
-			text-transform: uppercase;
-			transition: background-color 0.3s ease;
+		:root {
+			--matrix-green: #00ff41;
+			--matrix-dark-green: #008f11;
+			--dark-bg: #0a192f;
+			--darker-bg: #020c1b;
+			--card-bg: #112240;
+			--text-primary: #ffffff;
+			--text-secondary: #b3b3b3;
 		}
+
+		body {
+			background-color: var(--dark-bg);
+			color: var(--text-primary);
+			background-image: 
+				linear-gradient(
+					125deg, 
+					rgba(10, 25, 47, 0.97) 0%,
+					rgba(2, 12, 27, 0.95) 50%,
+					rgba(17, 34, 64, 0.92) 100%
+				),
+				radial-gradient(
+					circle at 50% 50%,
+					rgba(0, 255, 65, 0.1) 0%,
+					rgba(0, 143, 17, 0.05) 50%,
+					transparent 100%
+				),
+				url('data:image/svg+xml;charset=utf8,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%2300ff41" fill-opacity="0.1"%3E%3Cpath d="M10 10h10v10H10zM30 10h10v10H30zM50 10h10v10H50zM70 10h10v10H70zM90 10h10v10H90z"/%3E%3C/g%3E%3C/svg%3E');
+			background-attachment: fixed;
+			position: relative;
+		}
+
+		/* Add subtle animated gradient overlay */
+		body::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				45deg,
+				transparent 0%,
+				rgba(0, 255, 65, 0.03) 50%,
+				transparent 100%
+			);
+			animation: gradientMove 15s ease infinite;
+			z-index: -1;
+		}
+
+		/* Add animation for gradient movement */
+		@keyframes gradientMove {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		/* Enhance matrix rain opacity for better visibility */
+		.matrix-bg {
+			opacity: 0.07;
+		}
+
+		.navbar {
+			background-color: var(--darker-bg) !important;
+			box-shadow: 0 2px 4px rgba(0, 255, 65, 0.1);
+		}
+
+		.navbar-light .navbar-brand,
+		.navbar-light .nav-link {
+			color: var(--text-primary) !important;
+		}
+
+		.navbar-light .nav-link:hover {
+			color: var(--matrix-green) !important;
+		}
+
+		.tech-card {
+			background-color: var(--card-bg);
+			border: 1px solid var(--matrix-dark-green);
+			box-shadow: 0 4px 6px rgba(0, 255, 65, 0.1);
+		}
+
+		.tech-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 15px rgba(0, 255, 65, 0.2);
+		}
+
+		.list-group-item {
+			background-color: var(--card-bg);
+			border-color: var(--matrix-dark-green);
+			color: var(--text-primary);
+		}
+
+		.list-group-item:hover {
+			border-left: 3px solid var(--matrix-green);
+			background-color: rgba(0, 255, 65, 0.05);
+		}
+
+		.my-img {
+			border: 4px solid var(--matrix-green);
+			box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+		}
+
+		.bg-container {
+			background-color: var(--card-bg);
+			box-shadow: 0 4px 6px rgba(0, 255, 65, 0.1);
+		}
+
+		.download-btn {
+			background-color: transparent;
+			border: 2px solid var(--matrix-green);
+			color: var(--text-primary);
+		}
+
+		.download-btn:hover {
+			background-color: rgba(0, 255, 65, 0.1);
+			border-color: var(--matrix-green);
+			color: var(--matrix-green);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 8px rgba(0, 255, 65, 0.2);
+		}
+
+		.accordion-button {
+			background-color: var(--card-bg) !important;
+			color: var(--text-primary) !important;
+		}
+
+		.accordion-button:not(.collapsed) {
+			background-color: var(--darker-bg) !important;
+			color: var(--text-primary) !important;
+		}
+
+		.accordion-body {
+			background-color: var(--card-bg);
+			color: var(--text-secondary);
+		}
+
+		.contact-btn {
+			background-color: transparent;
+			border: 2px solid var(--matrix-green);
+			color: var(--text-primary);
+			transition: all 0.3s ease;
+		}
+
 		.contact-btn:hover {
-			background-color: #218838;
-			color: white;
+			background-color: rgba(0, 255, 65, 0.1);
+			border-color: var(--matrix-green);
+			color: var(--matrix-green);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 8px rgba(0, 255, 65, 0.2);
+		}
+
+		/* Matrix rain animation */
+		.matrix-bg {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0.05;
+		}
+
+		/* Glowing text effect */
+		.glow-text {
+			color: var(--text-primary);
+			text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+		}
+
+		/* Skill bars */
+		.skill-bar {
+			background: linear-gradient(90deg, var(--matrix-green) 0%, var(--matrix-dark-green) 100%);
+			box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+		}
+
+		footer {
+			background-color: var(--darker-bg);
+			border-top: 1px solid var(--matrix-dark-green);
+			color: var(--text-secondary);
+		}
+
+		/* Add this animation for tech cards */
+		@keyframes pulse {
+			0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
+			70% { box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
+			100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+		}
+
+		.tech-card:hover {
+			animation: pulse 1.5s infinite;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			color: var(--text-primary);
+		}
+
+		p {
+			color: var(--text-secondary);
+		}
+
+		.tech-card .lead {
+			color: var(--text-primary);
+		}
+
+		.tech-card .fw-bold {
+			color: var(--text-primary);
+		}
+
+		/* Card styles */
+		.card {
+			background-color: var(--card-bg);
+			border: 1px solid var(--matrix-dark-green);
+			box-shadow: 0 4px 6px rgba(0, 255, 65, 0.1);
+		}
+
+		.card-body {
+			background-color: var(--card-bg);
+			color: var(--text-primary);
+		}
+
+		/* List group styles */
+		.list-group-item {
+			background-color: var(--card-bg);
+			border-color: var(--matrix-dark-green);
+			color: var(--text-primary);
+			transition: all 0.3s ease;
+			padding: 1rem;
+		}
+
+		.list-group-item:hover {
+			border-left: 3px solid var(--matrix-green);
+			background-color: rgba(0, 255, 65, 0.05);
+			transform: translateX(5px);
+		}
+
+		.list-group-item strong {
+			color: var(--matrix-green);
+			margin-right: 8px;
+		}
+
+		/* Lead text style */
+		.card .lead {
+			color: var(--text-primary);
+			font-size: 1.1rem;
+			line-height: 1.6;
+			padding: 1rem;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		/* Add padding to account for fixed navbar */
+		section[id] {
+			scroll-padding-top: 60px;
+		}
+
+		/* Add padding to account for fixed navbar */
+		section[id] {
+			scroll-margin-top: 80px;
+		}
+
+		/* Optional: Add active state for navbar items */
+		.navbar-nav .nav-link.active {
+			color: var(--matrix-green) !important;
+			border-bottom: 2px solid var(--matrix-green);
+		}
+
+		/* Accordion styles */
+		.accordion-item {
+			background-color: var(--card-bg);
+			border: 1px solid var(--matrix-dark-green);
+			margin-bottom: 8px;
+		}
+
+		.accordion-button {
+			background-color: var(--card-bg) !important;
+			color: var(--text-primary) !important;
+			border: none;
+			box-shadow: none !important;
+			padding: 1rem 1.25rem;
+		}
+
+		.accordion-button:not(.collapsed) {
+			background-color: var(--darker-bg) !important;
+			color: var(--text-primary) !important;
+			border-bottom: 1px solid var(--matrix-dark-green);
+		}
+
+		/* Change the accordion button icon color */
+		.accordion-button::after {
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300ff41'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+		}
+
+		.accordion-button:not(.collapsed)::after {
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300ff41'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+		}
+
+		.accordion-body {
+			background-color: var(--card-bg);
+			color: var(--text-secondary);
+			padding: 1.25rem;
+			border-top: 1px solid rgba(0, 255, 65, 0.1);
+		}
+
+		/* Hover effects */
+		.accordion-button:hover {
+			background-color: rgba(0, 255, 65, 0.05) !important;
+		}
+
+		/* Icon styles */
+		.accordion-button i {
+			color: var(--matrix-green);
+			margin-right: 10px;
+			width: 20px;
+			text-align: center;
+		}
+
+		/* Add subtle transition */
+		.accordion-button, 
+		.accordion-collapse {
+			transition: all 0.3s ease;
+		}
+
+		/* Optional: Add a subtle border glow when active */
+		.accordion-item:focus-within {
+			box-shadow: 0 0 0 1px var(--matrix-green);
+		}
+
+		/* Services section title styling */
+		.text-start .lead {
+			color: var(--text-primary);
+			font-size: 1.5rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.text-start p i {
+			color: var(--text-secondary);
+			font-size: 1rem;
+		}
+
+		/* Navbar styles */
+		.navbar {
+			background-color: var(--darker-bg) !important;
+			padding: 1rem;
+		}
+
+		/* Custom toggler styles */
+		.custom-toggler {
+			border-color: var(--matrix-green) !important;
+			padding: 0.25rem 0.5rem;
+		}
+
+		.custom-toggler .navbar-toggler-icon {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 255, 65, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+		}
+
+		/* Ensure proper spacing in mobile view */
+		@media (max-width: 991.98px) {
+			.navbar-collapse {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+				background-color: var(--darker-bg);
+				padding: 1rem;
+				z-index: 1000;
+			}
+
+			.navbar-nav {
+				text-align: center;
+			}
+
+			.nav-item {
+				padding: 0.5rem 0;
+			}
+
+			.container {
+				padding-right: 15px;
+				padding-left: 15px;
+			}
+
+			.navbar-brand {
+				margin-right: 0;
+			}
+		}
+
+		/* Optional: Add animation to mobile menu */
+		@media (max-width: 991.98px) {
+			.navbar-collapse {
+				transition: transform 0.3s ease-in-out;
+				transform: translateY(-10px);
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.navbar-collapse.show {
+				transform: translateY(0);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		/* Navbar styles */
+		.navbar-nav .nav-item {
+			white-space: nowrap;
+			margin: 0 5px;
+		}
+
+		.nav-link {
+			padding: 0.5rem 0.8rem !important;
+			font-size: 0.95rem;
+			white-space: nowrap;
+		}
+
+		/* Responsive adjustments */
+		@media (max-width: 991.98px) {
+			.navbar-nav .nav-item {
+				margin: 0;
+			}
+			
+			.nav-link {
+				padding: 0.8rem !important;
+				text-align: center;
+			}
+			
+			.navbar-collapse {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+				background-color: var(--darker-bg);
+				padding: 0.5rem;
+				z-index: 1000;
+				border-radius: 0 0 8px 8px;
+			}
+		}
+
+		/* Optional: reduce brand text size on very small screens */
+		@media (max-width: 375px) {
+			.navbar-brand {
+				font-size: 1rem;
+			}
+		}
+
+		/* Active state for nav links */
+		.nav-link.active {
+			color: var(--matrix-green) !important;
+			border-bottom: 2px solid var(--matrix-green);
+		}
+
+		/* Hover effect */
+		.nav-link:hover {
+			color: var(--matrix-green) !important;
 		}
 	</style>
 	
@@ -28,29 +477,32 @@
 </head>
 
 <body>
+	<canvas id="matrix" class="matrix-bg"></canvas>
 	<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container" >
-        <a class="navbar-brand" href="#">Abdul Aziz Portfolio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" style="justify-content: flex-end; align-items: flex-end;" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between w-100">
+            <a class="navbar-brand" href="#top">Abdul Aziz Portfolio</a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About me</a>
+                    <a class="nav-link" href="#about">About&nbsp;me</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Skills</a>
+                    <a class="nav-link" href="#skills">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tech Stack</a>
+                    <a class="nav-link" href="#tech-stack">Tech&nbsp;Stack</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">services</a>
+                    <a class="nav-link" href="#services">Services</a>
                 </li>
-				<li class="nav-item">
-                    <a class="nav-link" href="#">Contact me</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact&nbsp;me</a>
                 </li>
             </ul>
         </div>
@@ -81,7 +533,7 @@
 				<hr class="mb-1 mt-1" />
 				<div>
 					<p class="small">Interested in hiring me or learning more about my background? Take a look at my resume!</p>
-					<a href="assets/myresume.pdf" class="btn btn-primary download-btn" download>
+					<a href="assets/myresume.pdf" class="btn download-btn" download>
 						Download Resume
 					</a>
 				</div>
@@ -110,7 +562,7 @@
 		<hr />
 		<div class="bg-container">
 			<div class="row justify-content-center align-items-center text-center my-3">
-				<h2>Skills</h2>
+				<h2 class="glow-text">Skills</h2>
 				<p class="lead sub-titles"><i>Here’s a Look at My Skills</i></p>
 			</div>
 			<div class="card">
@@ -130,341 +582,357 @@
 		<br/>
 		<div class="bg-container">
 			<div class="row text-center my-3">
-				<h2>My Tech Stack</h2>
+				<h2 class="glow-text">My Tech Stack</h2>
 				<p class="lead sub-titles"><i>Core Technologies Behind My Work</i></p>
 				<div class="col-lg-3 col-sm-12">
-					<div class="text-start">
-						<p class="lead">Software Languages</p>
-					</div>
-
-					<ul class="list-group list-group">
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Javascript</div>
-							</div>
-							<img src="./assets/js.png" alt="Javascript" height="40" width="40" />
-						</li>
-						
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Swift</div>
-							</div>
-							<img src="./assets/swift.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Kotlin</div>
-							</div>
-							<img src="./assets/kotlin.jpeg" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Python</div>
-							</div>
-							<img src="./assets/python.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Dart</div>
-							</div>
-							<img src="./assets/dart.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">PHP</div>
-							</div>
-							<img src="./assets/php.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">SQL</div>
-							</div>
-							<img src="./assets/sql.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-					</ul>
-				</div>
-
-				<div class="col-lg-3 col-sm-12 align-items-start">
-					<div class="text-start mt-4">
-						<p class="lead">Mobile App Development</p>
-					</div>
-
-					<ul class="list-group list-group">
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">React Native</div>
-							</div>
-							<img src="./assets/react-native-2.png" alt="Javascript" height="40" width="40" />
-						</li>
-						
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Flutter</div>
-							</div>
-							<img src="./assets/flutter.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Swift - iOS</div>
-							</div>
-							<img src="./assets/swift.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Kotlin - Android</div>
-							</div>
-							<img src="./assets/kotlin.jpeg" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Cordova</div>
-							</div>
-							<img src="./assets/cordova.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Nativescript</div>
-							</div>
-							<img src="./assets/nativescript.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-					</ul>
-				</div>
-
-				<div class="col-lg-3 col-sm-12">
-					<div class="text-start mt-4">
-						<p class="lead">Backend API Development</p>
-					</div>
-
-					<ul class="list-group list-group">
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Express</div>
-							</div>
-							<img src="./assets/express.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Deno</div>
-							</div>
-							<img src="./assets/deno.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Bun</div>
-							</div>
-							<img src="./assets/bun.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Laravel</div>
-							</div>
-							<img src="./assets/laravel.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">DJango</div>
-							</div>
-							<img src="./assets/django.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Codeigniter</div>
-							</div>
-							<img src="./assets/codeigniter.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-					</ul>
-				</div>
-
-				<div class="col-lg-3 col-sm-12">
-					<div class="text-start mt-4">
-						<p class="lead">Web App Development</p>
-					</div>
-
-					<ul class="list-group list-group">
-
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">React js</div>
-							</div>
-							<img src="./assets/react.png" alt="Javascript" height="40" width="40" />
-						</li>
-						
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Vue js</div>
-							</div>
-							<img src="./assets/vue.png" alt="Javascript" height="40" width="40" />
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Vuetify</div>
-							</div>
-							<img src="./assets/vuetify.png" alt="Javascript" height="40" width="40" />
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Next js</div>
-							</div>
-							<img src="./assets/nextjs.png" alt="Javascript" height="40" width="40" />
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-start">
-							<div class="ms-2 me-auto my-auto">
-								<div class="fw-bold">Svelte</div>
-							</div>
-							<img src="./assets/svelte.png" alt="Javascript" height="40" width="40" />
-						</li>
-
-						
-
-					</ul>
-				</div>
-
-				<div class="row my-5 col-lg-12 col-sm-12">
-					<div class="col-lg-3 col-sm-12">
+					<div class="tech-card p-3 mb-4">
 						<div class="text-start">
-							<p class="lead">Database</p>
+							<p class="lead">Software Languages</p>
 						</div>
-	
+
 						<ul class="list-group list-group">
-	
+
 							<li class="list-group-item d-flex justify-content-between align-items-start">
 								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">MySQL</div>
+									<div class="fw-bold">Javascript</div>
 								</div>
 								<img src="./assets/js.png" alt="Javascript" height="40" width="40" />
 							</li>
 							
 							<li class="list-group-item d-flex justify-content-between align-items-start">
 								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">MongoDB</div>
+									<div class="fw-bold">Swift</div>
 								</div>
-								<img src="./assets/mongodb.png" alt="Javascript" height="40" width="40" />
+								<img src="./assets/swift.png" alt="Javascript" height="40" width="40" />
 							</li>
-	
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">SQLite</div>
-								</div>
-								<img src="./assets/sqlite.jpeg" alt="Javascript" height="40" width="40" />
-							</li>
-	
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Realm</div>
-								</div>
-								<img src="./assets/realm.png" alt="Javascript" height="40" width="40" />
-							</li>
-	
-						</ul>
-					</div>
 
-					<div class="col-lg-3 col-sm-12">
-						<div class="text-start mt-4">
-							<p class="lead">Version Control</p>
-						</div>
-	
-						<ul class="list-group list-group">
-	
 							<li class="list-group-item d-flex justify-content-between align-items-start">
 								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Git</div>
+									<div class="fw-bold">Kotlin</div>
 								</div>
-								<img src="./assets/gitcmd.png" alt="Javascript" height="40" width="40" />
+								<img src="./assets/kotlin.jpeg" alt="Javascript" height="40" width="40" />
 							</li>
-							
+
 							<li class="list-group-item d-flex justify-content-between align-items-start">
 								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">GitLab</div>
-								</div>
-								<img src="./assets/gitla.jpeg" alt="Javascript" height="40" width="40" />
-							</li>
-	
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Sourcetree</div>
-								</div>
-								<img src="./assets/sourcetree.jpeg" alt="Javascript" height="40" width="40" />
-							</li>
-	
-							<!-- <li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Git Kraken</div>
+									<div class="fw-bold">Python</div>
 								</div>
 								<img src="./assets/python.png" alt="Javascript" height="40" width="40" />
-							</li> -->
-	
+							</li>
+
 							<li class="list-group-item d-flex justify-content-between align-items-start">
 								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Fork</div>
+									<div class="fw-bold">Dart</div>
 								</div>
-								<img src="./assets/fork.jpeg" alt="Javascript" height="40" width="40" />
+								<img src="./assets/dart.png" alt="Javascript" height="40" width="40" />
 							</li>
-	
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">PHP</div>
+								</div>
+								<img src="./assets/php.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">SQL</div>
+								</div>
+								<img src="./assets/sql.png" alt="Javascript" height="40" width="40" />
+							</li>
+
 						</ul>
 					</div>
+				</div>
 
-					<div class="col-lg-3 col-sm-12">
+				<div class="col-lg-3 col-sm-12 align-items-start">
+					<div class="tech-card p-3 mb-4">
 						<div class="text-start mt-4">
-							<p class="lead">Cloud Service</p>
+							<p class="lead">Mobile App Development</p>
 						</div>
-	
+
 						<ul class="list-group list-group">
-	
+
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto text-start">
-									<div class="fw-bold">AWS</div>
-									<p><i>EC2, Lambda functions, Amplify</i></p>
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">React Native</div>
 								</div>
-								<img src="./assets/aws.png" alt="Javascript" height="40" width="40" />
+								<img src="./assets/react-native-2.png" alt="Javascript" height="40" width="40" />
 							</li>
 							
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto text-start">
-									<div class="fw-bold">Google Cloud Services</div>
-									<p><i>Firebase, Functions, Firestore, Realtime DB, Analytics</i></p>
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Flutter</div>
 								</div>
-								<img src="./assets/googlecloud.png" alt="Javascript" height="40" width="40" />
+								<img src="./assets/flutter.png" alt="Javascript" height="40" width="40" />
 							</li>
-	
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Swift - iOS</div>
+								</div>
+								<img src="./assets/swift.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Kotlin - Android</div>
+								</div>
+								<img src="./assets/kotlin.jpeg" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Cordova</div>
+								</div>
+								<img src="./assets/cordova.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Nativescript</div>
+								</div>
+								<img src="./assets/nativescript.png" alt="Javascript" height="40" width="40" />
+							</li>
+
 						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-sm-12">
+					<div class="tech-card p-3 mb-4">
+						<div class="text-start mt-4">
+							<p class="lead">Backend API Development</p>
+						</div>
+
+						<ul class="list-group list-group">
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Express</div>
+								</div>
+								<img src="./assets/express.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Deno</div>
+								</div>
+								<img src="./assets/deno.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Bun</div>
+								</div>
+								<img src="./assets/bun.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Laravel</div>
+								</div>
+								<img src="./assets/laravel.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">DJango</div>
+								</div>
+								<img src="./assets/django.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Codeigniter</div>
+								</div>
+								<img src="./assets/codeigniter.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-sm-12">
+					<div class="tech-card p-3 mb-4">
+						<div class="text-start mt-4">
+							<p class="lead">Web App Development</p>
+						</div>
+
+						<ul class="list-group list-group">
+
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">React js</div>
+								</div>
+								<img src="./assets/react.png" alt="Javascript" height="40" width="40" />
+							</li>
+							
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Vue js</div>
+								</div>
+								<img src="./assets/vue.png" alt="Javascript" height="40" width="40" />
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Vuetify</div>
+								</div>
+								<img src="./assets/vuetify.png" alt="Javascript" height="40" width="40" />
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Next js</div>
+								</div>
+								<img src="./assets/nextjs.png" alt="Javascript" height="40" width="40" />
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Svelte</div>
+								</div>
+								<img src="./assets/svelte.png" alt="Javascript" height="40" width="40" />
+							</li>
+
+							
+
+						</ul>
+					</div>
+				</div>
+
+				<div class="row my-5 col-lg-12 col-sm-12">
+					<div class="col-lg-3 col-sm-12">
+						<div class="tech-card p-3 mb-4">
+							<div class="text-start">
+								<p class="lead">Database</p>
+							</div>
+	
+							<ul class="list-group list-group">
+	
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">MySQL</div>
+									</div>
+									<img src="./assets/js.png" alt="Javascript" height="40" width="40" />
+								</li>
+								
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">MongoDB</div>
+									</div>
+									<img src="./assets/mongodb.png" alt="Javascript" height="40" width="40" />
+								</li>
+	
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">SQLite</div>
+									</div>
+									<img src="./assets/sqlite.jpeg" alt="Javascript" height="40" width="40" />
+								</li>
+	
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">Realm</div>
+									</div>
+									<img src="./assets/realm.png" alt="Javascript" height="40" width="40" />
+								</li>
+	
+							</ul>
+						</div>
 					</div>
 
 					<div class="col-lg-3 col-sm-12">
-						<div class="text-start mt-4">
-							<p class="lead">CMS</p>
+						<div class="tech-card p-3 mb-4">
+							<div class="text-start mt-4">
+								<p class="lead">Version Control</p>
+							</div>
+	
+							<ul class="list-group list-group">
+	
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">Git</div>
+									</div>
+									<img src="./assets/gitcmd.png" alt="Javascript" height="40" width="40" />
+								</li>
+								
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">GitLab</div>
+									</div>
+									<img src="./assets/gitla.jpeg" alt="Javascript" height="40" width="40" />
+								</li>
+	
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">Sourcetree</div>
+									</div>
+									<img src="./assets/sourcetree.jpeg" alt="Javascript" height="40" width="40" />
+								</li>
+	
+								<!-- <li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">Git Kraken</div>
+									</div>
+									<img src="./assets/python.png" alt="Javascript" height="40" width="40" />
+								</li> -->
+	
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">Fork</div>
+									</div>
+									<img src="./assets/fork.jpeg" alt="Javascript" height="40" width="40" />
+								</li>
+	
+							</ul>
 						</div>
+					</div>
+
+					<div class="col-lg-3 col-sm-12">
+						<div class="tech-card p-3 mb-4">
+							<div class="text-start mt-4">
+								<p class="lead">Cloud Service</p>
+							</div>
 	
-						<ul class="list-group list-group">
+							<ul class="list-group list-group">
 	
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto text-start">
-									<div class="fw-bold">WordPress</div>
-									<p><i>Custom Theme and Plugin Development</i></p>
-								</div>
-								<img src="./assets/wordpress.png" alt="Javascript" height="40" width="40" />
-							</li>
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto text-start">
+										<div class="fw-bold">AWS</div>
+										<p><i>EC2, Lambda functions, Amplify</i></p>
+									</div>
+									<img src="./assets/aws.png" alt="Javascript" height="40" width="40" />
+								</li>
+								
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto text-start">
+										<div class="fw-bold">Google Cloud Services</div>
+										<p><i>Firebase, Functions, Firestore, Realtime DB, Analytics</i></p>
+									</div>
+									<img src="./assets/googlecloud.png" alt="Javascript" height="40" width="40" />
+								</li>
 	
-						</ul>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-sm-12">
+						<div class="tech-card p-3 mb-4">
+							<div class="text-start mt-4">
+								<p class="lead">CMS</p>
+							</div>
+	
+							<ul class="list-group list-group">
+	
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto text-start">
+										<div class="fw-bold">WordPress</div>
+										<p><i>Custom Theme and Plugin Development</i></p>
+									</div>
+									<img src="./assets/wordpress.png" alt="Javascript" height="40" width="40" />
+								</li>
+	
+							</ul>
+						</div>
 					</div>
 				</div>
 
@@ -476,10 +944,10 @@
 
 					<div class="accordion" id="accordionExample">
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingOne">
+							<h2 class="accordion-header">
 								<button class="accordion-button" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-									Mobile App Development
+									data-bs-target="#collapseOne">
+									<i class="fas fa-mobile-alt me-2"></i> Mobile App Development
 								</button>
 							</h2>
 							<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -594,11 +1062,11 @@
 		</div>
 
 		<div class="row my-4">
-			<h2>Reach out to me!</h2>
+			<h2 class="glow-text">Reach out to me!</h2>
 			<p class="lead">Wanted to discuss a project or just want to get connected? Well my inbox is open for
 				all.</p>
 			<div class="row col-lg-3">
-				<a href="mailto:mdab.aziz01@gmail.com" class="btn btn-success contact-btn text-center">
+				<a href="mailto:mdab.aziz01@gmail.com" class="btn contact-btn text-center">
 					Contact Me
 				</a>
 			</div>
@@ -609,6 +1077,160 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
 			crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+		<script>
+			// Add smooth scrolling to nav links
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					document.querySelector(this.getAttribute('href')).scrollIntoView({
+						behavior: 'smooth'
+					});
+				});
+			});
+
+			// Animate skill bars on scroll
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.style.width = entry.target.getAttribute('data-width');
+					}
+				});
+			});
+
+			document.querySelectorAll('.skill-bar').forEach((bar) => observer.observe(bar));
+		</script>
+		<script>
+			// Matrix rain animation
+			const canvas = document.getElementById('matrix');
+			const ctx = canvas.getContext('2d');
+
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+
+			const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+			const matrixArray = matrix.split("");
+
+			const fontSize = 10;
+			const columns = canvas.width/fontSize;
+
+			const drops = [];
+			for(let x = 0; x < columns; x++) {
+				drops[x] = 1;
+			}
+
+			function draw() {
+				ctx.fillStyle = "rgba(10, 25, 47, 0.04)";
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+				ctx.fillStyle = "#00ff41";
+				ctx.font = fontSize + "px monospace";
+
+				for(let i = 0; i < drops.length; i++) {
+					const text = matrixArray[Math.floor(Math.random()*matrixArray.length)];
+					ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+					if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) {
+						drops[i] = 0;
+					}
+					drops[i]++;
+				}
+			}
+
+			setInterval(draw, 35);
+
+			// Resize canvas when window is resized
+			window.addEventListener('resize', () => {
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+			});
+		</script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Get all sections that have an ID defined
+			const sections = document.querySelectorAll("section[id]");
+
+			// Add an event listener listening for scroll
+			window.addEventListener("scroll", navHighlighter);
+
+			function navHighlighter() {
+				// Get current scroll position
+				let scrollY = window.pageYOffset;
+
+				// Now we loop through sections to get height, top and ID values for each
+				sections.forEach(current => {
+					const sectionHeight = current.offsetHeight;
+					const sectionTop = current.offsetTop - 100;
+					const sectionId = current.getAttribute("id");
+
+					if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+						document.querySelector(`.navbar-nav a[href*=${sectionId}]`).classList.add("active");
+					} else {
+						document.querySelector(`.navbar-nav a[href*=${sectionId}]`).classList.remove("active");
+					}
+				});
+			}
+		});
+		</script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Get all nav links
+			const navLinks = document.querySelectorAll('.nav-link');
+			
+			// Add click handler to each link
+			navLinks.forEach(link => {
+				link.addEventListener('click', function(e) {
+					e.preventDefault();
+					
+					// Get the target section
+					const targetId = this.getAttribute('href');
+					const targetSection = document.querySelector(targetId);
+					
+					if (targetSection) {
+						// Smooth scroll to section
+						targetSection.scrollIntoView({ behavior: 'smooth' });
+						
+						// Close mobile menu if open
+						const navbarCollapse = document.querySelector('.navbar-collapse');
+						if (navbarCollapse.classList.contains('show')) {
+							document.querySelector('.navbar-toggler').click();
+						}
+					}
+				});
+			});
+
+			// Highlight active section while scrolling
+			const sections = document.querySelectorAll("section[id], div[id]:not(.collapse):not(.accordion-collapse)");
+			
+			function highlightNavigation() {
+				const scrollPosition = window.scrollY;
+
+				sections.forEach(section => {
+					const sectionTop = section.offsetTop - 100;
+					const sectionBottom = sectionTop + section.offsetHeight;
+					const sectionId = section.getAttribute('id');
+					
+					if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+						navLinks.forEach(link => {
+							link.classList.remove('active');
+							if (link.getAttribute('href') === `#${sectionId}`) {
+								link.classList.add('active');
+							}
+						});
+					}
+				});
+			}
+
+			// Add scroll event listener
+			window.addEventListener('scroll', highlightNavigation);
+		});
+
+		// Optional: Scroll to top when clicking the brand logo
+		document.querySelector('.navbar-brand').addEventListener('click', function(e) {
+			e.preventDefault();
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+		</script>
 </body>
 <footer>
 	<p>Made with Bootstrap v5.1.1</p>
