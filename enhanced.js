@@ -113,9 +113,9 @@
 		const canvas = document.getElementById('matrix');
 		if (!canvas) return;
 		const ctx = canvas.getContext('2d');
-		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(){}[]<>/\\|~`.';
+		const chars = '01';
 		const charArray = chars.split('');
-		const fontSize = 16;
+		const fontSize = 14;
 		const drops = [];
 		const speeds = [];
 
@@ -143,14 +143,36 @@
 		// Mouse reactivity
 		let mouseXCanvas = -1000;
 		let mouseYCanvas = -1000;
+		let glowPulse = 0;
 		document.addEventListener('mousemove', (e) => {
 			mouseXCanvas = e.clientX;
 			mouseYCanvas = e.clientY;
 		});
 
 		function draw() {
-			ctx.fillStyle = 'rgba(10, 25, 47, 0.08)';
+			glowPulse += 0.06;
+			ctx.fillStyle = 'rgba(6, 8, 12, 0.04)';
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+			// Mouse-follow spotlight to subtly amplify the binary rain near the cursor
+			if (mouseXCanvas > -500 && mouseYCanvas > -500) {
+				const pulse = (Math.sin(glowPulse) + 1) / 2;
+				const outerRadius = 220 + pulse * 26;
+				const innerRadius = 18;
+				const glow = ctx.createRadialGradient(
+					mouseXCanvas,
+					mouseYCanvas,
+					innerRadius,
+					mouseXCanvas,
+					mouseYCanvas,
+					outerRadius
+				);
+				glow.addColorStop(0, 'rgba(52, 211, 153, 0.22)');
+				glow.addColorStop(0.35, 'rgba(52, 211, 153, 0.1)');
+				glow.addColorStop(1, 'rgba(52, 211, 153, 0)');
+				ctx.fillStyle = glow;
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+			}
 
 			for (let i = 0; i < drops.length; i++) {
 				const x = i * fontSize;
@@ -160,10 +182,10 @@
 				const dx = x - mouseXCanvas;
 				const dy = y - mouseYCanvas;
 				const dist = Math.sqrt(dx * dx + dy * dy);
-				const brightness = dist < 150 ? 0.85 : dist < 300 ? 0.5 : 0.25;
+				const brightness = dist < 140 ? 0.72 : dist < 250 ? 0.44 : 0.18;
 
 				const alpha = Math.min(1, brightness);
-				ctx.fillStyle = `rgba(0, 255, 65, ${alpha})`;
+				ctx.fillStyle = `rgba(52, 211, 153, ${alpha})`;
 				ctx.font = `${fontSize}px monospace`;
 
 				const char = charArray[Math.floor(Math.random() * charArray.length)];

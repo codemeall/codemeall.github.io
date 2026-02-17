@@ -8,9 +8,9 @@
 	--matrix-green: #34d399;
 	--matrix-dark-green: #15803d;
 	--accent-cyan: #7dd3fc;
-	--dark-bg: #0b0f14;
-	--darker-bg: #04070c;
-	--card-bg: #0f1623;
+	--dark-bg: #07090d;
+	--darker-bg: #020305;
+	--card-bg: #0b1018;
 	--text-primary: #ffffff;
 	--text-secondary: #d1d9e5;
 	--text-muted: #95a3b8;
@@ -30,9 +30,9 @@ html {
 body {
 	background-color: var(--dark-bg);
 	background-image:
-		radial-gradient(1200px circle at 12% -10%, rgba(52, 211, 153, 0.07), transparent 55%),
-		radial-gradient(900px circle at 88% 120%, rgba(125, 211, 252, 0.05), transparent 60%),
-		linear-gradient(180deg, #090d13 0%, #070b11 45%, #05080d 100%);
+		radial-gradient(1200px circle at 12% -10%, rgba(52, 211, 153, 0.045), transparent 58%),
+		radial-gradient(900px circle at 88% 120%, rgba(125, 211, 252, 0.03), transparent 62%),
+		linear-gradient(180deg, #07090d 0%, #05070a 48%, #030407 100%);
 	color: var(--text-primary);
 	font-family: 'Manrope', 'Segoe UI', sans-serif;
 	line-height: 1.7;
@@ -183,7 +183,7 @@ section[id] { scroll-margin-top: 90px; padding: clamp(1.05rem, 2.6vw, 2.2rem); }
 	top: 0; left: 0;
 	width: 100%; height: 100%;
 	z-index: -2;
-	opacity: 0.02;
+	opacity: 0.038;
 }
 
 /* ---------- Gradient Orbs ---------- */
@@ -324,19 +324,38 @@ section[id] { scroll-margin-top: 90px; padding: clamp(1.05rem, 2.6vw, 2.2rem); }
 .profile-img-wrapper {
 	position: relative;
 	display: inline-block;
+	perspective: 1200px;
 }
 
-.my-img {
-	border: 3px solid var(--matrix-green);
+.profile-flip {
+	position: relative;
+	width: 120px;
+	height: 120px;
 	border-radius: 50%;
-	box-shadow: 0 0 20px rgba(0, 255, 65, 0.3), 0 0 40px rgba(0, 255, 65, 0.1);
-	height: 120px; width: 120px;
-	transition: transform 0.5s ease, box-shadow 0.5s ease;
+	transform-style: preserve-3d;
+	transition: transform 1.05s cubic-bezier(0.2, 0.75, 0.2, 1);
 }
 
-.my-img:hover {
-	transform: scale(1.05);
-	box-shadow: 0 0 30px rgba(0, 255, 65, 0.5), 0 0 60px rgba(0, 255, 65, 0.2);
+.profile-face {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid var(--matrix-green);
+	box-shadow: 0 0 18px rgba(52, 211, 153, 0.26), 0 0 34px rgba(52, 211, 153, 0.08);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.profile-face-back {
+	transform: rotateY(180deg);
+}
+
+.profile-img-wrapper:hover .profile-flip {
+	/* Coin-style roll with extra spin before showing the back face */
+	transform: rotateY(540deg);
 }
 
 .profile-img-ring {
@@ -1019,7 +1038,7 @@ button:focus-visible,
 
 @media (max-width: 575.98px) {
 	.navbar-brand { font-size: 0.98rem; }
-	.my-img { height: 100px; width: 100px; }
+	.profile-flip { height: 100px; width: 100px; }
 	.footer-links { gap: 14px; }
 	.footer-link { width: 36px; height: 36px; font-size: 1.05rem; }
 }
@@ -1027,6 +1046,7 @@ button:focus-visible,
 @media (hover: none), (pointer: coarse) {
 	.matrix-bg { display: none; }
 	.orb { opacity: 0.05; }
+	.profile-img-wrapper:hover .profile-flip { transform: none; }
 }
 
 /* Reduced motion */
