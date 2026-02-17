@@ -772,20 +772,28 @@ section[id] { scroll-margin-top: 80px; padding: 15px; }
 
 /* ---------- Reveal Animations ---------- */
 .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+	opacity: 1;
+	transform: none;
+}
+
+.js .reveal-up,
+.js .reveal-left,
+.js .reveal-right,
+.js .reveal-scale {
 	opacity: 0;
 	transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth);
 	transition-delay: var(--delay, 0s);
 }
 
-.reveal-up { transform: translateY(40px); }
-.reveal-left { transform: translateX(-40px); }
-.reveal-right { transform: translateX(40px); }
-.reveal-scale { transform: scale(0.9); }
+.js .reveal-up { transform: translateY(40px); }
+.js .reveal-left { transform: translateX(-40px); }
+.js .reveal-right { transform: translateX(40px); }
+.js .reveal-scale { transform: scale(0.9); }
 
-.reveal-up.revealed { opacity: 1; transform: translateY(0); }
-.reveal-left.revealed { opacity: 1; transform: translateX(0); }
-.reveal-right.revealed { opacity: 1; transform: translateX(0); }
-.reveal-scale.revealed { opacity: 1; transform: scale(1); }
+.js .reveal-up.revealed { opacity: 1; transform: translateY(0); }
+.js .reveal-left.revealed { opacity: 1; transform: translateX(0); }
+.js .reveal-right.revealed { opacity: 1; transform: translateX(0); }
+.js .reveal-scale.revealed { opacity: 1; transform: scale(1); }
 
 /* ---------- Typed.js Cursor ---------- */
 #typed-role { min-height: 1.4em; display: inline-block; }
