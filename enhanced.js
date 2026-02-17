@@ -40,8 +40,16 @@
 
 	/* ---------- Init All ---------- */
 	function initAllAnimations() {
-		initCustomCursor();
-		initMatrixRain();
+		const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const saveDataEnabled = navigator.connection && navigator.connection.saveData;
+		const lowCoreDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+		const shouldLimitHeavyEffects = isTouchDevice || prefersReducedMotion || saveDataEnabled || lowCoreDevice;
+
+		if (!shouldLimitHeavyEffects) {
+			initCustomCursor();
+			initMatrixRain();
+		}
 		initScrollProgress();
 		initNavbar();
 		initSmoothScrolling();
@@ -51,6 +59,7 @@
 		initTiltCards();
 		initMagneticButtons();
 		initRippleEffect();
+		initAccordionState();
 		initBackToTop();
 		initParallaxOrbs();
 	}
@@ -151,7 +160,7 @@
 				const dx = x - mouseXCanvas;
 				const dy = y - mouseYCanvas;
 				const dist = Math.sqrt(dx * dx + dy * dy);
-				const brightness = dist < 150 ? 1 : dist < 300 ? 0.6 : 0.3;
+				const brightness = dist < 150 ? 0.85 : dist < 300 ? 0.5 : 0.25;
 
 				const alpha = Math.min(1, brightness);
 				ctx.fillStyle = `rgba(0, 255, 65, ${alpha})`;
@@ -167,7 +176,7 @@
 			}
 		}
 
-		setInterval(draw, 40);
+		setInterval(draw, 55);
 	}
 
 	/* ---------- Scroll Progress ---------- */
@@ -251,6 +260,11 @@
 				if (target) {
 					target.scrollIntoView({ behavior: 'smooth' });
 
+					const collapseId = this.getAttribute('data-service-collapse');
+					if (collapseId) {
+						setTimeout(() => openAccordionById(collapseId), 320);
+					}
+
 					// Close mobile menu
 					const collapse = document.querySelector('.navbar-collapse');
 					if (collapse && collapse.classList.contains('show')) {
@@ -271,6 +285,14 @@
 		}
 	}
 
+	function openAccordionById(collapseId) {
+		const collapseEl = document.getElementById(collapseId);
+		if (!collapseEl) return;
+		if (typeof bootstrap === 'undefined' || !bootstrap.Collapse) return;
+		const collapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
+		collapse.show();
+	}
+
 	/* ---------- Reveal on Scroll ---------- */
 	function initRevealAnimations() {
 		const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
@@ -280,7 +302,7 @@
 			gsap.registerPlugin(ScrollTrigger);
 
 			revealElements.forEach((el) => {
-				const delay = parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0;
+				const delay = Math.min(parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0, 0.25);
 
 				ScrollTrigger.create({
 					trigger: el,
@@ -293,12 +315,12 @@
 			});
 		} else {
 			const observer = new IntersectionObserver((entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						const delay = parseFloat(getComputedStyle(entry.target).getPropertyValue('--delay')) || 0;
-						setTimeout(() => entry.target.classList.add('revealed'), delay * 1000);
-						observer.unobserve(entry.target);
-					}
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const delay = Math.min(parseFloat(getComputedStyle(entry.target).getPropertyValue('--delay')) || 0, 0.25);
+							setTimeout(() => entry.target.classList.add('revealed'), delay * 1000);
+							observer.unobserve(entry.target);
+						}
 				});
 			}, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
 
@@ -408,10 +430,10 @@
 				const centerX = rect.width / 2;
 				const centerY = rect.height / 2;
 
-				const rotateX = ((y - centerY) / centerY) * -5;
-				const rotateY = ((x - centerX) / centerX) * 5;
+				const rotateX = ((y - centerY) / centerY) * -3;
+				const rotateY = ((x - centerX) / centerX) * 3;
 
-				card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+				card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
 			});
 
 			card.addEventListener('mouseleave', () => {
@@ -433,7 +455,7 @@
 				const x = e.clientX - rect.left - rect.width / 2;
 				const y = e.clientY - rect.top - rect.height / 2;
 
-				btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+				btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
 			});
 
 			btn.addEventListener('mouseleave', () => {
@@ -457,6 +479,29 @@
 				setTimeout(() => ripple.remove(), 600);
 			});
 		});
+	}
+
+	/* ---------- Accordion State ---------- */
+	function initAccordionState() {
+		const items = document.querySelectorAll('.accordion-item');
+		if (!items.length) return;
+
+		function syncOpenState() {
+			items.forEach((item) => {
+				const collapse = item.querySelector('.accordion-collapse');
+				if (!collapse) return;
+				item.classList.toggle('is-open', collapse.classList.contains('show'));
+			});
+		}
+
+		items.forEach((item) => {
+			const collapse = item.querySelector('.accordion-collapse');
+			if (!collapse) return;
+			collapse.addEventListener('shown.bs.collapse', syncOpenState);
+			collapse.addEventListener('hidden.bs.collapse', syncOpenState);
+		});
+
+		syncOpenState();
 	}
 
 	/* ---------- Back to Top ---------- */
@@ -490,7 +535,7 @@
 			const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
 			orbs.forEach((orb, i) => {
-				const speed = (i + 1) * 10;
+				const speed = (i + 1) * 6;
 				orb.style.marginLeft = (x * speed) + 'px';
 				orb.style.marginTop = (y * speed) + 'px';
 			});
