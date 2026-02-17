@@ -107,6 +107,14 @@
 		function resize() {
 			canvas.width = window.innerWidth;
 			canvas.height = window.innerHeight;
+			const newCols = Math.floor(canvas.width / fontSize);
+			// Extend or shrink drops/speeds arrays to match new column count
+			while (drops.length < newCols) {
+				drops.push(Math.random() * -100);
+				speeds.push(Math.random() * 0.5 + 0.3);
+			}
+			drops.length = newCols;
+			speeds.length = newCols;
 		}
 		resize();
 		window.addEventListener('resize', resize);
@@ -476,13 +484,15 @@
 
 		if (window.matchMedia('(hover: none)').matches) return;
 
+		// Use CSS custom properties so we don't override keyframe animations
 		document.addEventListener('mousemove', (e) => {
 			const x = (e.clientX / window.innerWidth - 0.5) * 2;
 			const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
 			orbs.forEach((orb, i) => {
 				const speed = (i + 1) * 10;
-				orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+				orb.style.marginLeft = (x * speed) + 'px';
+				orb.style.marginTop = (y * speed) + 'px';
 			});
 		});
 	}

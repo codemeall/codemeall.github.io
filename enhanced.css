@@ -507,6 +507,18 @@ section[id] { scroll-margin-top: 80px; padding: 15px; }
 	box-shadow: 0 15px 40px rgba(0, 255, 65, 0.15), 0 0 20px rgba(0, 255, 65, 0.05);
 }
 
+/* Tilt card base (JS applies inline transforms) */
+.tilt-card {
+	transform-style: preserve-3d;
+	will-change: transform;
+	transition: transform 0.4s var(--transition-smooth), box-shadow 0.4s ease;
+}
+
+/* Magnetic button base (JS applies inline transforms) */
+.magnetic-btn {
+	transition: transform 0.3s var(--transition-smooth);
+}
+
 .tech-card-glow {
 	position: absolute;
 	inset: -1px;
