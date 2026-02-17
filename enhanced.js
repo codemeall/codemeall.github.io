@@ -5,6 +5,7 @@
 
 (function () {
 	'use strict';
+	document.documentElement.classList.add('js');
 
 	/* ---------- Preloader ---------- */
 	const preloader = document.getElementById('preloader');
@@ -103,6 +104,11 @@
 		const canvas = document.getElementById('matrix');
 		if (!canvas) return;
 		const ctx = canvas.getContext('2d');
+		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(){}[]<>/\\|~`.';
+		const charArray = chars.split('');
+		const fontSize = 16;
+		const drops = [];
+		const speeds = [];
 
 		function resize() {
 			canvas.width = window.innerWidth;
@@ -119,13 +125,7 @@
 		resize();
 		window.addEventListener('resize', resize);
 
-		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(){}[]<>/\\|~`.';
-		const charArray = chars.split('');
-		const fontSize = 16;
 		const columns = Math.floor(canvas.width / fontSize);
-
-		const drops = [];
-		const speeds = [];
 		for (let i = 0; i < columns; i++) {
 			drops[i] = Math.random() * -100;
 			speeds[i] = Math.random() * 0.5 + 0.3;
