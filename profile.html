@@ -1,948 +1,506 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<title>Abdul Aziz - Lead Software Engineer | Full Stack & Mobile Development Specialist</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Abdul Aziz - Lead Software Developer | Full Stack & Mobile Development Specialist">
 	<meta name="keywords" content="software developer, full stack developer, React Native developer, Flutter, Swift, React Developer, Vuejs, Vue developer, NodeJS Developer, Express">
-	<link rel="stylesheet" href="index.css" />
+
+	<!-- Bootstrap -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
-
-	<style>
-		:root {
-			--matrix-green: #00ff41;
-			--matrix-dark-green: #008f11;
-			--dark-bg: #0a192f;
-			--darker-bg: #020c1b;
-			--card-bg: #112240;
-			--text-primary: #ffffff;
-			--text-secondary: #b3b3b3;
-		}
-
-		body {
-			background-color: var(--dark-bg);
-			color: var(--text-primary);
-			background-image: 
-				linear-gradient(
-					125deg, 
-					rgba(10, 25, 47, 0.97) 0%,
-					rgba(2, 12, 27, 0.95) 50%,
-					rgba(17, 34, 64, 0.92) 100%
-				),
-				radial-gradient(
-					circle at 50% 50%,
-					rgba(0, 255, 65, 0.1) 0%,
-					rgba(0, 143, 17, 0.05) 50%,
-					transparent 100%
-				),
-				url('data:image/svg+xml;charset=utf8,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%2300ff41" fill-opacity="0.1"%3E%3Cpath d="M10 10h10v10H10zM30 10h10v10H30zM50 10h10v10H50zM70 10h10v10H70zM90 10h10v10H90z"/%3E%3C/g%3E%3C/svg%3E');
-			background-attachment: fixed;
-			position: relative;
-		}
-
-		/* Add subtle animated gradient overlay */
-		body::before {
-			content: '';
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(
-				45deg,
-				transparent 0%,
-				rgba(0, 255, 65, 0.03) 50%,
-				transparent 100%
-			);
-			animation: gradientMove 15s ease infinite;
-			z-index: -1;
-		}
-
-		/* Add animation for gradient movement */
-		@keyframes gradientMove {
-			0% {
-				background-position: 0% 50%;
-			}
-			50% {
-				background-position: 100% 50%;
-			}
-			100% {
-				background-position: 0% 50%;
-			}
-		}
-
-		/* Enhance matrix rain opacity for better visibility */
-		.matrix-bg {
-			opacity: 0.07;
-		}
-
-		.navbar {
-			background-color: var(--darker-bg) !important;
-			box-shadow: 0 2px 4px rgba(0, 255, 65, 0.1);
-		}
-
-		.navbar-light .navbar-brand,
-		.navbar-light .nav-link {
-			color: var(--text-primary) !important;
-		}
-
-		.navbar-light .nav-link:hover {
-			color: var(--matrix-green) !important;
-		}
-
-		.tech-card {
-			background-color: var(--card-bg);
-			border: 1px solid var(--matrix-dark-green);
-			box-shadow: 0 4px 6px rgba(0, 255, 65, 0.1);
-		}
-
-		.tech-card:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 8px 15px rgba(0, 255, 65, 0.2);
-		}
-
-		.list-group-item {
-			background-color: var(--card-bg);
-			border-color: var(--matrix-dark-green);
-			color: var(--text-primary);
-		}
-
-		.list-group-item:hover {
-			border-left: 3px solid var(--matrix-green);
-			background-color: rgba(0, 255, 65, 0.05);
-		}
-
-		.my-img {
-			border: 4px solid var(--matrix-green);
-			box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
-		}
-
-		.bg-container {
-			background-color: var(--card-bg);
-			box-shadow: 0 4px 6px rgba(0, 255, 65, 0.1);
-		}
-
-		.download-btn {
-			background-color: transparent;
-			border: 2px solid var(--matrix-green);
-			color: var(--text-primary);
-		}
-
-		.download-btn:hover {
-			background-color: rgba(0, 255, 65, 0.1);
-			border-color: var(--matrix-green);
-			color: var(--matrix-green);
-			transform: translateY(-2px);
-			box-shadow: 0 4px 8px rgba(0, 255, 65, 0.2);
-		}
-
-		.accordion-button {
-			background-color: var(--card-bg) !important;
-			color: var(--text-primary) !important;
-		}
-
-		.accordion-button:not(.collapsed) {
-			background-color: var(--darker-bg) !important;
-			color: var(--text-primary) !important;
-		}
-
-		.accordion-body {
-			background-color: var(--card-bg);
-			color: var(--text-secondary);
-		}
-
-		.contact-btn {
-			background-color: transparent;
-			border: 2px solid var(--matrix-green);
-			color: var(--text-primary);
-			transition: all 0.3s ease;
-		}
-
-		.contact-btn:hover {
-			background-color: rgba(0, 255, 65, 0.1);
-			border-color: var(--matrix-green);
-			color: var(--matrix-green);
-			transform: translateY(-2px);
-			box-shadow: 0 4px 8px rgba(0, 255, 65, 0.2);
-		}
-
-		/* Matrix rain animation */
-		.matrix-bg {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -1;
-			opacity: 0.05;
-		}
-
-		/* Glowing text effect */
-		.glow-text {
-			color: var(--text-primary);
-			text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-		}
-
-		/* Skill bars */
-		.skill-bar {
-			background: linear-gradient(90deg, var(--matrix-green) 0%, var(--matrix-dark-green) 100%);
-			box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-		}
-
-		footer {
-			background-color: var(--darker-bg);
-			border-top: 1px solid var(--matrix-dark-green);
-			color: var(--text-secondary);
-		}
-
-		/* Add this animation for tech cards */
-		@keyframes pulse {
-			0% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
-			70% { box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
-			100% { box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
-		}
-
-		.tech-card:hover {
-			animation: pulse 1.5s infinite;
-		}
-
-		h1, h2, h3, h4, h5, h6 {
-			color: var(--text-primary);
-		}
-
-		p {
-			color: var(--text-secondary);
-		}
-
-		.tech-card .lead {
-			color: var(--text-primary);
-		}
-
-		.tech-card .fw-bold {
-			color: var(--text-primary);
-		}
-
-		/* Card styles */
-		.card {
-			background-color: var(--card-bg);
-			border: 1px solid var(--matrix-dark-green);
-			box-shadow: 0 4px 6px rgba(0, 255, 65, 0.1);
-		}
-
-		.card-body {
-			background-color: var(--card-bg);
-			color: var(--text-primary);
-		}
-
-		/* List group styles */
-		.list-group-item {
-			background-color: var(--card-bg);
-			border-color: var(--matrix-dark-green);
-			color: var(--text-primary);
-			transition: all 0.3s ease;
-			padding: 1rem;
-		}
-
-		.list-group-item:hover {
-			border-left: 3px solid var(--matrix-green);
-			background-color: rgba(0, 255, 65, 0.05);
-			transform: translateX(5px);
-		}
-
-		.list-group-item strong {
-			color: var(--matrix-green);
-			margin-right: 8px;
-		}
-
-		/* Lead text style */
-		.card .lead {
-			color: var(--text-primary);
-			font-size: 1.1rem;
-			line-height: 1.6;
-			padding: 1rem;
-		}
-
-		html {
-			scroll-behavior: smooth;
-		}
-
-		/* Add padding to account for fixed navbar */
-		section[id] {
-			scroll-padding-top: 60px;
-		}
-
-		/* Add padding to account for fixed navbar */
-		section[id] {
-			scroll-margin-top: 80px;
-		}
-
-		/* Optional: Add active state for navbar items */
-		.navbar-nav .nav-link.active {
-			color: var(--matrix-green) !important;
-			border-bottom: 2px solid var(--matrix-green);
-		}
-
-		/* Accordion styles */
-		.accordion-item {
-			background-color: var(--card-bg);
-			border: 1px solid var(--matrix-dark-green);
-			margin-bottom: 8px;
-		}
-
-		.accordion-button {
-			background-color: var(--card-bg) !important;
-			color: var(--text-primary) !important;
-			border: none;
-			box-shadow: none !important;
-			padding: 1rem 1.25rem;
-		}
-
-		.accordion-button:not(.collapsed) {
-			background-color: var(--darker-bg) !important;
-			color: var(--text-primary) !important;
-			border-bottom: 1px solid var(--matrix-dark-green);
-		}
-
-		/* Change the accordion button icon color */
-		.accordion-button::after {
-			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300ff41'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
-		}
-
-		.accordion-button:not(.collapsed)::after {
-			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300ff41'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
-		}
-
-		.accordion-body {
-			background-color: var(--card-bg);
-			color: var(--text-secondary);
-			padding: 1.25rem;
-			border-top: 1px solid rgba(0, 255, 65, 0.1);
-		}
-
-		/* Hover effects */
-		.accordion-button:hover {
-			background-color: rgba(0, 255, 65, 0.05) !important;
-		}
-
-		/* Icon styles */
-		.accordion-button i {
-			color: var(--matrix-green);
-			margin-right: 10px;
-			width: 20px;
-			text-align: center;
-		}
-
-		/* Add subtle transition */
-		.accordion-button, 
-		.accordion-collapse {
-			transition: all 0.3s ease;
-		}
-
-		/* Optional: Add a subtle border glow when active */
-		.accordion-item:focus-within {
-			box-shadow: 0 0 0 1px var(--matrix-green);
-		}
-
-		/* Services section title styling */
-		.text-start .lead {
-			color: var(--text-primary);
-			font-size: 1.5rem;
-			margin-bottom: 0.5rem;
-		}
-
-		.text-start p i {
-			color: var(--text-secondary);
-			font-size: 1rem;
-		}
-
-		/* Navbar styles */
-		.navbar {
-			background-color: var(--darker-bg) !important;
-			padding: 1rem;
-		}
-
-		/* Custom toggler styles */
-		.custom-toggler {
-			border-color: var(--matrix-green) !important;
-			padding: 0.25rem 0.5rem;
-		}
-
-		.custom-toggler .navbar-toggler-icon {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 255, 65, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
-		}
-
-		/* Ensure proper spacing in mobile view */
-		@media (max-width: 991.98px) {
-			.navbar-collapse {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				right: 0;
-				background-color: var(--darker-bg);
-				padding: 1rem;
-				z-index: 1000;
-			}
-
-			.navbar-nav {
-				text-align: center;
-			}
-
-			.nav-item {
-				padding: 0.5rem 0;
-			}
-
-			.container {
-				padding-right: 15px;
-				padding-left: 15px;
-			}
-
-			.navbar-brand {
-				margin-right: 0;
-			}
-		}
-
-		/* Optional: Add animation to mobile menu */
-		@media (max-width: 991.98px) {
-			.navbar-collapse {
-				transition: transform 0.3s ease-in-out;
-				transform: translateY(-10px);
-				opacity: 0;
-				visibility: hidden;
-			}
-
-			.navbar-collapse.show {
-				transform: translateY(0);
-				opacity: 1;
-				visibility: visible;
-			}
-		}
-
-		/* Navbar styles */
-		.navbar-nav .nav-item {
-			white-space: nowrap;
-			margin: 0 5px;
-		}
-
-		.nav-link {
-			padding: 0.5rem 0.8rem !important;
-			font-size: 0.95rem;
-			white-space: nowrap;
-		}
-
-		/* Responsive adjustments */
-		@media (max-width: 991.98px) {
-			.navbar-nav .nav-item {
-				margin: 0;
-			}
-			
-			.nav-link {
-				padding: 0.8rem !important;
-				text-align: center;
-			}
-			
-			.navbar-collapse {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				right: 0;
-				background-color: var(--darker-bg);
-				padding: 0.5rem;
-				z-index: 1000;
-				border-radius: 0 0 8px 8px;
-			}
-		}
-
-		/* Optional: reduce brand text size on very small screens */
-		@media (max-width: 375px) {
-			.navbar-brand {
-				font-size: 1rem;
-			}
-		}
-
-		/* Active state for nav links */
-		.nav-link.active {
-			color: var(--matrix-green) !important;
-			border-bottom: 2px solid var(--matrix-green);
-		}
-
-		/* Hover effect */
-		.nav-link:hover {
-			color: var(--matrix-green) !important;
-		}
-	</style>
-	
-	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	<!-- Enhanced CSS -->
+	<link rel="stylesheet" href="enhanced.css" />
 </head>
 
 <body>
-	<canvas id="matrix" class="matrix-bg"></canvas>
-	<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light sticky-top">
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-between w-100">
-            <a class="navbar-brand" href="#top">Abdul Aziz Portfolio</a>
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About&nbsp;me</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#tech-stack">Tech&nbsp;Stack</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact&nbsp;me</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-	<div class="container p-2">
-		<div class="row p-2">
-			<div class="col-lg-3 col-md-12 col-sm-12 text-center mb-4">
-				<img class="my-img mt-4 mb-sm-3" src="https://avatars.githubusercontent.com/u/30825551?v=4" />
-				<h4 class="mb-2 mt-2">Abdul Aziz</h4>
-				<p class="sub-titles small mb-1"><i>Lead Software Engineer | Full Stack & Mobile Development Specialist</i></p>
-				
-				<div class="justify-content-evenly">
-					<!-- Github, linkedin, email, resume -->
-					<a target="_blank" href="https://github.com/codemeall">
-						<img class="social-icons m-2" src="assets/git.png" />
-					</a>
-					<a target="_blank" href="https://in.linkedin.com/in/abdulaziz-codemeall">
-						<img class="social-icons m-2" src="assets/linkedin.png" />
-					</a>
-					<a href="mailto:mdab.aziz01@gmail.com">
-						<img class="social-icons m-2" src="assets/gmail.png" />
-					</a>
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader-inner">
+			<div class="preloader-terminal">
+				<div class="terminal-header">
+					<span class="terminal-dot red"></span>
+					<span class="terminal-dot yellow"></span>
+					<span class="terminal-dot green"></span>
+					<span class="terminal-title">portfolio.sh</span>
 				</div>
-				<!-- <div class="mt-9 text-center">
-					<p>I'm so happy you are here! :)</p>
-				</div> -->
-				<hr class="mb-1 mt-1" />
-				<div>
-					<p class="small">Interested in hiring me or learning more about my background? Take a look at my resume!</p>
-					<a href="assets/myresume.pdf" class="btn download-btn" download>
-						Download Resume
-					</a>
+				<div class="terminal-body" id="terminal-output">
+					<div class="terminal-line" data-delay="0">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">initializing portfolio...</span>
+					</div>
+					<div class="terminal-line" data-delay="300">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">loading assets <span class="terminal-dots">...</span></span>
+					</div>
+					<div class="terminal-line" data-delay="600">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">compiling experience <span class="text-success">[10 years]</span></span>
+					</div>
+					<div class="terminal-line" data-delay="900">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">mounting tech stack <span class="text-success">[OK]</span></span>
+					</div>
+					<div class="terminal-line" data-delay="1200">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">deploying UI <span class="text-success">[READY]</span></span>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-9 col-md-12 col-sm-12 my-auto px-lg-5">
-				<!-- <h1 class="mb-1">Hey! I'm Abdul Aziz</h1>
-				<p class="lead sub-titles"><i>Lead Software Engineer | Full Stack & Mobile Development Specialist</i></p>
-				<br/> -->
-				<div class="mt-9">
-					<p class="lh-base">I'm Results-driven professional with 10 years of experience in software development, Specialized in Mobile Application development. Currently leading mobile application development projects with a focus on iOS, Android and Huawei platforms. Adept at building robust Mobile Applications using technologies like React Native, Flutter, Swift, Kotlin, Cordova. I am currently working as Software Team lead.</p>
+			<div class="preloader-progress">
+				<div class="preloader-progress-bar" id="preloader-bar"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Custom Cursor -->
+	<div class="custom-cursor" id="cursor"></div>
+	<div class="custom-cursor-follower" id="cursor-follower"></div>
+
+	<!-- Matrix Background -->
+	<canvas id="matrix" class="matrix-bg"></canvas>
+
+	<!-- Floating Gradient Orbs -->
+	<div class="gradient-orbs">
+		<div class="orb orb-1"></div>
+		<div class="orb orb-2"></div>
+		<div class="orb orb-3"></div>
+	</div>
+
+	<!-- Scroll Progress Bar -->
+	<div class="scroll-progress" id="scroll-progress"></div>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light sticky-top" id="main-nav">
+		<div class="container">
+			<div class="d-flex align-items-center justify-content-between w-100">
+				<a class="navbar-brand" href="#top">
+					<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
+				</a>
+				<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About&nbsp;me</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#skills">Skills</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#tech-stack">Tech&nbsp;Stack</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#services">Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#contact">Contact&nbsp;me</a>
+					</li>
+				</ul>
 				</div>
-				
-				<div class="mt-9 mb-2">
-					<p>I am a specialist in crafting exceptional mobile applications. I am also Experienced and skilled in designing and developing Software Development Kits (SDKs) for mobile applications build with ( React Native, Flutter, Swift, Kotlin, Native Scripe ) which extend the use of native features to cross platform development, ensuring a unified and efficient development process.</p>
+		</div>
+	</nav>
+
+	<!-- Hero / About Section -->
+	<section id="about">
+		<div class="container p-2">
+			<div class="row p-2">
+				<div class="col-lg-3 col-md-12 col-sm-12 text-center mb-4">
+					<div class="profile-card reveal-up">
+						<div class="profile-img-wrapper">
+							<img class="my-img mt-4 mb-sm-3" src="https://avatars.githubusercontent.com/u/30825551?v=4" alt="Abdul Aziz" />
+							<div class="profile-img-ring"></div>
+						</div>
+						<h4 class="mb-2 mt-2 glow-text">Abdul Aziz</h4>
+						<p class="sub-titles small mb-1">
+							<span id="typed-role"></span>
+						</p>
+
+						<div class="justify-content-evenly social-links">
+							<a target="_blank" href="https://github.com/codemeall" class="social-link magnetic-btn" aria-label="GitHub">
+								<img class="social-icons m-2" src="assets/git.png" alt="GitHub" />
+							</a>
+							<a target="_blank" href="https://in.linkedin.com/in/abdulaziz-codemeall" class="social-link magnetic-btn" aria-label="LinkedIn">
+								<img class="social-icons m-2" src="assets/linkedin.png" alt="LinkedIn" />
+							</a>
+							<a href="mailto:mdab.aziz01@gmail.com" class="social-link magnetic-btn" aria-label="Email">
+								<img class="social-icons m-2" src="assets/gmail.png" alt="Email" />
+							</a>
+						</div>
+
+						<hr class="divider mb-1 mt-1" />
+
+						<!-- Stats Counter -->
+						<div class="stats-row">
+							<div class="stat-item">
+								<span class="stat-number counter" data-target="10">0</span><span class="stat-suffix">+</span>
+								<span class="stat-label">Years Exp</span>
+							</div>
+							<div class="stat-item">
+								<span class="stat-number counter" data-target="50">0</span><span class="stat-suffix">+</span>
+								<span class="stat-label">Projects</span>
+							</div>
+							<div class="stat-item">
+								<span class="stat-number counter" data-target="30">0</span><span class="stat-suffix">+</span>
+								<span class="stat-label">Clients</span>
+							</div>
+						</div>
+
+						<div class="mt-3">
+							<p class="small">Interested in hiring me or learning more about my background? Take a look at my resume!</p>
+							<a href="assets/myresume.pdf" class="btn download-btn magnetic-btn ripple-btn" download>
+								<i class="fas fa-download me-2"></i>Download Resume
+							</a>
+						</div>
+					</div>
 				</div>
-				
-				<div class="mt-9 mb-2">
-					<p>As an expert in mobile development, I bring valuable skills to the realm of web application development. I have successfully led teams in building high-performance web applications, utilizing modern frameworks such as React, Vue, and Next.js to create responsive, user-friendly interfaces that enhance user experiences across devices.</p>
-				</div>
-				
-				<div class="mt-9 mb-2">
-					<p>I have extensive experience in API development. I've worked with server-side languages like Node.js, Python, and PHP to design and implement scalable APIs, enabling seamless communication between applications. This combination of front-end and back-end knowledge allows me to contribute effectively to full-stack development projects, driving both mobile and web initiatives to success.</p>
+
+				<div class="col-lg-9 col-md-12 col-sm-12 my-auto px-lg-5">
+					<div class="hero-text">
+						<h1 class="hero-greeting reveal-up">
+							Hey! I'm <span class="highlight-name">Abdul Aziz</span>
+						</h1>
+						<div class="hero-tagline reveal-up" style="--delay: 0.1s">
+							<span class="tagline-decorator">//</span> Building the future, one line of code at a time
+						</div>
+					</div>
+
+					<div class="about-content">
+						<div class="about-block reveal-left" style="--delay: 0.2s">
+							<div class="about-block-indicator"></div>
+							<p class="lh-base">I'm Results-driven professional with 10 years of experience in software development, Specialized in Mobile Application development. Currently leading mobile application development projects with a focus on iOS, Android and Huawei platforms. Adept at building robust Mobile Applications using technologies like React Native, Flutter, Swift, Kotlin, Cordova. I am currently working as Software Team lead.</p>
+						</div>
+
+						<div class="about-block reveal-left" style="--delay: 0.3s">
+							<div class="about-block-indicator"></div>
+							<p>I am a specialist in crafting exceptional mobile applications. I am also Experienced and skilled in designing and developing Software Development Kits (SDKs) for mobile applications build with ( React Native, Flutter, Swift, Kotlin, Native Scripe ) which extend the use of native features to cross platform development, ensuring a unified and efficient development process.</p>
+						</div>
+
+						<div class="about-block reveal-left" style="--delay: 0.4s">
+							<div class="about-block-indicator"></div>
+							<p>As an expert in mobile development, I bring valuable skills to the realm of web application development. I have successfully led teams in building high-performance web applications, utilizing modern frameworks such as React, Vue, and Next.js to create responsive, user-friendly interfaces that enhance user experiences across devices.</p>
+						</div>
+
+						<div class="about-block reveal-left" style="--delay: 0.5s">
+							<div class="about-block-indicator"></div>
+							<p>I have extensive experience in API development. I've worked with server-side languages like Node.js, Python, and PHP to design and implement scalable APIs, enabling seamless communication between applications. This combination of front-end and back-end knowledge allows me to contribute effectively to full-stack development projects, driving both mobile and web initiatives to success.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<hr />
-		<div class="bg-container">
+	</section>
+
+	<hr class="section-divider" />
+
+	<!-- Skills Section -->
+	<section id="skills">
+		<div class="bg-container reveal-up">
 			<div class="row justify-content-center align-items-center text-center my-3">
-				<h2 class="glow-text">Skills</h2>
-				<p class="lead sub-titles"><i>Here’s a Look at My Skills</i></p>
+				<div class="section-header">
+					<span class="section-tag">&lt;skills&gt;</span>
+					<h2 class="glow-text section-title">Skills</h2>
+					<p class="lead sub-titles"><i>Here's a Look at My Skills</i></p>
+				</div>
 			</div>
 			<div class="card">
 				<div class="card-body">
-					<p class="lead">With a deep enthusiasm for new technologies, I specialize in developing robust and interactive solutions across platforms. Here’s what I bring to the table:</p>
+					<p class="lead">With a deep enthusiasm for new technologies, I specialize in developing robust and interactive solutions across platforms. Here's what I bring to the table:</p>
 				</div>
 				<ul class="list-group list-group-flush">
-					<li class="list-group-item"><strong>Mobile App Development:</strong> Expert in building applications for iOS, Android, and Huawei platforms, with experience in third-party integrations like Firebase, AWS Amplify, and payment gateways.</li>
-					<li class="list-group-item"><strong>Web & Desktop Applications:</strong> Skilled in crafting responsive, interactive interfaces for web and desktop applications, ensuring seamless experiences across devices.</li>
-					<li class="list-group-item"><strong>Backend & API Development:</strong> Capable of designing and implementing API services for scalable and efficient data handling.</li>
-					<li class="list-group-item"><strong>Custom SDKs:</strong> Proficient in developing custom SDKs tailored to client requirements, enabling easy integration and extended functionality.</li>
-					<li class="list-group-item"><strong>Automation & Scripting:</strong> Experience with web crawling, scraping, and automation via Slack bots to streamline workflows.</li>
-					<li class="list-group-item"><strong>WordPress Development:</strong> Proficient in creating websites, blogs, and e-commerce sites on WordPress, with custom theme and plugin development capabilities.</li>
+					<li class="list-group-item reveal-left" style="--delay: 0.1s">
+						<strong><i class="fas fa-mobile-alt me-2"></i>Mobile App Development:</strong> Expert in building applications for iOS, Android, and Huawei platforms, with experience in third-party integrations like Firebase, AWS Amplify, and payment gateways.
+					</li>
+					<li class="list-group-item reveal-left" style="--delay: 0.15s">
+						<strong><i class="fas fa-desktop me-2"></i>Web & Desktop Applications:</strong> Skilled in crafting responsive, interactive interfaces for web and desktop applications, ensuring seamless experiences across devices.
+					</li>
+					<li class="list-group-item reveal-left" style="--delay: 0.2s">
+						<strong><i class="fas fa-server me-2"></i>Backend & API Development:</strong> Capable of designing and implementing API services for scalable and efficient data handling.
+					</li>
+					<li class="list-group-item reveal-left" style="--delay: 0.25s">
+						<strong><i class="fas fa-puzzle-piece me-2"></i>Custom SDKs:</strong> Proficient in developing custom SDKs tailored to client requirements, enabling easy integration and extended functionality.
+					</li>
+					<li class="list-group-item reveal-left" style="--delay: 0.3s">
+						<strong><i class="fas fa-robot me-2"></i>Automation & Scripting:</strong> Experience with web crawling, scraping, and automation via Slack bots to streamline workflows.
+					</li>
+					<li class="list-group-item reveal-left" style="--delay: 0.35s">
+						<strong><i class="fab fa-wordpress me-2"></i>WordPress Development:</strong> Proficient in creating websites, blogs, and e-commerce sites on WordPress, with custom theme and plugin development capabilities.
+					</li>
 				</ul>
 			</div>
 		</div>
-		<br/>
+	</section>
+
+	<br />
+
+	<!-- Tech Stack Section -->
+	<section id="tech-stack">
 		<div class="bg-container">
 			<div class="row text-center my-3">
-				<h2 class="glow-text">My Tech Stack</h2>
-				<p class="lead sub-titles"><i>Core Technologies Behind My Work</i></p>
+				<div class="section-header reveal-up">
+					<span class="section-tag">&lt;tech-stack&gt;</span>
+					<h2 class="glow-text section-title">My Tech Stack</h2>
+					<p class="lead sub-titles"><i>Core Technologies Behind My Work</i></p>
+				</div>
+
 				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card p-3 mb-4">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.1s">
+						<div class="tech-card-glow"></div>
 						<div class="text-start">
-							<p class="lead">Software Languages</p>
+							<p class="lead"><i class="fas fa-code me-2"></i>Software Languages</p>
 						</div>
-
 						<ul class="list-group list-group">
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Javascript</div>
-								</div>
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Javascript</div></div>
 								<img src="./assets/js.png" alt="Javascript" height="40" width="40" />
 							</li>
-							
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Swift</div>
-								</div>
-								<img src="./assets/swift.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Swift</div></div>
+								<img src="./assets/swift.png" alt="Swift" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Kotlin</div>
-								</div>
-								<img src="./assets/kotlin.jpeg" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Kotlin</div></div>
+								<img src="./assets/kotlin.jpeg" alt="Kotlin" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Python</div>
-								</div>
-								<img src="./assets/python.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Python</div></div>
+								<img src="./assets/python.png" alt="Python" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Dart</div>
-								</div>
-								<img src="./assets/dart.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Dart</div></div>
+								<img src="./assets/dart.png" alt="Dart" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">PHP</div>
-								</div>
-								<img src="./assets/php.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">PHP</div></div>
+								<img src="./assets/php.png" alt="PHP" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">SQL</div>
-								</div>
-								<img src="./assets/sql.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">SQL</div></div>
+								<img src="./assets/sql.png" alt="SQL" height="40" width="40" />
 							</li>
-
 						</ul>
 					</div>
 				</div>
 
 				<div class="col-lg-3 col-sm-12 align-items-start">
-					<div class="tech-card p-3 mb-4">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.2s">
+						<div class="tech-card-glow"></div>
 						<div class="text-start mt-4">
-							<p class="lead">Mobile App Development</p>
+							<p class="lead"><i class="fas fa-mobile-alt me-2"></i>Mobile App Development</p>
 						</div>
-
 						<ul class="list-group list-group">
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">React Native</div>
-								</div>
-								<img src="./assets/react-native-2.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">React Native</div></div>
+								<img src="./assets/react-native-2.png" alt="React Native" height="40" width="40" />
 							</li>
-							
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Flutter</div>
-								</div>
-								<img src="./assets/flutter.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Flutter</div></div>
+								<img src="./assets/flutter.png" alt="Flutter" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Swift - iOS</div>
-								</div>
-								<img src="./assets/swift.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Swift - iOS</div></div>
+								<img src="./assets/swift.png" alt="Swift" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Kotlin - Android</div>
-								</div>
-								<img src="./assets/kotlin.jpeg" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Kotlin - Android</div></div>
+								<img src="./assets/kotlin.jpeg" alt="Kotlin" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Cordova</div>
-								</div>
-								<img src="./assets/cordova.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Cordova</div></div>
+								<img src="./assets/cordova.png" alt="Cordova" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Nativescript</div>
-								</div>
-								<img src="./assets/nativescript.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Nativescript</div></div>
+								<img src="./assets/nativescript.png" alt="Nativescript" height="40" width="40" />
 							</li>
-
 						</ul>
 					</div>
 				</div>
 
 				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card p-3 mb-4">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.3s">
+						<div class="tech-card-glow"></div>
 						<div class="text-start mt-4">
-							<p class="lead">Backend API Development</p>
+							<p class="lead"><i class="fas fa-server me-2"></i>Backend API Development</p>
 						</div>
-
 						<ul class="list-group list-group">
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Express</div>
-								</div>
-								<img src="./assets/express.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Express</div></div>
+								<img src="./assets/express.png" alt="Express" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Deno</div>
-								</div>
-								<img src="./assets/deno.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Deno</div></div>
+								<img src="./assets/deno.png" alt="Deno" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Bun</div>
-								</div>
-								<img src="./assets/bun.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Bun</div></div>
+								<img src="./assets/bun.png" alt="Bun" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Laravel</div>
-								</div>
-								<img src="./assets/laravel.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Laravel</div></div>
+								<img src="./assets/laravel.png" alt="Laravel" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">DJango</div>
-								</div>
-								<img src="./assets/django.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">DJango</div></div>
+								<img src="./assets/django.png" alt="Django" height="40" width="40" />
 							</li>
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Codeigniter</div>
-								</div>
-								<img src="./assets/codeigniter.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Codeigniter</div></div>
+								<img src="./assets/codeigniter.png" alt="Codeigniter" height="40" width="40" />
 							</li>
-
 						</ul>
 					</div>
 				</div>
 
 				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card p-3 mb-4">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.4s">
+						<div class="tech-card-glow"></div>
 						<div class="text-start mt-4">
-							<p class="lead">Web App Development</p>
+							<p class="lead"><i class="fas fa-globe me-2"></i>Web App Development</p>
 						</div>
-
 						<ul class="list-group list-group">
-
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">React js</div>
-								</div>
-								<img src="./assets/react.png" alt="Javascript" height="40" width="40" />
-							</li>
-							
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Vue js</div>
-								</div>
-								<img src="./assets/vue.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">React js</div></div>
+								<img src="./assets/react.png" alt="React" height="40" width="40" />
 							</li>
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Vuetify</div>
-								</div>
-								<img src="./assets/vuetify.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Vue js</div></div>
+								<img src="./assets/vue.png" alt="Vue" height="40" width="40" />
 							</li>
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Next js</div>
-								</div>
-								<img src="./assets/nextjs.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Vuetify</div></div>
+								<img src="./assets/vuetify.png" alt="Vuetify" height="40" width="40" />
 							</li>
 							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Svelte</div>
-								</div>
-								<img src="./assets/svelte.png" alt="Javascript" height="40" width="40" />
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Next js</div></div>
+								<img src="./assets/nextjs.png" alt="Next.js" height="40" width="40" />
 							</li>
-
-							
-
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto"><div class="fw-bold">Svelte</div></div>
+								<img src="./assets/svelte.png" alt="Svelte" height="40" width="40" />
+							</li>
 						</ul>
 					</div>
 				</div>
 
+				<!-- Row 2 of tech cards -->
 				<div class="row my-5 col-lg-12 col-sm-12">
 					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card p-3 mb-4">
+						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.1s">
+							<div class="tech-card-glow"></div>
 							<div class="text-start">
-								<p class="lead">Database</p>
+								<p class="lead"><i class="fas fa-database me-2"></i>Database</p>
 							</div>
-	
 							<ul class="list-group list-group">
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">MySQL</div>
-									</div>
-									<img src="./assets/js.png" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">MySQL</div></div>
+									<img src="./assets/js.png" alt="MySQL" height="40" width="40" />
 								</li>
-								
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">MongoDB</div>
-									</div>
-									<img src="./assets/mongodb.png" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">MongoDB</div></div>
+									<img src="./assets/mongodb.png" alt="MongoDB" height="40" width="40" />
 								</li>
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">SQLite</div>
-									</div>
-									<img src="./assets/sqlite.jpeg" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">SQLite</div></div>
+									<img src="./assets/sqlite.jpeg" alt="SQLite" height="40" width="40" />
 								</li>
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Realm</div>
-									</div>
-									<img src="./assets/realm.png" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">Realm</div></div>
+									<img src="./assets/realm.png" alt="Realm" height="40" width="40" />
 								</li>
-	
 							</ul>
 						</div>
 					</div>
 
 					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card p-3 mb-4">
+						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.2s">
+							<div class="tech-card-glow"></div>
 							<div class="text-start mt-4">
-								<p class="lead">Version Control</p>
+								<p class="lead"><i class="fas fa-code-branch me-2"></i>Version Control</p>
 							</div>
-	
 							<ul class="list-group list-group">
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Git</div>
-									</div>
-									<img src="./assets/gitcmd.png" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">Git</div></div>
+									<img src="./assets/gitcmd.png" alt="Git" height="40" width="40" />
 								</li>
-								
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">GitLab</div>
-									</div>
-									<img src="./assets/gitla.jpeg" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">GitLab</div></div>
+									<img src="./assets/gitla.jpeg" alt="GitLab" height="40" width="40" />
 								</li>
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Sourcetree</div>
-									</div>
-									<img src="./assets/sourcetree.jpeg" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">Sourcetree</div></div>
+									<img src="./assets/sourcetree.jpeg" alt="Sourcetree" height="40" width="40" />
 								</li>
-	
-								<!-- <li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Git Kraken</div>
-									</div>
-									<img src="./assets/python.png" alt="Javascript" height="40" width="40" />
-								</li> -->
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Fork</div>
-									</div>
-									<img src="./assets/fork.jpeg" alt="Javascript" height="40" width="40" />
+									<div class="ms-2 me-auto my-auto"><div class="fw-bold">Fork</div></div>
+									<img src="./assets/fork.jpeg" alt="Fork" height="40" width="40" />
 								</li>
-	
 							</ul>
 						</div>
 					</div>
 
 					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card p-3 mb-4">
+						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.3s">
+							<div class="tech-card-glow"></div>
 							<div class="text-start mt-4">
-								<p class="lead">Cloud Service</p>
+								<p class="lead"><i class="fas fa-cloud me-2"></i>Cloud Service</p>
 							</div>
-	
 							<ul class="list-group list-group">
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto text-start">
 										<div class="fw-bold">AWS</div>
 										<p><i>EC2, Lambda functions, Amplify</i></p>
 									</div>
-									<img src="./assets/aws.png" alt="Javascript" height="40" width="40" />
+									<img src="./assets/aws.png" alt="AWS" height="40" width="40" />
 								</li>
-								
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto text-start">
 										<div class="fw-bold">Google Cloud Services</div>
 										<p><i>Firebase, Functions, Firestore, Realtime DB, Analytics</i></p>
 									</div>
-									<img src="./assets/googlecloud.png" alt="Javascript" height="40" width="40" />
+									<img src="./assets/googlecloud.png" alt="Google Cloud" height="40" width="40" />
 								</li>
-	
 							</ul>
 						</div>
 					</div>
 
 					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card p-3 mb-4">
+						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.4s">
+							<div class="tech-card-glow"></div>
 							<div class="text-start mt-4">
-								<p class="lead">CMS</p>
+								<p class="lead"><i class="fab fa-wordpress me-2"></i>CMS</p>
 							</div>
-	
 							<ul class="list-group list-group">
-	
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto text-start">
 										<div class="fw-bold">WordPress</div>
 										<p><i>Custom Theme and Plugin Development</i></p>
 									</div>
-									<img src="./assets/wordpress.png" alt="Javascript" height="40" width="40" />
+									<img src="./assets/wordpress.png" alt="WordPress" height="40" width="40" />
 								</li>
-	
 							</ul>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</section>
 
+	<!-- Services Section -->
+	<section id="services">
+		<div class="bg-container">
+			<div class="row text-center my-3">
 				<div class="col-lg-12 col-sm-12">
-					<div class="text-start">
-						<p class="lead">Services I Offer</p>
+					<div class="section-header reveal-up">
+						<span class="section-tag">&lt;services&gt;</span>
+						<h2 class="glow-text section-title">Services I Offer</h2>
 						<p><i>I offer building end to end software solutions for your idea, I can partner with a team and can support any project / module. I can work on contract and deliver within the deadline. Below are the service I offers</i></p>
 					</div>
 
-					<div class="accordion" id="accordionExample">
+					<div class="accordion reveal-up" style="--delay: 0.2s" id="accordionExample">
 						<div class="accordion-item">
 							<h2 class="accordion-header">
 								<button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -950,22 +508,21 @@
 									<i class="fas fa-mobile-alt me-2"></i> Mobile App Development
 								</button>
 							</h2>
-							<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+							<div id="collapseOne" class="accordion-collapse collapse show"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
 									<p>From concept to deployment, I create robust mobile applications tailored to iOS, Android, and Huawei platforms. With expertise in React Native, Flutter, Swift, and Android, I deliver apps that are performant, responsive, and user-focused.</p>
-									
 								</div>
 							</div>
 						</div>
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingTwo">
+							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									Web Application Development
+									data-bs-target="#collapseTwo" aria-expanded="false">
+									<i class="fas fa-globe me-2"></i> Web Application Development
 								</button>
 							</h2>
-							<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+							<div id="collapseTwo" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
 									<p>I develop full-scale, responsive web applications using modern frameworks like React, Vue, and Next.js. Whether you need a custom user interface, optimized performance, or cross-device compatibility, I bring versatile web solutions to life.</p>
@@ -973,41 +530,41 @@
 							</div>
 						</div>
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingThree">
+							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									Backend & API Development
+									data-bs-target="#collapseThree" aria-expanded="false">
+									<i class="fas fa-server me-2"></i> Backend & API Development
 								</button>
 							</h2>
-							<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+							<div id="collapseThree" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
-									<p>I design and implement scalable backend systems and APIs using Node.js, Python, and PHP. From RESTful services to third-party integrations, I create secure and efficient backend solutions for seamless data handling and communication.</p>	
+									<p>I design and implement scalable backend systems and APIs using Node.js, Python, and PHP. From RESTful services to third-party integrations, I create secure and efficient backend solutions for seamless data handling and communication.</p>
 								</div>
 							</div>
 						</div>
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingThree">
+							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-									Custom SDK and Library Development
+									data-bs-target="#collapseFour" aria-expanded="false">
+									<i class="fas fa-puzzle-piece me-2"></i> Custom SDK and Library Development
 								</button>
 							</h2>
-							<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+							<div id="collapseFour" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
-									<p>I specialize in creating custom SDKs and libraries for mobile applications, making it easy for other developers to integrate powerful features into their own projects. My SDKs extend native functionality to cross-platform applications, ensuring consistency and performance across devices.</p>	
+									<p>I specialize in creating custom SDKs and libraries for mobile applications, making it easy for other developers to integrate powerful features into their own projects. My SDKs extend native functionality to cross-platform applications, ensuring consistency and performance across devices.</p>
 								</div>
 							</div>
 						</div>
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingThree">
+							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-									Third-Party Integrations
+									data-bs-target="#collapseFive" aria-expanded="false">
+									<i class="fas fa-plug me-2"></i> Third-Party Integrations
 								</button>
 							</h2>
-							<div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+							<div id="collapseFive" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
 									<p>Need to connect with Firebase, AWS, or payment gateways? I seamlessly integrate third-party services into both mobile and web applications to enhance functionality and provide a smooth user experience.</p>
@@ -1015,13 +572,13 @@
 							</div>
 						</div>
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingThree">
+							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-									Support & MVP Development
+									data-bs-target="#collapseSix" aria-expanded="false">
+									<i class="fas fa-rocket me-2"></i> Support & MVP Development
 								</button>
 							</h2>
-							<div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+							<div id="collapseSix" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
 									<p>I offer support and maintenance services for ongoing projects, helping to troubleshoot, optimize, and scale existing applications. Additionally, I provide MVP development to bring your ideas to life quickly and efficiently, focusing on core functionality to validate and launch your product.</p>
@@ -1029,13 +586,13 @@
 							</div>
 						</div>
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingThree">
+							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-									Mobile Application Publishing
+									data-bs-target="#collapseSeven" aria-expanded="false">
+									<i class="fas fa-store me-2"></i> Mobile Application Publishing
 								</button>
 							</h2>
-							<div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingTSeven"
+							<div id="collapseSeven" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
 									<p>I handle the end-to-end process of publishing mobile applications to the App Store, Google Play Store, and Huawei App Gallery. My expertise ensures a smooth submission process, compliance with platform guidelines, and successful app launches.</p>
@@ -1043,16 +600,16 @@
 							</div>
 						</div>
 						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingThree">
+							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-									CMS & WordPress Development
+									data-bs-target="#collapseEight" aria-expanded="false">
+									<i class="fab fa-wordpress me-2"></i> CMS & WordPress Development
 								</button>
 							</h2>
-							<div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingTEight"
+							<div id="collapseEight" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body text-start">
-									<p>I create engaging and functional websites using WordPress, including custom theme and plugin development for eCommerce, blogs, and business sites. Tailored solutions for each client’s unique needs ensure that every WordPress site is both user-friendly and high-performing.</p>
+									<p>I create engaging and functional websites using WordPress, including custom theme and plugin development for eCommerce, blogs, and business sites. Tailored solutions for each client's unique needs ensure that every WordPress site is both user-friendly and high-performing.</p>
 								</div>
 							</div>
 						</div>
@@ -1060,180 +617,55 @@
 				</div>
 			</div>
 		</div>
+	</section>
 
-		<div class="row my-4">
-			<h2 class="glow-text">Reach out to me!</h2>
-			<p class="lead">Wanted to discuss a project or just want to get connected? Well my inbox is open for
-				all.</p>
-			<div class="row col-lg-3">
-				<a href="mailto:mdab.aziz01@gmail.com" class="btn contact-btn text-center">
-					Contact Me
-				</a>
+	<!-- Contact Section -->
+	<section id="contact">
+		<div class="contact-section reveal-up">
+			<div class="row my-4 justify-content-center text-center">
+				<div class="section-header">
+					<span class="section-tag">&lt;contact&gt;</span>
+					<h2 class="glow-text section-title">Reach out to me!</h2>
+					<p class="lead">Wanted to discuss a project or just want to get connected? Well my inbox is open for all.</p>
+				</div>
+				<div class="row col-lg-4 justify-content-center mt-3">
+					<a href="mailto:mdab.aziz01@gmail.com" class="btn contact-btn magnetic-btn ripple-btn">
+						<i class="fas fa-envelope me-2"></i>Contact Me
+					</a>
+				</div>
 			</div>
 		</div>
+	</section>
 
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-			crossorigin="anonymous"></script>
-		<script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
-		<script>
-			// Add smooth scrolling to nav links
-			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-				anchor.addEventListener('click', function (e) {
-					e.preventDefault();
-					document.querySelector(this.getAttribute('href')).scrollIntoView({
-						behavior: 'smooth'
-					});
-				});
-			});
+	<!-- Footer -->
+	<footer class="enhanced-footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-brand">
+					<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
+				</div>
+				<div class="footer-links">
+					<a href="https://github.com/codemeall" target="_blank" class="footer-link magnetic-btn"><i class="fab fa-github"></i></a>
+					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" class="footer-link magnetic-btn"><i class="fab fa-linkedin"></i></a>
+					<a href="mailto:mdab.aziz01@gmail.com" class="footer-link magnetic-btn"><i class="fas fa-envelope"></i></a>
+				</div>
+				<p class="footer-copy">Made with <span class="heart-beat">&lt;3</span> using Bootstrap v5.1.1</p>
+			</div>
+		</div>
+	</footer>
 
-			// Animate skill bars on scroll
-			const observer = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.style.width = entry.target.getAttribute('data-width');
-					}
-				});
-			});
+	<!-- Back to Top Button -->
+	<button class="back-to-top magnetic-btn" id="back-to-top" aria-label="Back to top">
+		<i class="fas fa-chevron-up"></i>
+	</button>
 
-			document.querySelectorAll('.skill-bar').forEach((bar) => observer.observe(bar));
-		</script>
-		<script>
-			// Matrix rain animation
-			const canvas = document.getElementById('matrix');
-			const ctx = canvas.getContext('2d');
-
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-
-			const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
-			const matrixArray = matrix.split("");
-
-			const fontSize = 20;
-			const columns = canvas.width/fontSize;
-
-			const drops = [];
-			for(let x = 0; x < columns; x++) {
-				drops[x] = 1;
-			}
-
-			function draw() {
-				ctx.fillStyle = "rgba(10, 25, 47, 0.07)";
-				ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-				ctx.fillStyle = "#00ff41";
-				ctx.font = "bold " + fontSize + "px monospace";
-
-				for(let i = 0; i < drops.length; i++) {
-					const text = matrixArray[Math.floor(Math.random()*matrixArray.length)];
-					ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-					if(drops[i]*fontSize > canvas.height && Math.random() > 0.98) {
-						drops[i] = 0;
-					}
-					drops[i]++;
-				}
-			}
-
-			setInterval(draw, 30);
-
-			// Resize canvas when window is resized
-			window.addEventListener('resize', () => {
-				canvas.width = window.innerWidth;
-				canvas.height = window.innerHeight;
-			});
-		</script>
-		<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			// Get all sections that have an ID defined
-			const sections = document.querySelectorAll("section[id]");
-
-			// Add an event listener listening for scroll
-			window.addEventListener("scroll", navHighlighter);
-
-			function navHighlighter() {
-				// Get current scroll position
-				let scrollY = window.pageYOffset;
-
-				// Now we loop through sections to get height, top and ID values for each
-				sections.forEach(current => {
-					const sectionHeight = current.offsetHeight;
-					const sectionTop = current.offsetTop - 100;
-					const sectionId = current.getAttribute("id");
-
-					if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-						document.querySelector(`.navbar-nav a[href*=${sectionId}]`).classList.add("active");
-					} else {
-						document.querySelector(`.navbar-nav a[href*=${sectionId}]`).classList.remove("active");
-					}
-				});
-			}
-		});
-		</script>
-		<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			// Get all nav links
-			const navLinks = document.querySelectorAll('.nav-link');
-			
-			// Add click handler to each link
-			navLinks.forEach(link => {
-				link.addEventListener('click', function(e) {
-					e.preventDefault();
-					
-					// Get the target section
-					const targetId = this.getAttribute('href');
-					const targetSection = document.querySelector(targetId);
-					
-					if (targetSection) {
-						// Smooth scroll to section
-						targetSection.scrollIntoView({ behavior: 'smooth' });
-						
-						// Close mobile menu if open
-						const navbarCollapse = document.querySelector('.navbar-collapse');
-						if (navbarCollapse.classList.contains('show')) {
-							document.querySelector('.navbar-toggler').click();
-						}
-					}
-				});
-			});
-
-			// Highlight active section while scrolling
-			const sections = document.querySelectorAll("section[id], div[id]:not(.collapse):not(.accordion-collapse)");
-			
-			function highlightNavigation() {
-				const scrollPosition = window.scrollY;
-
-				sections.forEach(section => {
-					const sectionTop = section.offsetTop - 100;
-					const sectionBottom = sectionTop + section.offsetHeight;
-					const sectionId = section.getAttribute('id');
-					
-					if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-						navLinks.forEach(link => {
-							link.classList.remove('active');
-							if (link.getAttribute('href') === `#${sectionId}`) {
-								link.classList.add('active');
-							}
-						});
-					}
-				});
-			}
-
-			// Add scroll event listener
-			window.addEventListener('scroll', highlightNavigation);
-		});
-
-		// Optional: Scroll to top when clicking the brand logo
-		document.querySelector('.navbar-brand').addEventListener('click', function(e) {
-			e.preventDefault();
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		});
-		</script>
+	<!-- Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="enhanced.js"></script>
 </body>
-<footer>
-	<p>Made with Bootstrap v5.1.1</p>
-</footer>
 
 </html>
