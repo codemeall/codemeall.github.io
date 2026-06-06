@@ -18,33 +18,41 @@ description: "Insights, tutorials, and thoughts on mobile apps, SDK architecture
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 				{% for post in site.posts %}
 				<div class="col reveal-up" style="--delay: {{ forloop.index0 | times: 0.1 }}s">
-					<div class="tech-card p-4 d-flex flex-column h-100">
+					<div class="tech-card d-flex flex-column h-100">
 						<div class="tech-card-glow"></div>
 						
-						<!-- Post Meta -->
-						<div class="d-flex align-items-center gap-2 mb-2 text-muted small">
-							<span class="badge bg-success text-dark">{{ post.category | default: 'Tech' }}</span>
-							<span>•</span>
-							<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+						{% if post.image %}
+						<div class="post-card-image-wrapper">
+							<img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-card-image" loading="lazy" />
 						</div>
+						{% endif %}
+						
+						<div class="p-4 d-flex flex-column flex-grow-1">
+							<!-- Post Meta -->
+							<div class="d-flex align-items-center gap-2 mb-2 text-muted small">
+								<span class="badge bg-success text-dark">{{ post.category | default: 'Tech' }}</span>
+								<span>•</span>
+								<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+							</div>
 
-						<!-- Post Title -->
-						<h3 class="h5 mb-3">
-							<a href="{{ post.url | relative_url }}" class="text-white text-decoration-none hover-green">
-								{{ post.title }}
-							</a>
-						</h3>
+							<!-- Post Title -->
+							<h3 class="h5 mb-3">
+								<a href="{{ post.url | relative_url }}" class="text-white text-decoration-none hover-green">
+									{{ post.title }}
+								</a>
+							</h3>
 
-						<!-- Post Excerpt -->
-						<p class="small text-muted flex-grow-1">
-							{{ post.excerpt | strip_html | truncatewords: 25 }}
-						</p>
+							<!-- Post Excerpt -->
+							<p class="small text-muted flex-grow-1">
+								{{ post.excerpt | strip_html | truncatewords: 25 }}
+							</p>
 
-						<!-- Read More -->
-						<div class="mt-3">
-							<a href="{{ post.url | relative_url }}" class="chip-link magnetic-btn">
-								Read More<i class="fas fa-arrow-right ms-2"></i>
-							</a>
+							<!-- Read More -->
+							<div class="mt-3">
+								<a href="{{ post.url | relative_url }}" class="chip-link magnetic-btn">
+									Read More<i class="fas fa-arrow-right ms-2"></i>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>

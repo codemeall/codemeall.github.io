@@ -5,8 +5,8 @@ date: 2026-06-06 12:09:15 +0530
 category: AI Tools
 read_time: 2 min read
 description: ""
+image: /assets/images/Gemini_Generated_Image_jzdmowjzdmowjzdm.png
 ---
-![[Gemini_Generated_Image_jzdmowjzdmowjzdm.png]]
 
 Fellow builders and terminal techies,
 
