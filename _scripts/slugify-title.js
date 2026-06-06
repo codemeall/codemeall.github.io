@@ -5,10 +5,9 @@
 module.exports = async (params) => {
   const { quickAddApi } = params;
 
-  const title = await quickAddApi.inputPrompt("Post title");
+  const title = await quickAddApi.inputPrompt("Enter title");
   if (!title) {
-    new Notice("No title entered — cancelled.");
-    return;
+    throw new Error("No title entered — cancelled.");
   }
 
   const slug = title

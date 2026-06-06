@@ -3,55 +3,30 @@
     {
       "id": "44caa212-151b-4c0d-b8b3-d49a9fe12aaf",
       "name": "New Jekyll Post",
-      "type": "Macro",
+      "type": "Template",
       "command": true,
-      "runOnStartup": false,
-      "macro": {
-        "id": "7b7ddd11-d898-41f3-84a4-e002dde2dc64",
-        "name": "New Jekyll Post",
-        "commands": [
-          {
-            "id": "beac12b1-5001-4ae4-bb79-105f97665b89",
-            "name": "Slugify Title",
-            "type": "UserScript",
-            "path": "_scripts/slugify-title.js",
-            "settings": {}
-          },
-          {
-            "id": "0743c319-f884-4b56-b0f8-ce5efc358a2f",
-            "name": "New Jekyll Post",
-            "type": "NestedChoice",
-            "choice": {
-              "id": "cd386e72-7130-45b0-bf76-c6b5171d2739",
-              "name": "New Jekyll Post",
-              "type": "Template",
-              "command": false,
-              "templatePath": "_templates/Jekyll Post Template.md",
-              "fileNameFormat": {
-                "enabled": true,
-                "format": "_posts/{{DATE:YYYY-MM-DD}}-{{VALUE:post-slug}}"
-              },
-              "folder": {
-                "enabled": false,
-                "folders": [],
-                "chooseWhenCreatingNote": false,
-                "createInSameFolderAsActiveFile": false,
-                "chooseFromSubfolders": false
-              },
-              "appendLink": false,
-              "openFile": true,
-              "fileOpening": {
-                "location": "tab",
-                "direction": "vertical",
-                "mode": "default",
-                "focus": true
-              },
-              "fileExistsBehavior": {
-                "kind": "prompt"
-              }
-            }
-          }
-        ]
+      "templatePath": "_templates/Jekyll Post Template.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "_posts/{{DATE:YYYY-MM-DD}}-{{VALUE:post-slug}}"
+      },
+      "folder": {
+        "enabled": false,
+        "folders": [],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFile": true,
+      "fileOpening": {
+        "location": "tab",
+        "direction": "vertical",
+        "mode": "default",
+        "focus": true
+      },
+      "fileExistsBehavior": {
+        "kind": "prompt"
       }
     }
   ],

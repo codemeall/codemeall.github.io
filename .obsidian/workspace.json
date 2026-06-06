@@ -22,17 +22,17 @@
             }
           },
           {
-            "id": "082b143261367595",
+            "id": "21bcce78b8fae86a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-06-06-The Open Source AI Tools.md",
+                "file": "_posts/2026-06-06-the-open-source-ai-era.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-06-The Open Source AI Tools"
+              "title": "2026-06-06-the-open-source-ai-era"
             }
           }
         ],
@@ -197,6 +197,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "quickadd:QuickAdd": false,
       "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -207,9 +208,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "082b143261367595",
+  "active": "21bcce78b8fae86a",
   "lastOpenFiles": [
     "_posts/2026-06-06-gemini-cli-shutting-down-june-18.md",
+    "_posts/2026-06-06-the-open-source-ai-era.md",
     "_posts/2026-06-06-The Open Source AI Tools.md",
     "_posts/2026-06-06-welcome-to-my-blog.md",
     "_posts/2026-06-06-Gemini CLI is Shutting Down on June 18, Why This is the Most Exciting Upgrade for Agentic Developers in 2026.md",
