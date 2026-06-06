@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 2026-06-06-Gemini CLI is Shutting Down on June 18, Why This is the Most Exciting Upgrade for Agentic Developers in 2026
+title: "Gemini CLI is Shutting Down on June 18, Why This is the Most Exciting Upgrade for Agentic Developers in 2026"
 date: 2026-06-06 12:09:15 +0530
-category: AI Tools
-read_time: 2 min read
+category: "AI Tools"
+read_time: "2 min read"
 description: ""
 image: /assets/images/featured_antigravity.jpg
 ---
