@@ -1,0 +1,12 @@
+title: "Abdul Aziz | Lead Software Engineer"
+description: "Abdul Aziz is a Lead Software Engineer with 10+ years of experience building mobile-first products, scalable web platforms, and production-grade APIs."
+baseurl: ""
+url: "https://codemeall.github.io"
+permalink: /blog/:title/
+
+markdown: kramdown
+theme: null
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

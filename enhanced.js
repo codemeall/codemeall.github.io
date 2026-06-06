@@ -297,12 +297,14 @@
 			});
 		});
 
-		// Brand click => top
+		// Brand click => top (only if on home page)
 		const brand = document.querySelector('.navbar-brand');
 		if (brand) {
 			brand.addEventListener('click', (e) => {
-				e.preventDefault();
-				window.scrollTo({ top: 0, behavior: 'smooth' });
+				if (document.getElementById('about')) {
+					e.preventDefault();
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+				}
 			});
 		}
 	}

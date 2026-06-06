@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>{% if page.title %}{{ page.title }}{% else %}Abdul Aziz | Lead Software Engineer | Mobile, Full-Stack &amp; SDK Architecture{% endif %}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Abdul Aziz is a Lead Software Engineer with 10+ years of experience building mobile-first products, scalable web platforms, and production-grade APIs.{% endif %}">
+	<meta name="keywords" content="Lead Software Engineer, mobile app development, full stack engineer, React Native, Flutter, Swift, Kotlin, SDK development, Node.js, Next.js">
+
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	<!-- Enhanced CSS -->
+	<link rel="stylesheet" href="{{ '/enhanced.css' | relative_url }}?v=20260217b" />
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader-inner">
+			<div class="preloader-terminal">
+				<div class="terminal-header">
+					<span class="terminal-dot red"></span>
+					<span class="terminal-dot yellow"></span>
+					<span class="terminal-dot green"></span>
+					<span class="terminal-title">portfolio.sh</span>
+				</div>
+				<div class="terminal-body" id="terminal-output">
+					<div class="terminal-line" data-delay="0">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">initializing portfolio...</span>
+					</div>
+					<div class="terminal-line" data-delay="300">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">loading assets <span class="terminal-dots">...</span></span>
+					</div>
+					<div class="terminal-line" data-delay="600">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">compiling experience <span class="text-success">[10 years]</span></span>
+					</div>
+					<div class="terminal-line" data-delay="900">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">mounting tech stack <span class="text-success">[OK]</span></span>
+					</div>
+					<div class="terminal-line" data-delay="1200">
+						<span class="terminal-prompt">$</span> <span class="terminal-text">deploying UI <span class="text-success">[READY]</span></span>
+					</div>
+				</div>
+			</div>
+			<div class="preloader-progress">
+				<div class="preloader-progress-bar" id="preloader-bar"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Custom Cursor -->
+	<div class="custom-cursor" id="cursor"></div>
+	<div class="custom-cursor-follower" id="cursor-follower"></div>
+
+	<!-- Matrix Background -->
+	<canvas id="matrix" class="matrix-bg"></canvas>
+
+	<!-- Floating Gradient Orbs -->
+	<div class="gradient-orbs">
+		<div class="orb orb-1"></div>
+		<div class="orb orb-2"></div>
+		<div class="orb orb-3"></div>
+	</div>
+
+	<!-- Scroll Progress Bar -->
+	<div class="scroll-progress" id="scroll-progress"></div>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light sticky-top" id="main-nav">
+		<div class="container">
+			<div class="d-flex align-items-center justify-content-between w-100">
+				<a class="navbar-brand" href="{{ '/' | relative_url }}">
+					<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
+				</a>
+				<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{% if page.url == '/' or page.url == '/index.html' %}#about{% else %}{{ '/' | relative_url }}#about{% endif %}">About&nbsp;me</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% if page.url == '/' or page.url == '/index.html' %}#skills{% else %}{{ '/' | relative_url }}#skills{% endif %}">Skills</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% if page.url == '/' or page.url == '/index.html' %}#tech-stack{% else %}{{ '/' | relative_url }}#tech-stack{% endif %}">Tech&nbsp;Stack</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% if page.url == '/' or page.url == '/index.html' %}#services{% else %}{{ '/' | relative_url }}#services{% endif %}">Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% if page.url == '/' or page.url == '/index.html' %}#contact{% else %}{{ '/' | relative_url }}#contact{% endif %}">Contact&nbsp;me</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link {% if page.url contains '/blog/' %}active{% endif %}" href="{{ '/blog/' | relative_url }}">Blog</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	{{ content }}
+
+	<!-- Footer -->
+	<footer class="enhanced-footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-brand">
+					<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
+				</div>
+				<div class="footer-links">
+					<a href="https://github.com/codemeall" target="_blank" class="footer-link magnetic-btn"><i class="fab fa-github"></i></a>
+					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" class="footer-link magnetic-btn"><i class="fab fa-linkedin"></i></a>
+					<a href="mailto:mdab.aziz01@gmail.com" class="footer-link magnetic-btn"><i class="fas fa-envelope"></i></a>
+				</div>
+				<p class="footer-copy">Made with <span class="heart-beat">&lt;3</span> using Bootstrap v5.1.1</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Back to Top Button -->
+	<button class="back-to-top magnetic-btn" id="back-to-top" aria-label="Back to top">
+		<i class="fas fa-chevron-up"></i>
+	</button>
+
+	<!-- Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="{{ '/enhanced.js' | relative_url }}"></script>
+</body>
+
+</html>
