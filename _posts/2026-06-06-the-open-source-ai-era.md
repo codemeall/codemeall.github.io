@@ -6,6 +6,7 @@ category: General
 read_time: 2 min read
 description: ""
 image: /assets/images/featured_antigravity.jpg
+tags: [OpenSource, AI]
 ---
 
 Coming Soon...

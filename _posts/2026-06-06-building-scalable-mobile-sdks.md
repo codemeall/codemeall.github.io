@@ -5,6 +5,7 @@ date: 2026-06-06 09:00:00 +0530
 category: Architecture
 read_time: "5 min read"
 description: "A deep dive into architecting custom native SDKs (iOS Swift and Android Kotlin) that can be seamlessly exposed to cross-platform frameworks."
+tags: [Mobile, Architecture, SDK, Swift, Kotlin]
 ---
 
 In modern mobile product development, teams frequently use cross-platform frameworks like React Native or Flutter to speed up delivery. However, certain heavy operations—like hardware acceleration, secure cryptography, local database syncing, or complex background processing—require native implementation. 

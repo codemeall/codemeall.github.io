@@ -17,7 +17,7 @@ description: "Insights, tutorials, and thoughts on mobile apps, SDK architecture
 		<div class="col-lg-10 col-md-12">
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 				{% for post in site.posts %}
-				<div class="col reveal-up" style="--delay: {{ forloop.index0 | times: 0.1 }}s">
+				<div class="col reveal-up post-col" style="--delay: {{ forloop.index0 | times: 0.1 }}s" data-tags="{{ post.tags | join: ',' }}">
 					<div class="tech-card d-flex flex-column h-100">
 						<div class="tech-card-glow"></div>
 						
@@ -34,6 +34,15 @@ description: "Insights, tutorials, and thoughts on mobile apps, SDK architecture
 								<span>•</span>
 								<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
 							</div>
+
+							<!-- Tags -->
+							{% if post.tags.size > 0 %}
+							<div class="d-flex flex-wrap gap-1 mb-3">
+								{% for tag in post.tags %}
+								<a href="{{ '/blog/' | relative_url }}?tag={{ tag | url_encode }}" class="badge rounded-pill bg-secondary text-decoration-none text-light border border-secondary" style="font-size: 0.75rem; transition: all 0.2s ease;">#{{ tag }}</a>
+								{% endfor %}
+							</div>
+							{% endif %}
 
 							<!-- Post Title -->
 							<h3 class="h5 mb-3">
@@ -68,3 +77,56 @@ description: "Insights, tutorials, and thoughts on mobile apps, SDK architecture
 		</div>
 	</div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+    const tag = params.get('tag');
+    
+    if (tag) {
+        // Update header
+        const header = document.querySelector('.section-title');
+        if(header) {
+            header.innerHTML = `Posts tagged with <span class="text-success">#${tag}</span>`;
+        }
+        const subTitle = document.querySelector('.sub-titles');
+        if(subTitle) {
+            subTitle.innerHTML = `<a href="{{ '/blog/' | relative_url }}" class="text-decoration-none text-muted"><i class="fas fa-arrow-left me-1"></i> View all posts</a>`;
+        }
+        
+        // Filter posts
+        const postCols = document.querySelectorAll('.post-col');
+        let visibleCount = 0;
+        postCols.forEach(col => {
+            const tagsAttr = col.getAttribute('data-tags');
+            if (tagsAttr) {
+                const tags = tagsAttr.split(',');
+                if (tags.includes(tag)) {
+                    col.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    col.style.display = 'none';
+                }
+            } else {
+                col.style.display = 'none';
+            }
+        });
+        
+        if (visibleCount === 0) {
+            const container = document.querySelector('.row-cols-1');
+            if(container) {
+                const noPosts = document.createElement('div');
+                noPosts.className = 'col-12 text-center py-5 reveal-up';
+                noPosts.innerHTML = `
+                    <div class="tech-card p-5">
+                        <i class="fas fa-ghost fa-3x mb-3 text-success"></i>
+                        <p class="lead">No posts found with tag #${tag}.</p>
+                        <a href="{{ '/blog/' | relative_url }}" class="chip-link magnetic-btn mt-3">Back to Blog</a>
+                    </div>
+                `;
+                container.appendChild(noPosts);
+            }
+        }
+    }
+});
+</script>

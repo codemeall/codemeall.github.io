@@ -6,6 +6,7 @@ category: "AI Tools"
 read_time: "2 min read"
 description: ""
 image: /assets/images/gemini_feat_1.png
+tags: [AgenticAI, Antigravity, GeminiCLI, DeveloperTools, GoogleIO2026, AIForDevelopers, SoftwareArchitecture]
 ---
 
 Fellow builders and terminal techies,
@@ -38,4 +39,3 @@ This transition perfectly mirrors where software development is heading: moving 
 
 The agentic era isn’t coming it’s here. Tools like Antigravity are raising the bar for what developers can achieve, and I’m all in.
 
-#AgenticAI #Antigravity #GeminiCLI #DeveloperTools #GoogleIO2026 #AIForDevelopers #SoftwareArchitecture

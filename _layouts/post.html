@@ -36,6 +36,15 @@ layout: default
 							{% endif %}
 						</div>
 						<h1 class="glow-text mb-3 display-5">{{ page.title }}</h1>
+						
+						{% if page.tags.size > 0 %}
+						<div class="mb-3 d-flex flex-wrap gap-2">
+							{% for tag in page.tags %}
+							<a href="{{ '/blog/' | relative_url }}?tag={{ tag | url_encode }}" class="badge rounded-pill bg-secondary text-decoration-none text-light border border-secondary" style="transition: all 0.2s ease;">#{{ tag }}</a>
+							{% endfor %}
+						</div>
+						{% endif %}
+						
 						<hr class="divider opacity-25" />
 					</header>
 

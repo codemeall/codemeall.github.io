@@ -5,6 +5,7 @@ date: 2026-06-06 10:00:00 +0530
 category: General
 read_time: "2 min read"
 description: "Welcome to my new blog where I share insights on mobile engineering, SDK architectures, full-stack systems, and engineering leadership."
+tags: [General, Welcome]
 ---
 
 Welcome to my new blogging space! As a Lead Software Engineer with over a decade of experience building and scaling software products, I wanted a dedicated corner to document technical challenges, share developer tutorials, and write about software architecture.
