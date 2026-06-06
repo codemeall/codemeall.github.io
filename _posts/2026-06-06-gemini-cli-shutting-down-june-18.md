@@ -5,7 +5,7 @@ date: 2026-06-06 12:09:15 +0530
 category: "AI Tools"
 read_time: "2 min read"
 description: ""
-image: /assets/images/featured_antigravity.jpg
+image: /assets/images/gemini_feat_1.png
 ---
 
 Fellow builders and terminal techies,
