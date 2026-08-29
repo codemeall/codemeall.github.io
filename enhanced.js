@@ -7,6 +7,61 @@
 	'use strict';
 	document.documentElement.classList.add('js');
 
+	var THEME_KEY = 'theme-preference';
+
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getSavedTheme() {
+		try {
+			var saved = localStorage.getItem(THEME_KEY);
+			return saved === 'light' || saved === 'dark' ? saved : null;
+		} catch (e) {
+			return null;
+		}
+	}
+
+	function applyTheme(theme, persist) {
+		document.documentElement.setAttribute('data-theme', theme);
+		var btn = document.getElementById('theme-toggle');
+		if (btn) {
+			var nextLabel = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+			btn.setAttribute('aria-label', nextLabel);
+			btn.setAttribute('title', nextLabel);
+			btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+		}
+		if (persist) {
+			try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* ignore */ }
+		}
+	}
+
+	function initTheme() {
+		applyTheme(getSavedTheme() || getSystemTheme(), false);
+
+		var media = window.matchMedia('(prefers-color-scheme: dark)');
+		var onSystemChange = function () {
+			if (!getSavedTheme()) {
+				applyTheme(getSystemTheme(), false);
+			}
+		};
+		if (media.addEventListener) {
+			media.addEventListener('change', onSystemChange);
+		} else if (media.addListener) {
+			media.addListener(onSystemChange);
+		}
+
+		var btn = document.getElementById('theme-toggle');
+		if (btn) {
+			btn.addEventListener('click', function () {
+				var current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+				applyTheme(current === 'light' ? 'dark' : 'light', true);
+			});
+		}
+	}
+
+	initTheme();
+
 	/* ---------- Preloader ---------- */
 	const preloader = document.getElementById('preloader');
 	const preloaderBar = document.getElementById('preloader-bar');
@@ -113,7 +168,8 @@
 		const canvas = document.getElementById('matrix');
 		if (!canvas) return;
 		const ctx = canvas.getContext('2d');
-		const chars = '01';
+		// Edgerunners vibe: binary + katakana shards
+		const chars = '01ﾊﾐﾋｰﾓｾｱﾂｸﾕ0123';
 		const charArray = chars.split('');
 		const fontSize = 14;
 		const drops = [];
@@ -150,8 +206,9 @@
 		});
 
 		function draw() {
+			const isLight = document.documentElement.getAttribute('data-theme') === 'light';
 			glowPulse += 0.06;
-			ctx.fillStyle = 'rgba(6, 8, 12, 0.04)';
+			ctx.fillStyle = isLight ? 'rgba(240, 234, 214, 0.09)' : 'rgba(8, 8, 10, 0.06)';
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 			// Mouse-follow spotlight to subtly amplify the binary rain near the cursor
@@ -167,12 +224,16 @@
 					mouseYCanvas,
 					outerRadius
 				);
-				glow.addColorStop(0, 'rgba(52, 211, 153, 0.22)');
-				glow.addColorStop(0.35, 'rgba(52, 211, 153, 0.1)');
-				glow.addColorStop(1, 'rgba(52, 211, 153, 0)');
+				const styles = getComputedStyle(document.documentElement);
+				const glowRgb = styles.getPropertyValue('--accent-rgb').trim() || '252, 238, 10';
+				glow.addColorStop(0, `rgba(${glowRgb}, 0.18)`);
+				glow.addColorStop(0.35, `rgba(${glowRgb}, 0.08)`);
+				glow.addColorStop(1, `rgba(${glowRgb}, 0)`);
 				ctx.fillStyle = glow;
 				ctx.fillRect(0, 0, canvas.width, canvas.height);
 			}
+
+			const rainRgb = getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim() || '252, 238, 10';
 
 			for (let i = 0; i < drops.length; i++) {
 				const x = i * fontSize;
@@ -185,7 +246,9 @@
 				const brightness = dist < 140 ? 0.72 : dist < 250 ? 0.44 : 0.18;
 
 				const alpha = Math.min(1, brightness);
-				ctx.fillStyle = `rgba(52, 211, 153, ${alpha})`;
+				ctx.fillStyle = isLight
+					? `rgba(${rainRgb}, ${alpha * 0.55})`
+					: `rgba(${rainRgb}, ${alpha})`;
 				ctx.font = `${fontSize}px monospace`;
 
 				const char = charArray[Math.floor(Math.random() * charArray.length)];
@@ -359,6 +422,8 @@
 
 		const strings = [
 			'Lead Software Engineer',
+			'AI Agent Orchestrator',
+			'AI-Augmented Engineer',
 			'Full Stack Developer',
 			'Mobile Development Specialist',
 			'React Native Expert',

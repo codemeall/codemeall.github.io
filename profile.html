@@ -2,13 +2,54 @@
 <html lang="en">
 
 <head>
-	<title>Abdul Aziz | Lead Software Engineer | Mobile, Full-Stack &amp; SDK Architecture</title>
+	<title>Abdul Aziz | Lead Software Engineer | AI Agents, Mobile &amp; Full-Stack</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="dark light">
+	<script>
+		(function () {
+			var key = 'theme-preference';
+			var saved = null;
+			try { saved = localStorage.getItem(key); } catch (e) {}
+			var theme = (saved === 'light' || saved === 'dark')
+				? saved
+				: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			document.documentElement.setAttribute('data-theme', theme);
+		})();
+	</script>
 	<meta name="description"
-		content="Abdul Aziz is a Lead Software Engineer with 10+ years of experience building mobile-first products, scalable web platforms, and production-grade APIs.">
+		content="Abdul Aziz is a Lead Software Engineer with 10+ years shipping mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents, LLM powered features and agentic delivery workflows.">
 	<meta name="keywords"
-		content="Lead Software Engineer, mobile app development, full stack engineer, React Native, Flutter, Swift, Kotlin, SDK development, Node.js, Next.js">
+		content="Lead Software Engineer, mobile app development, full stack engineer, backend SaaS, web development, AI agents, LLM integration, open-weight models, agent orchestration, MCP, Claude Code, Cursor, Codex, React Native, Flutter, Swift, Kotlin, SDK development, Node.js, Next.js, PostgreSQL, Supabase, Cloudflare">
+
+	<!-- Social -->
+	<meta property="og:title" content="Abdul Aziz | Lead Software Engineer | AI Agents, Mobile &amp; Full-Stack">
+	<meta property="og:description"
+		content="Lead Software Engineer with 10+ years shipping mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents, LLM powered features and agentic delivery workflows.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://codemeall.github.io/">
+	<meta property="og:image" content="https://avatars.githubusercontent.com/u/30825551?v=4">
+	<meta property="og:image:alt" content="Abdul Aziz">
+	<meta name="twitter:card" content="summary">
+
+	<!-- Structured data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Abdul Aziz",
+		"url": "https://codemeall.github.io/",
+		"image": "https://avatars.githubusercontent.com/u/30825551?v=4",
+		"jobTitle": "Lead Software Engineer",
+		"description": "Lead Software Engineer with 10+ years shipping mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents, LLM powered features and agentic delivery workflows.",
+		"email": "mailto:mdab.aziz01@gmail.com",
+		"sameAs": [
+			"https://github.com/codemeall",
+			"https://in.linkedin.com/in/abdulaziz-codemeall"
+		],
+		"knowsAbout": ["Mobile App Development", "Web Development", "Backend SaaS", "Node.js", "Next.js", "React Native", "Flutter", "Swift", "Kotlin", "PostgreSQL", "Supabase", "Cloudflare", "AI agents", "LLM integration", "Open-weight models", "MCP"]
+	}
+	</script>
 
 	<!-- Bootstrap -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,7 +62,7 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<!-- Enhanced CSS -->
-	<link rel="stylesheet" href="enhanced.css?v=20260217b" />
+	<link rel="stylesheet" href="enhanced.css?v=20260829f" />
 </head>
 
 <body>
@@ -84,16 +125,9 @@
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light sticky-top" id="main-nav">
 		<div class="container">
-			<div class="d-flex align-items-center justify-content-between w-100">
-				<a class="navbar-brand" href="#top">
-					<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
-				</a>
-				<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
+			<a class="navbar-brand" href="#top">
+				<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
+			</a>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item">
@@ -115,6 +149,18 @@
 						<a class="nav-link" href="#contact">Contact&nbsp;me</a>
 					</li>
 				</ul>
+			</div>
+			<div class="navbar-actions">
+				<button type="button" class="theme-toggle magnetic-btn" id="theme-toggle"
+					aria-label="Switch color theme">
+					<i class="fas fa-sun theme-icon-sun" aria-hidden="true"></i>
+					<i class="fas fa-moon theme-icon-moon" aria-hidden="true"></i>
+				</button>
+				<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 			</div>
 		</div>
 	</nav>
@@ -175,6 +221,7 @@
 							</div>
 						</div>
 
+						<!-- -->
 					</div>
 				</div>
 
@@ -184,8 +231,9 @@
 							Hi, I'm <span class="highlight-name">Abdul Aziz</span>
 						</h1>
 						<div class="hero-tagline reveal-up" style="--delay: 0.1s">
-							<span class="tagline-decorator">//</span> Lead Software Engineer with 10+ years building
-							mobile-first products, scalable platforms, and high-performing engineering teams.
+							<span class="tagline-decorator">//</span> Lead Software Engineer with 10+ years shipping
+							mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents,
+							LLM powered features and agentic delivery workflows with high performing engineering teams.
 						</div>
 						<div class="hero-actions reveal-up" style="--delay: 0.12s">
 							<a href="mailto:mdab.aziz01@gmail.com?subject=Consultation%20Request"
@@ -194,10 +242,14 @@
 							</a>
 						</div>
 						<div class="quick-chips reveal-up" style="--delay: 0.15s">
-							<a href="#service-mobile" class="chip-link magnetic-btn"
+							<a href="#service-mobile" class="chip-link chip-link--accent magnetic-btn"
 								data-service-collapse="collapseOne">Mobile</a>
 							<a href="#service-fullstack" class="chip-link magnetic-btn"
 								data-service-collapse="collapseTwo">Full Stack</a>
+							<a href="#service-backend" class="chip-link magnetic-btn"
+								data-service-collapse="collapseThree">Backend</a>
+							<a href="#service-ai" class="chip-link magnetic-btn"
+								data-service-collapse="collapseAI">AI &amp; Agents</a>
 							<a href="#service-sdk" class="chip-link magnetic-btn"
 								data-service-collapse="collapseFour">SDK</a>
 							<a href="#contact" class="chip-link magnetic-btn">Consulting</a>
@@ -207,29 +259,22 @@
 					<div class="about-content">
 						<div class="about-block reveal-left" style="--delay: 0.2s">
 							<div class="about-block-indicator"></div>
-							<p class="lh-base">I am a Lead Software Engineer with 10+ years of experience delivering
-								production-grade software across mobile and web platforms. I currently lead end-to-end
-								mobile initiatives for iOS, Android, and Huawei ecosystems, with hands-on ownership from
-								architecture to release.</p>
+							<p class="lh-base">I am a Lead Software Engineer with 10+ years shipping production grade products across mobile, web and backend. I lead end to end delivery from architecture and native bridging to App Store, Play and Huawei AppGallery release, accountable for performance, stability and maintainability at scale.</p>
 						</div>
 
 						<div class="about-block reveal-left" style="--delay: 0.3s">
 							<div class="about-block-indicator"></div>
-							<p>My core strength is mobile engineering at scale. I design and ship applications using
-								React Native, Flutter, Swift, and Kotlin, and I build reusable SDKs that bridge native
-								capabilities into cross-platform stacks for faster delivery and consistent quality.</p>
+							<p>My core strength is mobile engineering at scale. I ship with React Native, Flutter, Swift and Kotlin, plus Cordova and NativeScript where it fits, and build reusable SDKs that expose native capabilities to cross platform teams for faster, consistent delivery.</p>
 						</div>
 
 						<div class="about-block reveal-left" style="--delay: 0.4s">
 							<div class="about-block-indicator"></div>
-							<p>Beyond mobile, I lead web platform development using React, Vue, and Next.js to deliver
-								responsive, performant user experiences aligned with product and business goals.</p>
+							<p>Beyond mobile, I deliver full stack web and backend SaaS platforms as primary deliveries. Responsive web with React, Vue, Vuetify, Next.js and Svelte; services and APIs in Node.js, Python and PHP on Express, Deno, Bun, Laravel and Django; data on PostgreSQL, MySQL, MongoDB, SQLite, Realm and Supabase; cloud native on AWS with EC2, Lambda and Amplify, Cloudflare with Workers, R2, D1 and CDN, and GCP and Firebase with Functions, Firestore, Realtime DB and Analytics. Git and GitLab based delivery, with WordPress for content velocity where it fits.</p>
 						</div>
 
 						<div class="about-block reveal-left" style="--delay: 0.5s">
 							<div class="about-block-indicator"></div>
-							<p>I also architect backend services and APIs with Node.js, Python, and PHP, enabling secure
-								integrations, reliable data flows, and full-stack delivery across complex products.</p>
+							<p>AI complements my delivery. I design agents and multi agent workflows with MCP and tool use, and deliver LLM features including function calling, structured outputs and streaming UX on OpenAI, Anthropic and open weight models, with evals, guardrails and cost and latency budgets. Day to day I run delivery in Claude Code, Cursor and Codex with custom skills, hooks and review loops, and roll out the same agentic workflows for client teams.</p>
 						</div>
 					</div>
 				</div>
@@ -251,36 +296,47 @@
 			</div>
 			<div class="card">
 				<div class="card-body">
-					<p class="lead">I build and lead delivery across mobile, web, and backend systems, with a focus on
-						architecture quality, execution speed, and business impact.</p>
+				<p class="lead">I build and lead delivery with mobile as primary, followed by web and backend systems, complemented by AI agents and LLM powered features and agentic workflows that compress delivery time without cutting review discipline.</p>
 				</div>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item reveal-left" style="--delay: 0.1s">
 						<strong><i class="fas fa-mobile-alt me-2"></i>Mobile App Development:</strong> Design and
-						delivery of production-grade applications for iOS, Android, and Huawei, including third-party
-						integrations such as Firebase, AWS Amplify, and payment gateways.
+						delivery of production grade applications for iOS, Android and Huawei, including third party
+						integrations such as Firebase, AWS Amplify and payment gateways.
 					</li>
 					<li class="list-group-item reveal-left" style="--delay: 0.15s">
 						<strong><i class="fas fa-desktop me-2"></i>Web &amp; Desktop Applications:</strong> Delivery of
-						responsive, high-performance interfaces for web and desktop products with consistent
-						cross-device experiences.
+						responsive, high performance interfaces for web and desktop products with consistent
+						cross device experiences.
 					</li>
 					<li class="list-group-item reveal-left" style="--delay: 0.2s">
 						<strong><i class="fas fa-server me-2"></i>Backend &amp; API Development:</strong> Architecture
 						and implementation of secure, scalable APIs and backend services for reliable integrations and
 						data workflows.
 					</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.25s">
+				<li class="list-group-item reveal-left" style="--delay: 0.25s">
+					<strong><i class="fas fa-robot me-2"></i>AI Agents &amp; LLM Features:</strong> Agents, multi agent
+					workflows and LLM features built for real products including tool and function calling, MCP server
+					integration, structured outputs and open weight models where cost or privacy rules out hosted
+					APIs, shipped with guardrails, evals and cost and latency budgets.
+				</li>
+				<li class="list-group-item reveal-left" style="--delay: 0.3s">
+					<strong><i class="fas fa-terminal me-2"></i>AI-Augmented Delivery:</strong> Day to day engineering
+					inside AI harnesses like Claude Code, Cursor and Codex, extended with custom skills,
+					hooks and slash commands, and rolled out to client teams with review loops that keep agent
+					output production grade.
+				</li>
+					<li class="list-group-item reveal-left" style="--delay: 0.35s">
 						<strong><i class="fas fa-puzzle-piece me-2"></i>Custom SDKs:</strong> Development of reusable
 						SDKs tailored to product requirements, enabling faster implementation and extensible platform
 						capabilities.
 					</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.3s">
-						<strong><i class="fas fa-robot me-2"></i>Automation &amp; Scripting:</strong> Workflow
-						automation through scripting, bots, and integration tooling to reduce manual effort and improve
-						delivery velocity.
+					<li class="list-group-item reveal-left" style="--delay: 0.4s">
+						<strong><i class="fas fa-gears me-2"></i>Automation &amp; Scripting:</strong> Workflow
+						automation through scripting, bots, agentic pipelines, and integration tooling to reduce manual
+						effort and improve delivery velocity.
 					</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.35s">
+					<li class="list-group-item reveal-left" style="--delay: 0.45s">
 						<strong><i class="fab fa-wordpress me-2"></i>WordPress Development:</strong> Delivery of
 						business, blog, and e-commerce sites using custom WordPress themes and plugins.
 					</li>
@@ -303,6 +359,63 @@
 
 				<div class="col-lg-3 col-sm-12">
 					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.1s">
+						<div class="tech-card-glow"></div>
+						<div class="text-start">
+							<p class="lead"><i class="fas fa-brain me-2"></i>AI &amp; Agents</p>
+						</div>
+						<ul class="list-group list-group">
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Grok Bot</div>
+								</div>
+								<img src="https://x.ai/favicon.ico" alt="Grok" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">Harmes Agent</div>
+								</div>
+								<img src="https://cdn.simpleicons.org/robotframework" alt="Harmes Agent" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">OpenClaw</div>
+								</div>
+								<img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/openclaw.svg" alt="OpenClaw" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto">
+									<div class="fw-bold">MCP Servers</div>
+								</div>
+								<img src="https://raw.githubusercontent.com/modelcontextprotocol/docs/main/logo/light.svg" alt="MCP" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto text-start">
+									<div class="fw-bold">Hosted LLM APIs</div>
+									<p class="mb-0"><i style="font-size:0.75rem">OpenAI • Anthropic • xAI</i></p>
+								</div>
+								<div class="d-flex align-items-center gap-1">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="OpenAI" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="OpenAI" loading="lazy" />
+									<img src="https://cdn.simpleicons.org/anthropic" alt="Anthropic" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="Anthropic" loading="lazy" />
+									<img src="https://x.ai/favicon.ico" alt="xAI" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="xAI Grok" loading="lazy" />
+								</div>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ms-2 me-auto my-auto text-start">
+									<div class="fw-bold">Open Models</div>
+									<p class="mb-0"><i style="font-size:0.75rem">Hugging Face • Ollama • OpenRouter</i></p>
+								</div>
+								<div class="d-flex align-items-center gap-1">
+									<img src="https://cdn.simpleicons.org/huggingface" alt="Hugging Face" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="Hugging Face" loading="lazy" />
+									<img src="https://cdn.simpleicons.org/ollama" alt="Ollama" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="Ollama" loading="lazy" />
+									<img src="https://cdn.simpleicons.org/openrouter" alt="OpenRouter" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="OpenRouter" loading="lazy" />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-sm-12">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.2s">
 						<div class="tech-card-glow"></div>
 						<div class="text-start">
 							<p class="lead"><i class="fas fa-code me-2"></i>Software Languages</p>
@@ -355,7 +468,7 @@
 				</div>
 
 				<div class="col-lg-3 col-sm-12 align-items-start">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.2s">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.3s">
 						<div class="tech-card-glow"></div>
 						<div class="text-start mt-4">
 							<p class="lead"><i class="fas fa-mobile-alt me-2"></i>Mobile App Development</p>
@@ -402,7 +515,7 @@
 				</div>
 
 				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.3s">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.4s">
 						<div class="tech-card-glow"></div>
 						<div class="text-start mt-4">
 							<p class="lead"><i class="fas fa-server me-2"></i>Backend API Development</p>
@@ -449,7 +562,7 @@
 				</div>
 
 				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.4s">
+					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.5s">
 						<div class="tech-card-glow"></div>
 						<div class="text-start mt-4">
 							<p class="lead"><i class="fas fa-globe me-2"></i>Web App Development</p>
@@ -497,7 +610,19 @@
 							<div class="text-start">
 								<p class="lead"><i class="fas fa-database me-2"></i>Database</p>
 							</div>
-							<ul class="list-group list-group">
+						<ul class="list-group list-group">
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">PostgreSQL</div>
+									</div>
+									<i class="fas fa-database tech-icon-fa" aria-hidden="true"></i>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto">
+										<div class="fw-bold">Supabase</div>
+									</div>
+									<i class="fas fa-bolt tech-icon-fa" aria-hidden="true"></i>
+								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto">
 										<div class="fw-bold">MySQL</div>
@@ -532,7 +657,7 @@
 							<div class="text-start mt-4">
 								<p class="lead"><i class="fas fa-code-branch me-2"></i>Version Control</p>
 							</div>
-							<ul class="list-group list-group">
+						<ul class="list-group list-group">
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto">
 										<div class="fw-bold">Git</div>
@@ -567,13 +692,20 @@
 							<div class="text-start mt-4">
 								<p class="lead"><i class="fas fa-cloud me-2"></i>Cloud Service</p>
 							</div>
-							<ul class="list-group list-group">
+						<ul class="list-group list-group">
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto text-start">
 										<div class="fw-bold">AWS</div>
 										<p><i>EC2, Lambda functions, Amplify</i></p>
 									</div>
 									<img src="./assets/aws.png" alt="AWS" height="40" width="40" />
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-start">
+									<div class="ms-2 me-auto my-auto text-start">
+										<div class="fw-bold">Cloudflare</div>
+										<p><i>Workers, R2, D1, KV, CDN, Pages for backend SaaS</i></p>
+									</div>
+									<i class="fas fa-cloud tech-icon-fa" aria-hidden="true"></i>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto text-start">
@@ -592,7 +724,7 @@
 							<div class="text-start mt-4">
 								<p class="lead"><i class="fab fa-wordpress me-2"></i>CMS</p>
 							</div>
-							<ul class="list-group list-group">
+						<ul class="list-group list-group">
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto text-start">
 										<div class="fw-bold">WordPress</div>
@@ -670,7 +802,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="accordion-item">
+						<div class="accordion-item anchor-target" id="service-backend">
 							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 									data-bs-target="#collapseThree" aria-expanded="false">
@@ -689,6 +821,31 @@
 									<p class="service-context"><strong>Typical deliverables:</strong> API contracts,
 										service architecture, integration workflows, monitoring-ready backend endpoints.
 									</p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item anchor-target" id="service-ai">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#collapseAI" aria-expanded="false">
+									<i class="fas fa-robot me-2"></i> AI Agent Development &amp; LLM Integration
+								</button>
+							</h2>
+							<div id="collapseAI" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+								<div class="accordion-body text-start">
+									<p>I take AI from demo to production. That covers three lanes: agents and multi-agent
+										workflows wired into your systems via tool use and MCP servers; LLM features inside
+										your mobile or web product, such as in-app assistants, summarization, and features
+										running on open-weight models where cost or data privacy matters;
+										and agentic delivery setups for your engineering team on Claude Code, Cursor, or
+										Codex with custom skills, hooks, and review loops. Every build ships with structured
+										outputs, guardrails, and explicit cost and latency budgets.</p>
+									<p class="service-context"><strong>Best fit:</strong> Teams adding AI capability to an
+										existing product, or adopting agentic workflows in how they deliver software.</p>
+									<p class="service-context"><strong>Typical deliverables:</strong> Agent and workflow
+										design, MCP and tool integrations, a production AI feature (e.g. an in-app assistant
+										or an open-weight model integration), team harness setup with documentation and
+										handover.</p>
 								</div>
 							</div>
 						</div>
@@ -854,7 +1011,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-	<script src="enhanced.js?v=20260217b"></script>
+	<script src="enhanced.js?v=20260829f"></script>
 </body>
 
 </html>

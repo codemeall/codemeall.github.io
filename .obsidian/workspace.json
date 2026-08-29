@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "49acde99d398cd97",
+        "id": "c15b8187d5db51a2",
         "type": "tabs",
         "children": [
           {
-            "id": "ffb7ae28911c3fb1",
+            "id": "60807c5c962d56fd",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2026-06-06-building-scalable-mobile-sdks.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-06-06-building-scalable-mobile-sdks"
             }
           }
         ]
@@ -189,8 +193,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "ffb7ae28911c3fb1",
+  "active": "60807c5c962d56fd",
   "lastOpenFiles": [
+    "assets/c.png",
+    "_posts/2026-06-06-building-scalable-mobile-sdks.md",
+    "assets/aws.png",
     "assets/images/gemini_feat_1.png",
     "README.md",
     "assets/images/featured_antigravity.jpg",
@@ -206,7 +213,6 @@
     "_scripts/slugify-title.js",
     "_scripts",
     "_posts/2026-06-07-building-scalable-mobile-sdks.md",
-    "_posts/2026-06-06-building-scalable-mobile-sdks.md",
     "_posts/2026-06-06-welcome-post.md",
     "_posts/2026-06-06-Second Post.md",
     "Jekyll Post Template.md",
