@@ -62,6 +62,52 @@
 
 	initTheme();
 
+	/* ---------- Portfolio Mode (professional / personal) ---------- */
+	var MODE_KEY = 'portfolio-mode';
+
+	function applyMode(mode, persist) {
+		document.documentElement.setAttribute('data-mode', mode);
+		document.querySelectorAll('.mode-switch-btn').forEach(function (btn) {
+			btn.setAttribute('aria-pressed', btn.getAttribute('data-mode-target') === mode ? 'true' : 'false');
+		});
+		if (!persist) return;
+		try { localStorage.setItem(MODE_KEY, mode); } catch (e) { /* ignore */ }
+		try {
+			var url = new URL(window.location.href);
+			url.searchParams.set('mode', mode);
+			url.hash = '';
+			history.replaceState(null, '', url.toString());
+		} catch (e) { /* ignore */ }
+	}
+
+	function revealVisibleMode() {
+		// Sections hidden at load were measured as zero-height; re-measure and reveal what is on screen.
+		if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+		document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(function (el) {
+			if (el.offsetParent !== null && el.getBoundingClientRect().top < window.innerHeight) {
+				el.classList.add('revealed');
+			}
+		});
+	}
+
+	function initMode() {
+		var current = document.documentElement.getAttribute('data-mode') === 'personal' ? 'personal' : 'professional';
+		applyMode(current, false);
+
+		document.querySelectorAll('[data-mode-target]').forEach(function (el) {
+			el.addEventListener('click', function (e) {
+				e.preventDefault();
+				var mode = el.getAttribute('data-mode-target');
+				if (mode === document.documentElement.getAttribute('data-mode')) return;
+				applyMode(mode, true);
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+				setTimeout(revealVisibleMode, 50);
+			});
+		});
+	}
+
+	initMode();
+
 	/* ---------- Preloader ---------- */
 	const preloader = document.getElementById('preloader');
 	const preloaderBar = document.getElementById('preloader-bar');
