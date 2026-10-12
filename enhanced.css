@@ -2304,3 +2304,42 @@ html.mode-leaving body::after {
 	.bg-container, .card, .timeline-card, .info-card, .tech-card { box-shadow: none !important; clip-path: none !important; break-inside: avoid; }
 	.timeline-card, .info-card { break-inside: avoid; }
 }
+
+/* — engagement needs (personal) — */
+.audience-filter { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin: 0 0 1.5rem; }
+.audience-filter-label { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-right: 4px; }
+.audience-filter .chip-link { cursor: pointer; }
+.need-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.need-card {
+	background: var(--card-bg);
+	border: 1px solid rgba(var(--accent-rgb), 0.18);
+	border-left: 3px solid rgba(var(--accent-blue-rgb), 0.6);
+	padding: 1.25rem;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.need-card:hover, .need-card:target { border-color: rgba(var(--accent-rgb), 0.6); border-left-color: #fcee0a; transform: translateY(-2px); }
+.need-card[hidden] { display: none; }
+[data-theme="light"] .need-card { border-color: rgba(0, 0, 0, 0.08); border-left-color: var(--accent-cyan); }
+[data-theme="light"] .need-card:hover, [data-theme="light"] .need-card:target { border-left-color: #9a8c00; }
+.need-icon { font-size: 1.3rem; color: #fcee0a; }
+[data-theme="light"] .need-icon { color: #0e0e10; }
+.need-card h3 { font-size: 1.05rem; margin: 0; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif; }
+.need-card p { margin: 0; color: var(--text-secondary); font-size: 0.93rem; }
+.need-card .need-pain { color: var(--text-primary); font-style: italic; }
+.need-card ul { margin: 0.2rem 0 0.6rem; padding-left: 1.1rem; color: var(--text-primary); font-size: 0.9rem; }
+.need-card ul li::marker { color: #fcee0a; }
+[data-theme="light"] .need-card ul li::marker { color: #9a8c00; }
+.need-meta { margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-cyan); }
+.need-meta i { margin-right: 6px; }
+.need-link { color: var(--text-primary); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(var(--accent-rgb), 0.6); align-self: flex-start; }
+.need-link:hover, .need-link:focus-visible { color: var(--accent-cyan); border-bottom-color: var(--accent-cyan); }
+.need-empty { text-align: center; margin-top: 1rem; color: var(--text-secondary); }
+.need-empty a { color: var(--accent-cyan); }
+.models-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; color: var(--text-primary); margin: 0 0 0.25rem; }
+.engagement-assurances { list-style: none; padding: 0; margin: 1.75rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.75rem; color: var(--text-secondary); font-size: 0.92rem; }
+.engagement-assurances i { color: var(--accent-cyan); margin-right: 8px; }
+.models-header { margin-top: 3rem; }
