@@ -585,7 +585,12 @@ section[id] { scroll-margin-top: 90px; padding: clamp(1.05rem, 2.6vw, 2.2rem); }
 
 .profile-face-back {
 	transform: rotateY(180deg);
+	image-rendering: pixelated;
 }
+
+/* Personal mode leads with the pixel avatar; hover still flips to the photo */
+html[data-mode="personal"] .profile-face-front { transform: rotateY(180deg); }
+html[data-mode="personal"] .profile-face-back { transform: none; }
 
 .profile-img-wrapper:hover .profile-flip {
 	/* Coin-style roll with extra spin before showing the back face */
