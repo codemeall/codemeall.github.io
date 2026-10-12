@@ -71,7 +71,7 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<!-- Enhanced CSS -->
-	<link rel="stylesheet" href="enhanced.css?v=20261012d" />
+	<link rel="stylesheet" href="enhanced.css?v=20261012e" />
 </head>
 
 <body>
@@ -90,19 +90,19 @@
 						<span class="terminal-prompt">$</span> <span class="terminal-text">initializing
 							portfolio...</span>
 					</div>
-					<div class="terminal-line" data-delay="300">
+					<div class="terminal-line" data-delay="180">
 						<span class="terminal-prompt">$</span> <span class="terminal-text">loading assets <span
 								class="terminal-dots">...</span></span>
 					</div>
-					<div class="terminal-line" data-delay="600">
+					<div class="terminal-line" data-delay="360">
 						<span class="terminal-prompt">$</span> <span class="terminal-text">compiling experience <span
 								class="text-success">[10 years]</span></span>
 					</div>
-					<div class="terminal-line" data-delay="900">
+					<div class="terminal-line" data-delay="540">
 						<span class="terminal-prompt">$</span> <span class="terminal-text">mounting tech stack <span
 								class="text-success">[OK]</span></span>
 					</div>
-					<div class="terminal-line" data-delay="1200">
+					<div class="terminal-line" data-delay="720">
 						<span class="terminal-prompt">$</span> <span class="terminal-text">deploying UI <span
 								class="text-success">[READY]</span></span>
 					</div>
@@ -172,13 +172,14 @@
 				</ul>
 			</div>
 			<div class="navbar-actions">
-				<div class="mode-switch" role="group" aria-label="Portfolio mode">
-					<button type="button" class="mode-switch-btn" data-mode-target="professional"
-						title="Experience, skills and education">
+				<div class="mode-switch" role="radiogroup" aria-label="Portfolio mode">
+					<span class="mode-switch-thumb" aria-hidden="true"></span>
+					<button type="button" class="mode-switch-btn" role="radio" data-mode-target="professional"
+						title="Professional: experience, skills and education">
 						<i class="fas fa-briefcase" aria-hidden="true"></i><span>Professional</span>
 					</button>
-					<button type="button" class="mode-switch-btn" data-mode-target="personal"
-						title="Services and consultations I offer">
+					<button type="button" class="mode-switch-btn" role="radio" data-mode-target="personal"
+						title="Personal: services, consultations and process">
 						<i class="fas fa-handshake" aria-hidden="true"></i><span>Personal</span>
 					</button>
 				</div>
@@ -218,11 +219,11 @@
 						</p>
 
 						<div class="justify-content-evenly social-links">
-							<a target="_blank" href="https://github.com/codemeall" class="social-link magnetic-btn"
+							<a target="_blank" rel="noopener" href="https://github.com/codemeall" class="social-link magnetic-btn"
 								aria-label="GitHub">
 								<img class="social-icons m-2" src="assets/git.png" alt="GitHub" />
 							</a>
-							<a target="_blank" href="https://in.linkedin.com/in/abdulaziz-codemeall"
+							<a target="_blank" rel="noopener" href="https://in.linkedin.com/in/abdulaziz-codemeall"
 								class="social-link magnetic-btn" aria-label="LinkedIn">
 								<img class="social-icons m-2" src="assets/linkedin.png" alt="LinkedIn" />
 							</a>
@@ -261,6 +262,27 @@
 						<h1 class="hero-greeting reveal-up">
 							Hi, I'm <span class="highlight-name">Abdul Aziz</span>
 						</h1>
+						<div class="audience-switch reveal-up" style="--delay: 0.05s" role="radiogroup"
+							aria-label="What brings you here?">
+							<span class="audience-switch-label">What brings you here?</span>
+							<div class="audience-switch-track">
+								<span class="audience-switch-thumb" aria-hidden="true"></span>
+								<button type="button" class="audience-option" role="radio" data-mode-target="professional">
+									<i class="fas fa-briefcase" aria-hidden="true"></i>
+									<span class="audience-option-text">
+										<strong>Hiring for a role</strong>
+										<small>Experience, skills &amp; education</small>
+									</span>
+								</button>
+								<button type="button" class="audience-option" role="radio" data-mode-target="personal">
+									<i class="fas fa-rocket" aria-hidden="true"></i>
+									<span class="audience-option-text">
+										<strong>Building a product</strong>
+										<small>Services, engagements &amp; process</small>
+									</span>
+								</button>
+							</div>
+						</div>
 						<div class="hero-tagline reveal-up" style="--delay: 0.1s" data-show="professional">
 							<span class="tagline-decorator">//</span> Lead Software Engineer with 10+ years shipping
 							mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents,
@@ -280,6 +302,9 @@
 								class="btn ghost-btn magnetic-btn">
 								<i class="fas fa-envelope me-2"></i>Email Me
 							</a>
+							<button type="button" class="btn ghost-btn magnetic-btn" data-print-resume>
+								<i class="fas fa-file-arrow-down me-2"></i>Résumé PDF
+							</button>
 							<span class="availability-badge"><i class="fas fa-briefcase" aria-hidden="true"></i>Lead
 								Software Engineer at Maren Solutions</span>
 						</div>
@@ -320,7 +345,7 @@
 
 						<div class="about-block reveal-left" style="--delay: 0.4s">
 							<div class="about-block-indicator"></div>
-							<p>Beyond mobile, I deliver full stack web and backend SaaS platforms as primary deliveries. Responsive web with React, Vue, Vuetify, Next.js and Svelte; services and APIs in Node.js, Python and PHP on Express, Deno, Bun, Laravel and Django; data on PostgreSQL, MySQL, MongoDB, SQLite, Realm and Supabase; cloud native on AWS with EC2, Lambda and Amplify, Cloudflare with Workers, R2, D1 and CDN, and GCP and Firebase with Functions, Firestore, Realtime DB and Analytics. Git and GitLab based delivery, with WordPress for content velocity where it fits.</p>
+							<p>Beyond mobile, I deliver full stack web and backend SaaS platforms as primary deliveries: responsive web with React, Next.js, Vue and Svelte; services and APIs in Node.js, Python and PHP; data on PostgreSQL, MongoDB and Supabase; and cloud native delivery on AWS, Cloudflare and GCP with Firebase.</p>
 						</div>
 
 						<div class="about-block reveal-left" style="--delay: 0.5s">
@@ -422,53 +447,48 @@
 					<p class="lead sub-titles"><i>Core capabilities I bring to product and engineering teams</i></p>
 				</div>
 			</div>
-			<div class="card">
-				<div class="card-body">
-				<p class="lead">I build and lead delivery with mobile as primary, followed by web and backend systems, complemented by AI agents and LLM powered features and agentic workflows that compress delivery time without cutting review discipline.</p>
-				</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item reveal-left" style="--delay: 0.1s">
-						<strong><i class="fas fa-mobile-alt me-2"></i>Mobile App Development:</strong> Design and
-						delivery of production grade applications for iOS, Android and Huawei, including third party
-						integrations such as Firebase, AWS Amplify and payment gateways.
-					</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.15s">
-						<strong><i class="fas fa-desktop me-2"></i>Web &amp; Desktop Applications:</strong> Delivery of
-						responsive, high performance interfaces for web and desktop products with consistent
-						cross device experiences.
-					</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.2s">
-						<strong><i class="fas fa-server me-2"></i>Backend &amp; API Development:</strong> Architecture
-						and implementation of secure, scalable APIs and backend services for reliable integrations and
-						data workflows.
-					</li>
-				<li class="list-group-item reveal-left" style="--delay: 0.25s">
-					<strong><i class="fas fa-robot me-2"></i>AI Agents &amp; LLM Features:</strong> Agents, multi agent
-					workflows and LLM features built for real products including tool and function calling, MCP server
-					integration, structured outputs and open weight models where cost or privacy rules out hosted
-					APIs, shipped with guardrails, evals and cost and latency budgets.
-				</li>
-				<li class="list-group-item reveal-left" style="--delay: 0.3s">
-					<strong><i class="fas fa-terminal me-2"></i>AI-Augmented Delivery:</strong> Day to day engineering
-					inside AI harnesses like Claude Code, Cursor and Codex, extended with custom skills,
-					hooks and slash commands, and rolled out to client teams with review loops that keep agent
-					output production grade.
-				</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.35s">
-						<strong><i class="fas fa-puzzle-piece me-2"></i>Custom SDKs:</strong> Development of reusable
-						SDKs tailored to product requirements, enabling faster implementation and extensible platform
-						capabilities.
-					</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.4s">
-						<strong><i class="fas fa-gears me-2"></i>Automation &amp; Scripting:</strong> Workflow
-						automation through scripting, bots, agentic pipelines, and integration tooling to reduce manual
-						effort and improve delivery velocity.
-					</li>
-					<li class="list-group-item reveal-left" style="--delay: 0.45s">
-						<strong><i class="fab fa-wordpress me-2"></i>WordPress Development:</strong> Delivery of
-						business, blog, and e-commerce sites using custom WordPress themes and plugins.
-					</li>
-				</ul>
+			<p class="skills-intro">I build and lead delivery with mobile as primary, followed by web and backend systems, complemented by AI agents, LLM powered features and agentic workflows that compress delivery time without cutting review discipline.</p>
+			<div class="skill-grid">
+				<article class="skill-card reveal-up" style="--delay: 0.00s">
+					<span class="skill-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></span>
+					<h3>Mobile App Development</h3>
+					<p>Design and delivery of production grade applications for iOS, Android and Huawei, including third party integrations such as Firebase, AWS Amplify and payment gateways.</p>
+				</article>
+				<article class="skill-card reveal-up" style="--delay: 0.05s">
+					<span class="skill-icon"><i class="fas fa-desktop" aria-hidden="true"></i></span>
+					<h3>Web &amp; Desktop Applications</h3>
+					<p>Delivery of responsive, high performance interfaces for web and desktop products with consistent cross device experiences.</p>
+				</article>
+				<article class="skill-card reveal-up" style="--delay: 0.10s">
+					<span class="skill-icon"><i class="fas fa-server" aria-hidden="true"></i></span>
+					<h3>Backend &amp; API Development</h3>
+					<p>Architecture and implementation of secure, scalable APIs and backend services for reliable integrations and data workflows.</p>
+				</article>
+				<article class="skill-card reveal-up" style="--delay: 0.15s">
+					<span class="skill-icon"><i class="fas fa-robot" aria-hidden="true"></i></span>
+					<h3>AI Agents &amp; LLM Features</h3>
+					<p>Agents, multi agent workflows and LLM features built for real products including tool and function calling, MCP server integration, structured outputs and open weight models where cost or privacy rules out hosted APIs, shipped with guardrails, evals and cost and latency budgets.</p>
+				</article>
+				<article class="skill-card reveal-up" style="--delay: 0.00s">
+					<span class="skill-icon"><i class="fas fa-terminal" aria-hidden="true"></i></span>
+					<h3>AI-Augmented Delivery</h3>
+					<p>Day to day engineering inside AI harnesses like Claude Code, Cursor and Codex, extended with custom skills, hooks and slash commands, and rolled out to client teams with review loops that keep agent output production grade.</p>
+				</article>
+				<article class="skill-card reveal-up" style="--delay: 0.05s">
+					<span class="skill-icon"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></span>
+					<h3>Custom SDKs</h3>
+					<p>Development of reusable SDKs tailored to product requirements, enabling faster implementation and extensible platform capabilities.</p>
+				</article>
+				<article class="skill-card reveal-up" style="--delay: 0.10s">
+					<span class="skill-icon"><i class="fas fa-gears" aria-hidden="true"></i></span>
+					<h3>Automation &amp; Scripting</h3>
+					<p>Workflow automation through scripting, bots, agentic pipelines, and integration tooling to reduce manual effort and improve delivery velocity.</p>
+				</article>
+				<article class="skill-card reveal-up" style="--delay: 0.15s">
+					<span class="skill-icon"><i class="fab fa-wordpress" aria-hidden="true"></i></span>
+					<h3>WordPress Development</h3>
+					<p>Delivery of business, blog, and e-commerce sites using custom WordPress themes and plugins.</p>
+				</article>
 			</div>
 		</div>
 	</section>
@@ -478,7 +498,7 @@
 	<!-- Tech Stack Section -->
 	<section id="tech-stack" data-show="professional">
 		<div class="bg-container">
-			<div class="row text-center my-3">
+			<div class="row text-center my-3 tech-grid">
 				<div class="section-header reveal-up">
 					<span class="section-tag">&lt;tech-stack&gt;</span>
 					<h2 class="glow-text section-title">My Tech Stack</h2>
@@ -500,9 +520,9 @@
 							</li>
 							<li class="list-group-item d-flex justify-content-between align-items-start">
 								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Harmes Agent</div>
+									<div class="fw-bold">Hermes Agent</div>
 								</div>
-								<img src="https://cdn.simpleicons.org/robotframework" alt="Harmes Agent" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
+								<img src="https://cdn.simpleicons.org/robotframework" alt="Hermes Agent" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
 							</li>
 							<li class="list-group-item d-flex justify-content-between align-items-start">
 								<div class="ms-2 me-auto my-auto">
@@ -731,7 +751,7 @@
 				</div>
 
 				<!-- Row 2 of tech cards -->
-				<div class="row my-5 col-lg-12 col-sm-12">
+				<div class="row my-5 col-lg-12 col-sm-12 tech-grid-contents">
 					<div class="col-lg-3 col-sm-12">
 						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.1s">
 							<div class="tech-card-glow"></div>
@@ -755,7 +775,7 @@
 									<div class="ms-2 me-auto my-auto">
 										<div class="fw-bold">MySQL</div>
 									</div>
-									<img src="./assets/js.png" alt="MySQL" height="40" width="40" />
+									<i class="fas fa-table tech-icon-fa" aria-hidden="true"></i>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-start">
 									<div class="ms-2 me-auto my-auto">
@@ -1227,6 +1247,13 @@
 						<i class="fas fa-calendar-check me-2"></i>Book a Consultation
 					</a>
 				</div>
+				<div class="email-copy">
+					<span class="email-copy-address">mdab.aziz01@gmail.com</span>
+					<button type="button" class="email-copy-btn" data-copy="mdab.aziz01@gmail.com"
+						aria-label="Copy email address">
+						<i class="far fa-copy" aria-hidden="true"></i><span>Copy</span>
+					</button>
+				</div>
 				<p class="mode-crosslink" data-show="professional">Looking to hire me for a project instead?
 					<a href="?mode=personal" data-mode-target="personal">See my services &amp; consultations &rarr;</a></p>
 				<p class="mode-crosslink" data-show="personal">Want to know more about my background?
@@ -1243,17 +1270,18 @@
 					<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
 				</div>
 				<div class="footer-links">
-					<a href="https://github.com/codemeall" target="_blank" class="footer-link magnetic-btn"><i
-							class="fab fa-github"></i></a>
-					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank"
-						class="footer-link magnetic-btn"><i class="fab fa-linkedin"></i></a>
-					<a href="mailto:mdab.aziz01@gmail.com" class="footer-link magnetic-btn"><i
-							class="fas fa-envelope"></i></a>
+					<a href="https://github.com/codemeall" target="_blank" rel="noopener" class="footer-link magnetic-btn" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" rel="noopener"
+						class="footer-link magnetic-btn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+					<a href="mailto:mdab.aziz01@gmail.com" class="footer-link magnetic-btn" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
 				</div>
-				<p class="footer-copy">Made with <span class="heart-beat">&lt;3</span> using Bootstrap v5.1.1</p>
+				<p class="footer-copy">&copy; <span data-year>2026</span> Abdul Aziz &middot; Lead Software Engineer &middot; Hyderabad, India</p>
 			</div>
 		</div>
 	</footer>
+
+	<!-- Mode change announcement -->
+	<div class="mode-toast" id="mode-toast" role="status" aria-live="polite"></div>
 
 	<!-- Back to Top Button -->
 	<button class="back-to-top magnetic-btn" id="back-to-top" aria-label="Back to top">
@@ -1266,7 +1294,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-	<script src="enhanced.js?v=20261012b"></script>
+	<script src="enhanced.js?v=20261012e"></script>
 </body>
 
 </html>

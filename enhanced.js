@@ -64,12 +64,35 @@
 
 	/* ---------- Portfolio Mode (professional / personal) ---------- */
 	var MODE_KEY = 'portfolio-mode';
+	var MODE_INFO = {
+		professional: {
+			title: 'Abdul Aziz | Lead Software Engineer | AI Agents, Mobile & Full-Stack',
+			icon: 'fa-briefcase',
+			toast: '<strong>Professional</strong> &middot; experience, skills &amp; education'
+		},
+		personal: {
+			title: 'Abdul Aziz | Mobile, Web & AI Product Development Services',
+			icon: 'fa-handshake',
+			toast: '<strong>Personal</strong> &middot; services, engagements &amp; process'
+		}
+	};
+	var modeListeners = [];
+	var modeBusy = false;
+	var toastTimer = null;
+
+	function currentMode() {
+		return document.documentElement.getAttribute('data-mode') === 'personal' ? 'personal' : 'professional';
+	}
 
 	function applyMode(mode, persist) {
 		document.documentElement.setAttribute('data-mode', mode);
-		document.querySelectorAll('.mode-switch-btn').forEach(function (btn) {
-			btn.setAttribute('aria-pressed', btn.getAttribute('data-mode-target') === mode ? 'true' : 'false');
+		document.querySelectorAll('[role="radio"][data-mode-target]').forEach(function (btn) {
+			var on = btn.getAttribute('data-mode-target') === mode;
+			btn.setAttribute('aria-checked', on ? 'true' : 'false');
+			btn.setAttribute('tabindex', on ? '0' : '-1');
 		});
+		if (MODE_INFO[mode]) document.title = MODE_INFO[mode].title;
+		modeListeners.forEach(function (fn) { fn(mode); });
 		if (!persist) return;
 		try { localStorage.setItem(MODE_KEY, mode); } catch (e) { /* ignore */ }
 		try {
@@ -90,23 +113,111 @@
 		});
 	}
 
+	function showModeToast(mode) {
+		var toast = document.getElementById('mode-toast');
+		if (!toast || !MODE_INFO[mode]) return;
+		toast.innerHTML = '<i class="fas ' + MODE_INFO[mode].icon + '" aria-hidden="true"></i><span>' + MODE_INFO[mode].toast + '</span>';
+		toast.classList.add('show');
+		clearTimeout(toastTimer);
+		toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+	}
+
+	function switchMode(mode, focusEl) {
+		if (modeBusy || mode === currentMode() || !MODE_INFO[mode]) return;
+		var root = document.documentElement;
+		var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		// Keep the switch the visitor used in view; otherwise jump back to the top of the new view.
+		var keepHero = focusEl && focusEl.closest && focusEl.closest('#about, #main-nav');
+
+		function commit() {
+			applyMode(mode, true);
+			if (!keepHero) window.scrollTo(0, 0);
+			revealVisibleMode();
+			showModeToast(mode);
+		}
+
+		if (reduceMotion) { commit(); return; }
+
+		modeBusy = true;
+		root.setAttribute('data-mode-next', mode);
+		document.querySelectorAll('[role="radio"][data-mode-target]').forEach(function (btn) {
+			btn.setAttribute('aria-checked', btn.getAttribute('data-mode-target') === mode ? 'true' : 'false');
+		});
+		root.classList.add('mode-leaving');
+		setTimeout(function () {
+			commit();
+			root.removeAttribute('data-mode-next');
+			root.classList.remove('mode-leaving');
+			root.classList.add('mode-entering');
+			setTimeout(function () {
+				root.classList.remove('mode-entering');
+				modeBusy = false;
+				revealVisibleMode();
+			}, 650);
+		}, 230);
+	}
+
 	function initMode() {
-		var current = document.documentElement.getAttribute('data-mode') === 'personal' ? 'personal' : 'professional';
-		applyMode(current, false);
+		applyMode(currentMode(), false);
 
 		document.querySelectorAll('[data-mode-target]').forEach(function (el) {
 			el.addEventListener('click', function (e) {
 				e.preventDefault();
-				var mode = el.getAttribute('data-mode-target');
-				if (mode === document.documentElement.getAttribute('data-mode')) return;
-				applyMode(mode, true);
-				window.scrollTo({ top: 0, behavior: 'smooth' });
-				setTimeout(revealVisibleMode, 50);
+				switchMode(el.getAttribute('data-mode-target'), el);
+			});
+		});
+
+		// Arrow keys move between options inside each radiogroup, like a native radio set.
+		document.querySelectorAll('[role="radiogroup"]').forEach(function (group) {
+			group.addEventListener('keydown', function (e) {
+				var keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+				if (keys.indexOf(e.key) === -1) return;
+				var radios = Array.prototype.slice.call(group.querySelectorAll('[role="radio"][data-mode-target]'));
+				if (!radios.length) return;
+				e.preventDefault();
+				var idx = radios.indexOf(document.activeElement);
+				if (e.key === 'Home') idx = 0;
+				else if (e.key === 'End') idx = radios.length - 1;
+				else idx = (idx + (e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 1) + radios.length) % radios.length;
+				radios[idx].focus();
+				switchMode(radios[idx].getAttribute('data-mode-target'), radios[idx]);
 			});
 		});
 	}
 
 	initMode();
+
+	/* ---------- Small utilities: print résumé, copy email, footer year ---------- */
+	document.querySelectorAll('[data-print-resume]').forEach(function (btn) {
+		btn.addEventListener('click', function () { window.print(); });
+	});
+
+	document.querySelectorAll('[data-copy]').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			var text = btn.getAttribute('data-copy');
+			var label = btn.querySelector('span');
+			var icon = btn.querySelector('i');
+			function done(ok) {
+				btn.classList.toggle('copied', ok);
+				if (label) label.textContent = ok ? 'Copied' : 'Press Ctrl+C';
+				if (icon) icon.className = ok ? 'fas fa-check' : 'far fa-copy';
+				setTimeout(function () {
+					btn.classList.remove('copied');
+					if (label) label.textContent = 'Copy';
+					if (icon) icon.className = 'far fa-copy';
+				}, 1800);
+			}
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+			} else {
+				done(false);
+			}
+		});
+	});
+
+	document.querySelectorAll('[data-year]').forEach(function (el) {
+		el.textContent = new Date().getFullYear();
+	});
 
 	/* ---------- Preloader ---------- */
 	const preloader = document.getElementById('preloader');
@@ -126,15 +237,20 @@
 		setTimeout(() => line.classList.add('visible'), delay);
 	});
 
+	let seenPreloader = false;
+	try { seenPreloader = sessionStorage.getItem('preloader-seen') === '1'; } catch (e) { /* ignore */ }
+	if (seenPreloader && preloader) preloader.style.display = 'none';
+
 	window.addEventListener('load', () => {
+		try { sessionStorage.setItem('preloader-seen', '1'); } catch (e) { /* ignore */ }
 		setTimeout(() => {
 			if (preloaderBar) preloaderBar.style.width = '100%';
 			setTimeout(() => {
 				if (preloader) preloader.classList.add('loaded');
 				document.body.style.overflow = '';
 				initAllAnimations();
-			}, 400);
-		}, 1500);
+			}, seenPreloader ? 0 : 300);
+		}, seenPreloader ? 0 : 900);
 	});
 
 	document.body.style.overflow = 'hidden';
@@ -466,22 +582,34 @@
 		const el = document.getElementById('typed-role');
 		if (!el) return;
 
-		const strings = [
-			'Lead Software Engineer',
-			'AI Agent Orchestrator',
-			'AI-Augmented Engineer',
-			'Full Stack Developer',
-			'Mobile Development Specialist',
-			'React Native Expert',
-			'Flutter Developer',
-			'iOS & Android Developer',
-			'SDK Architect'
-		];
+		const rolesByMode = {
+			professional: [
+				'Lead Software Engineer',
+				'AI Agent Orchestrator',
+				'AI-Augmented Engineer',
+				'Full Stack Developer',
+				'Mobile Development Specialist',
+				'React Native Expert',
+				'Flutter Developer',
+				'iOS & Android Developer',
+				'SDK Architect'
+			],
+			personal: [
+				'MVP Builder for Founders',
+				'Mobile App Partner',
+				'AI Feature Consultant',
+				'Fractional Tech Lead',
+				'Architecture Reviewer',
+				'App Store Launch Partner'
+			]
+		};
 
+		let strings = rolesByMode[currentMode()];
 		let stringIndex = 0;
 		let charIndex = 0;
 		let isDeleting = false;
 		let currentText = '';
+		let timer = null;
 
 		function type() {
 			const current = strings[stringIndex];
@@ -507,10 +635,20 @@
 				speed = 400;
 			}
 
-			setTimeout(type, speed);
+			timer = setTimeout(type, speed);
 		}
 
-		setTimeout(type, 800);
+		// Restart the typewriter with the role list that matches the new mode.
+		modeListeners.push(function (mode) {
+			strings = rolesByMode[mode] || rolesByMode.professional;
+			stringIndex = 0;
+			charIndex = 0;
+			isDeleting = false;
+			clearTimeout(timer);
+			timer = setTimeout(type, 300);
+		});
+
+		timer = setTimeout(type, 800);
 	}
 
 	/* ---------- Animated Counters ---------- */
