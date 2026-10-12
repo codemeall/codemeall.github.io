@@ -277,6 +277,7 @@
 		initMagneticButtons();
 		initRippleEffect();
 		initAccordionState();
+		initAudienceFilter();
 		initBackToTop();
 		initParallaxOrbs();
 	}
@@ -782,6 +783,33 @@
 		});
 
 		syncOpenState();
+	}
+
+	/* ---------- Engagement Audience Filter ---------- */
+	function initAudienceFilter() {
+		const buttons = document.querySelectorAll('[data-audience-filter]');
+		const cards = document.querySelectorAll('.need-card[data-audience]');
+		if (!buttons.length || !cards.length) return;
+		const empty = document.querySelector('.need-empty');
+
+		buttons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const audience = btn.getAttribute('data-audience-filter');
+				let visible = 0;
+				buttons.forEach((b) => {
+					const active = b === btn;
+					b.setAttribute('aria-pressed', active ? 'true' : 'false');
+					b.classList.toggle('chip-link--accent', active);
+				});
+				cards.forEach((card) => {
+					const show = audience === 'all' || card.getAttribute('data-audience').split(' ').indexOf(audience) !== -1;
+					card.hidden = !show;
+					if (show) visible++;
+				});
+				if (empty) empty.hidden = visible > 0;
+				if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+			});
+		});
 	}
 
 	/* ---------- Back to Top ---------- */

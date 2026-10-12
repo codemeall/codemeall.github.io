@@ -328,6 +328,7 @@
 								data-service-collapse="collapseAI">AI &amp; Agents</a>
 							<a href="#service-sdk" class="chip-link magnetic-btn"
 								data-service-collapse="collapseFour">SDK</a>
+							<a href="#need-publish" class="chip-link magnetic-btn">Publish App</a>
 							<a href="#consultations" class="chip-link magnetic-btn">Consulting</a>
 						</div>
 					</div>
@@ -1149,8 +1150,181 @@
 				<div class="section-header">
 					<span class="section-tag">&lt;consultations&gt;</span>
 					<h2 class="glow-text section-title">Ways to Work Together</h2>
-					<p class="lead sub-titles"><i>Pick the engagement that matches where you are</i></p>
+					<p class="lead sub-titles"><i>Start from the problem you have; I'll take it from there</i></p>
 				</div>
+			</div>
+
+			<div class="audience-filter" role="group" aria-label="Show engagements for">
+				<span class="audience-filter-label">I'm a</span>
+				<button type="button" class="chip-link chip-link--accent" data-audience-filter="all" aria-pressed="true">Anyone</button>
+				<button type="button" class="chip-link" data-audience-filter="individual" aria-pressed="false">Founder / Individual</button>
+				<button type="button" class="chip-link" data-audience-filter="startup" aria-pressed="false">Startup</button>
+				<button type="button" class="chip-link" data-audience-filter="company" aria-pressed="false">Company / Team</button>
+			</div>
+
+			<div class="need-grid" aria-live="polite">
+				<article class="need-card" id="need-mvp" data-audience="individual startup">
+					<i class="fas fa-lightbulb need-icon" aria-hidden="true"></i>
+					<h3>Turn an Idea into an MVP</h3>
+					<p class="need-pain">&ldquo;I have the idea and the users, but no tech team.&rdquo;</p>
+					<p>A lean, launchable first version on mobile, web or both, scoped to what proves the idea.</p>
+					<ul>
+						<li>Feature scoping and clickable flow</li>
+						<li>Production app, backend and admin</li>
+						<li>Store or web launch</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 4 to 10 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=MVP%20Build%20Enquiry" class="need-link">Plan my MVP &rarr;</a>
+				</article>
+				<article class="need-card" id="need-backend" data-audience="startup company">
+					<i class="fas fa-server need-icon" aria-hidden="true"></i>
+					<h3>Build a Backend Service or API</h3>
+					<p class="need-pain">&ldquo;Our app has outgrown Firebase and spreadsheets.&rdquo;</p>
+					<p>A secure, documented service with auth, data model, background jobs and admin tooling.</p>
+					<ul>
+						<li>API design (REST or GraphQL) and docs</li>
+						<li>Auth, roles and data model</li>
+						<li>Deployed with logging and monitoring</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 3 to 8 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Backend%20Service%20Enquiry" class="need-link">Build my service &rarr;</a>
+				</article>
+				<article class="need-card" id="need-sdk" data-audience="startup company">
+					<i class="fas fa-puzzle-piece need-icon" aria-hidden="true"></i>
+					<h3>Develop an SDK or Library</h3>
+					<p class="need-pain">&ldquo;Partners keep struggling to integrate with our platform.&rdquo;</p>
+					<p>An iOS, Android, Flutter, React Native or JS SDK that makes your platform easy to adopt.</p>
+					<ul>
+						<li>Clean public API and versioning</li>
+						<li>Sample app and integration guide</li>
+						<li>Published to npm, CocoaPods, SPM or Maven</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 3 to 6 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=SDK%20Development%20Enquiry" class="need-link">Scope my SDK &rarr;</a>
+				</article>
+				<article class="need-card" id="need-publish" data-audience="individual startup company">
+					<i class="fas fa-store need-icon" aria-hidden="true"></i>
+					<h3>Publish Your App to the Stores</h3>
+					<p class="need-pain">&ldquo;Apple rejected us again and launch day is close.&rdquo;</p>
+					<p>Get your app live on the App Store, Google Play and Huawei AppGallery, and keep it there.</p>
+					<ul>
+						<li>Developer accounts, signing and builds</li>
+						<li>Listings, privacy forms and review notes</li>
+						<li>Rejection fixes and resubmission</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 3 days to 2 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=App%20Publishing%20Help" class="need-link">Get my app live &rarr;</a>
+				</article>
+				<article class="need-card" id="need-rescue" data-audience="individual startup company">
+					<i class="fas fa-life-ring need-icon" aria-hidden="true"></i>
+					<h3>Rescue a Stalled Project</h3>
+					<p class="need-pain">&ldquo;The previous developer left and nobody understands the code.&rdquo;</p>
+					<p>I take over the codebase, find out what actually works, and get delivery moving again.</p>
+					<ul>
+						<li>Codebase and infrastructure audit</li>
+						<li>Access, builds and deploys recovered</li>
+						<li>Prioritised recovery plan, then delivery</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Audit in 1 week</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Rescue%20Enquiry" class="need-link">Rescue my project &rarr;</a>
+				</article>
+				<article class="need-card" id="need-ai" data-audience="startup company">
+					<i class="fas fa-robot need-icon" aria-hidden="true"></i>
+					<h3>Add AI to Your Product</h3>
+					<p class="need-pain">&ldquo;Our AI demo works, but we can't ship it to customers.&rdquo;</p>
+					<p>Production LLM features and agents with guardrails, evaluation, and cost and latency budgets.</p>
+					<ul>
+						<li>In-app assistant, search or automation</li>
+						<li>Agents, tool use and MCP integrations</li>
+						<li>Evals, monitoring and cost controls</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 2 to 8 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=AI%20Feature%20Enquiry" class="need-link">Ship my AI feature &rarr;</a>
+				</article>
+				<article class="need-card" id="need-stability" data-audience="startup company">
+					<i class="fas fa-gauge-high need-icon" aria-hidden="true"></i>
+					<h3>Fix Crashes &amp; Performance</h3>
+					<p class="need-pain">&ldquo;Our reviews are full of crashes and slow screens.&rdquo;</p>
+					<p>Find and fix the crashes, memory leaks and slow paths that cost you ratings and retention.</p>
+					<ul>
+						<li>Crash and performance triage</li>
+						<li>Fixes shipped in a stability release</li>
+						<li>Crash reporting and alerts set up</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 4 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=App%20Stability%20Enquiry" class="need-link">Stabilise my app &rarr;</a>
+				</article>
+				<article class="need-card" id="need-modernize" data-audience="company startup">
+					<i class="fas fa-arrows-rotate need-icon" aria-hidden="true"></i>
+					<h3>Modernise a Legacy App</h3>
+					<p class="need-pain">&ldquo;Every change breaks something and the SDKs are years out of date.&rdquo;</p>
+					<p>Upgrade or migrate step by step, such as native to Flutter or React Native, without stopping releases.</p>
+					<ul>
+						<li>Migration plan with risk map</li>
+						<li>Incremental rewrite or upgrade</li>
+						<li>Tests and CI added along the way</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Phased, from 4 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Modernisation%20Enquiry" class="need-link">Plan a migration &rarr;</a>
+				</article>
+				<article class="need-card" id="need-integrations" data-audience="individual startup company">
+					<i class="fas fa-plug need-icon" aria-hidden="true"></i>
+					<h3>Payments, Auth &amp; Integrations</h3>
+					<p class="need-pain">&ldquo;We need subscriptions, logins and push notifications working properly.&rdquo;</p>
+					<p>Payments, in-app purchases, social login, maps, analytics and notifications wired in safely.</p>
+					<ul>
+						<li>Stripe, Razorpay, IAP and subscriptions</li>
+						<li>Firebase, OAuth and push notifications</li>
+						<li>Tested rollout across environments</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 3 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Integration%20Enquiry" class="need-link">Add an integration &rarr;</a>
+				</article>
+				<article class="need-card" id="need-devops" data-audience="startup company">
+					<i class="fas fa-code-branch need-icon" aria-hidden="true"></i>
+					<h3>CI/CD &amp; Release Automation</h3>
+					<p class="need-pain">&ldquo;Releases take a whole day and only one person knows how.&rdquo;</p>
+					<p>Automated builds, tests and store or cloud deploys so anyone on the team can ship safely.</p>
+					<ul>
+						<li>GitHub Actions, Fastlane or Codemagic</li>
+						<li>Environments, secrets and signing</li>
+						<li>One-click releases with rollback</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 2 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=CI%2FCD%20Setup%20Enquiry" class="need-link">Automate releases &rarr;</a>
+				</article>
+				<article class="need-card" id="need-website" data-audience="individual startup">
+					<i class="fas fa-globe need-icon" aria-hidden="true"></i>
+					<h3>Website, Landing Page or Store</h3>
+					<p class="need-pain">&ldquo;I need a fast site I can update myself, before launch.&rdquo;</p>
+					<p>A business site, product landing page or online store on WordPress or a modern web stack.</p>
+					<ul>
+						<li>Responsive, SEO-ready build</li>
+						<li>Editor-friendly CMS setup</li>
+						<li>Domain, hosting and analytics</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 3 weeks</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Website%20Enquiry" class="need-link">Build my site &rarr;</a>
+				</article>
+				<article class="need-card" id="need-maintenance" data-audience="individual startup company">
+					<i class="fas fa-screwdriver-wrench need-icon" aria-hidden="true"></i>
+					<h3>Ongoing Maintenance &amp; Support</h3>
+					<p class="need-pain">&ldquo;Every new iOS or Android version breaks something.&rdquo;</p>
+					<p>Keep your app current, secure and compliant with store policy, without a full-time hire.</p>
+					<ul>
+						<li>OS, SDK and dependency updates</li>
+						<li>Bug fixes and small features</li>
+						<li>Monitoring and store compliance</li>
+					</ul>
+					<span class="need-meta"><i class="far fa-calendar" aria-hidden="true"></i>Monthly plan</span>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Maintenance%20Plan%20Enquiry" class="need-link">Set up support &rarr;</a>
+				</article>
+			</div>
+			<p class="need-empty" hidden>Nothing here fits? <a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Enquiry">Tell me what you need</a>.</p>
+
+			<div class="section-header models-header">
+				<h3 class="models-title">Pick How We Work</h3>
+				<p class="sub-titles"><i>Any of the above can run under whichever model suits your budget and team</i></p>
 			</div>
 			<div class="offer-grid">
 				<article class="offer-card">
@@ -1165,8 +1339,8 @@
 				</article>
 				<article class="offer-card">
 					<span class="offer-meta">Fixed scope · 1 to 2 weeks</span>
-					<h3>Architecture &amp; Code Review</h3>
-					<p>A senior audit of your app, API or AI feature before you scale, raise or rewrite.</p>
+					<h3>Audit &amp; Code Review</h3>
+					<p>A senior audit of your app, API or AI feature before you scale, raise, hire or rewrite.</p>
 					<ul>
 						<li>Written findings report</li>
 						<li>Prioritised fix roadmap</li>
@@ -1175,9 +1349,9 @@
 					<a href="mailto:mdab.aziz01@gmail.com?subject=Architecture%20Review%20Request" class="btn ghost-btn magnetic-btn">Request a review</a>
 				</article>
 				<article class="offer-card offer-card--featured">
-					<span class="offer-meta">Milestone based</span>
+					<span class="offer-meta">Fixed price · milestone based</span>
 					<h3>Project Delivery</h3>
-					<p>End-to-end build of an MVP, a mobile app, a backend or a focused module, owned through release.</p>
+					<p>A defined outcome, such as an MVP, SDK, service or store launch, owned end to end through release.</p>
 					<ul>
 						<li>Scope, milestones and demos</li>
 						<li>Store and production release</li>
@@ -1186,17 +1360,46 @@
 					<a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Enquiry" class="btn contact-btn magnetic-btn ripple-btn">Start a project</a>
 				</article>
 				<article class="offer-card">
+					<span class="offer-meta">Part or full time · monthly</span>
+					<h3>Dedicated Developer</h3>
+					<p>A senior engineer embedded in your team, standups and tools, for as long as you need the capacity.</p>
+					<ul>
+						<li>Works inside your sprint process</li>
+						<li>Scale up or down month to month</li>
+						<li>No recruiting or notice periods</li>
+					</ul>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Dedicated%20Developer%20Enquiry" class="btn ghost-btn magnetic-btn">Add capacity</a>
+				</article>
+				<article class="offer-card">
 					<span class="offer-meta">Monthly retainer</span>
 					<h3>Fractional Tech Lead</h3>
 					<p>Part-time senior leadership for teams that need direction more than extra hands.</p>
 					<ul>
 						<li>Architecture and code reviews</li>
-						<li>Hiring and mentoring support</li>
+						<li>Hiring, vendor and mentoring support</li>
 						<li>AI-assisted workflow rollout</li>
 					</ul>
 					<a href="mailto:mdab.aziz01@gmail.com?subject=Fractional%20Tech%20Lead%20Enquiry" class="btn ghost-btn magnetic-btn">Discuss a retainer</a>
 				</article>
+				<article class="offer-card">
+					<span class="offer-meta">Hourly · on demand</span>
+					<h3>Ad-hoc Expert Help</h3>
+					<p>Unblock a specific issue fast: a build that won't sign, a failing integration, a tricky bug.</p>
+					<ul>
+						<li>Pay only for hours used</li>
+						<li>Pairing or hands-off fix</li>
+						<li>Short sessions or half-day blocks</li>
+					</ul>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Ad-hoc%20Help%20Request" class="btn ghost-btn magnetic-btn">Get unblocked</a>
+				</article>
 			</div>
+
+			<ul class="engagement-assurances">
+				<li><i class="fas fa-file-signature" aria-hidden="true"></i>NDA on request</li>
+				<li><i class="fas fa-code" aria-hidden="true"></i>You own the code and IP</li>
+				<li><i class="fas fa-comments" aria-hidden="true"></i>Weekly updates and demos</li>
+				<li><i class="fas fa-receipt" aria-hidden="true"></i>Written quote before work starts</li>
+			</ul>
 		</div>
 	</section>
 
