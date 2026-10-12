@@ -20,6 +20,7 @@ This repository contains the source for my GitHub Pages portfolio. The site pres
 
 Key features include:
 
+- Two portfolio modes, switchable from the navbar or via URL: `?mode=professional` (résumé view: experience, skills, tech stack, education, printable) and `?mode=personal` (services, consultation options, engagement process). The choice is remembered per visitor.
 - Responsive portfolio and profile pages
 - Skills, services, and technology-stack showcases
 - Jekyll-powered engineering blog

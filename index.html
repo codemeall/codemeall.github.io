@@ -15,6 +15,15 @@
 				? saved
 				: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 			document.documentElement.setAttribute('data-theme', theme);
+
+			// Portfolio mode: "professional" (résumé) or "personal" (services & consultations)
+			var mode = null;
+			try { mode = new URLSearchParams(window.location.search).get('mode'); } catch (e) {}
+			if (mode !== 'professional' && mode !== 'personal') {
+				try { mode = localStorage.getItem('portfolio-mode'); } catch (e) {}
+			}
+			if (mode !== 'professional' && mode !== 'personal') mode = 'professional';
+			document.documentElement.setAttribute('data-mode', mode);
 		})();
 	</script>
 	<meta name="description"
@@ -62,7 +71,7 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<!-- Enhanced CSS -->
-	<link rel="stylesheet" href="enhanced.css?v=20260829j" />
+	<link rel="stylesheet" href="enhanced.css?v=20261012a" />
 </head>
 
 <body>
@@ -133,14 +142,26 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#about">About&nbsp;me</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" data-show="professional">
+						<a class="nav-link" href="#experience">Experience</a>
+					</li>
+					<li class="nav-item" data-show="professional">
 						<a class="nav-link" href="#skills">Skills</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" data-show="professional">
 						<a class="nav-link" href="#tech-stack">Tech&nbsp;Stack</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" data-show="professional">
+						<a class="nav-link" href="#education">Education</a>
+					</li>
+					<li class="nav-item" data-show="personal">
 						<a class="nav-link" href="#services">Services</a>
+					</li>
+					<li class="nav-item" data-show="personal">
+						<a class="nav-link" href="#consultations">Consultations</a>
+					</li>
+					<li class="nav-item" data-show="personal">
+						<a class="nav-link" href="#process">Process</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="blog/index.html">Blog</a>
@@ -151,6 +172,16 @@
 				</ul>
 			</div>
 			<div class="navbar-actions">
+				<div class="mode-switch" role="group" aria-label="Portfolio mode">
+					<button type="button" class="mode-switch-btn" data-mode-target="professional"
+						title="Résumé: experience, skills and education">
+						<i class="fas fa-briefcase" aria-hidden="true"></i><span>Professional</span>
+					</button>
+					<button type="button" class="mode-switch-btn" data-mode-target="personal"
+						title="Services and consultations I offer">
+						<i class="fas fa-handshake" aria-hidden="true"></i><span>Personal</span>
+					</button>
+				</div>
 				<button type="button" class="theme-toggle magnetic-btn" id="theme-toggle"
 					aria-label="Switch color theme">
 					<i class="fas fa-sun theme-icon-sun" aria-hidden="true"></i>
@@ -230,18 +261,38 @@
 						<h1 class="hero-greeting reveal-up">
 							Hi, I'm <span class="highlight-name">Abdul Aziz</span>
 						</h1>
-						<div class="hero-tagline reveal-up" style="--delay: 0.1s">
+						<div class="hero-tagline reveal-up" style="--delay: 0.1s" data-show="professional">
 							<span class="tagline-decorator">//</span> Lead Software Engineer with 10+ years shipping
 							mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents,
 							LLM powered features and agentic delivery workflows with high performing engineering teams.
 						</div>
-						<div class="hero-actions reveal-up" style="--delay: 0.12s">
+						<div class="hero-tagline reveal-up" style="--delay: 0.1s" data-show="personal">
+							<span class="tagline-decorator">//</span> I help founders and product teams plan, build and
+							rescue mobile apps, web platforms and AI features, from a one-hour architecture call to
+							end-to-end delivery.
+						</div>
+						<div class="hero-actions reveal-up" style="--delay: 0.12s" data-show="professional">
+							<a href="assets/myresume.pdf" target="_blank" rel="noopener"
+								class="btn contact-btn magnetic-btn ripple-btn">
+								<i class="fas fa-file-arrow-down me-2"></i>Download Résumé
+							</a>
+							<a href="mailto:mdab.aziz01@gmail.com?subject=Opportunity%20for%20Abdul%20Aziz"
+								class="btn ghost-btn magnetic-btn">
+								<i class="fas fa-envelope me-2"></i>Discuss a Role
+							</a>
+							<span class="availability-badge"><span class="availability-dot"></span>Open to Lead / Staff
+								engineering roles</span>
+						</div>
+						<div class="hero-actions reveal-up" style="--delay: 0.12s" data-show="personal">
 							<a href="mailto:mdab.aziz01@gmail.com?subject=Consultation%20Request"
 								class="btn contact-btn magnetic-btn ripple-btn">
 								<i class="fas fa-calendar-check me-2"></i>Book a Consultation
 							</a>
+							<a href="#consultations" class="btn ghost-btn magnetic-btn">
+								<i class="fas fa-list-check me-2"></i>See Engagement Options
+							</a>
 						</div>
-						<div class="quick-chips reveal-up" style="--delay: 0.15s">
+						<div class="quick-chips reveal-up" style="--delay: 0.15s" data-show="personal">
 							<a href="#service-mobile" class="chip-link chip-link--accent magnetic-btn"
 								data-service-collapse="collapseOne">Mobile</a>
 							<a href="#service-fullstack" class="chip-link magnetic-btn"
@@ -252,11 +303,11 @@
 								data-service-collapse="collapseAI">AI &amp; Agents</a>
 							<a href="#service-sdk" class="chip-link magnetic-btn"
 								data-service-collapse="collapseFour">SDK</a>
-							<a href="#contact" class="chip-link magnetic-btn">Consulting</a>
+							<a href="#consultations" class="chip-link magnetic-btn">Consulting</a>
 						</div>
 					</div>
 
-					<div class="about-content">
+					<div class="about-content" data-show="professional">
 						<div class="about-block reveal-left" style="--delay: 0.2s">
 							<div class="about-block-indicator"></div>
 							<p class="lh-base">I am a Lead Software Engineer with 10+ years shipping production grade products across mobile, web and backend. I lead end to end delivery from architecture and native bridging to App Store, Play and Huawei AppGallery release, accountable for performance, stability and maintainability at scale.</p>
@@ -277,15 +328,92 @@
 							<p>AI complements my delivery. I design agents and multi agent workflows with MCP and tool use, and deliver LLM features including function calling, structured outputs and streaming UX on OpenAI, Anthropic and open weight models, with evals, guardrails and cost and latency budgets. Day to day I run delivery in Claude Code, Cursor and Codex with custom skills, hooks and review loops, and roll out the same agentic workflows for client teams.</p>
 						</div>
 					</div>
+					<div class="about-content" data-show="personal">
+						<div class="about-block reveal-left" style="--delay: 0.2s">
+							<div class="about-block-indicator"></div>
+							<p class="lh-base"><strong>Founders &amp; startups:</strong> turn an idea into a shippable MVP on iOS, Android and web, with an architecture that won't need a rewrite at the first sign of traction.</p>
+						</div>
+
+						<div class="about-block reveal-left" style="--delay: 0.3s">
+							<div class="about-block-indicator"></div>
+							<p><strong>Product &amp; engineering teams:</strong> add senior hands for a critical module, an SDK, a native bridge, a store launch or a performance problem, then hand it back cleanly documented.</p>
+						</div>
+
+						<div class="about-block reveal-left" style="--delay: 0.4s">
+							<div class="about-block-indicator"></div>
+							<p><strong>Teams adopting AI:</strong> scope and ship LLM features and agent workflows that are measurable and safe, and set up Claude Code, Cursor or Codex workflows your engineers will actually use.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<hr class="section-divider" />
+	<hr class="section-divider" data-show="professional" />
+
+	<!-- Experience Section (professional) -->
+	<section id="experience" data-show="professional">
+		<div class="bg-container reveal-up">
+			<div class="row justify-content-center text-center my-3">
+				<div class="section-header">
+					<span class="section-tag">&lt;experience&gt;</span>
+					<h2 class="glow-text section-title">Experience</h2>
+					<p class="lead sub-titles"><i>10+ years building and leading production software</i></p>
+				</div>
+			</div>
+			<ol class="timeline">
+				<li class="timeline-item">
+					<div class="timeline-marker" aria-hidden="true"></div>
+					<div class="timeline-card">
+						<div class="timeline-head">
+							<div>
+								<h3 class="timeline-role">Lead Software Engineer / Team Lead</h3>
+								<p class="timeline-org">Maren Solutions Pvt Ltd · Hyderabad, India</p>
+							</div>
+							<span class="timeline-date">2019 to Present</span>
+						</div>
+						<p class="timeline-summary">Joined as a Full Stack Software Engineer and grew into leading the mobile, web and backend delivery team.</p>
+						<ul class="timeline-points">
+							<li>Own architecture and project setup for mobile, web and backend products, from barebones to production.</li>
+							<li>Ship to App Store, Play Store and Huawei AppGallery; plan sprints and release trains across platforms.</li>
+							<li>Build native features and reusable SDKs that expose iOS, Android and Huawei capabilities to React Native and Flutter teams.</li>
+							<li>Run code reviews, POCs for new requirements and knowledge-transfer sessions; mentor junior developers and trainees.</li>
+							<li>Introduced AI-assisted delivery (Claude Code, Cursor, Codex) with custom skills, hooks and review loops, and LLM features in client products.</li>
+						</ul>
+						<div class="timeline-tags">
+							<span>React Native</span><span>Flutter</span><span>Swift</span><span>Kotlin</span><span>Node.js</span><span>Next.js</span><span>AI Agents</span>
+						</div>
+					</div>
+				</li>
+				<li class="timeline-item">
+					<div class="timeline-marker" aria-hidden="true"></div>
+					<div class="timeline-card">
+						<div class="timeline-head">
+							<div>
+								<h3 class="timeline-role">Full Stack Developer</h3>
+								<p class="timeline-org">Sizmic Labs</p>
+							</div>
+							<span class="timeline-date">2016 to 2019</span>
+						</div>
+						<ul class="timeline-points">
+							<li>Built and maintained web applications, custom websites and SaaS products across frontend and backend.</li>
+							<li>Designed and implemented APIs connecting product components and third-party systems.</li>
+							<li>Developed custom WordPress themes and plugins; kept client sites fast and secure.</li>
+							<li>Automated internal workflows with scripts and built crawlers that supplied data to the marketing team.</li>
+						</ul>
+						<div class="timeline-tags">
+							<span>PHP</span><span>Laravel</span><span>Python</span><span>JavaScript</span><span>MySQL</span><span>WordPress</span>
+						</div>
+					</div>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<hr class="section-divider" data-show="professional" />
 
 	<!-- Skills Section -->
-	<section id="skills">
+	<section id="skills" data-show="professional">
 		<div class="bg-container reveal-up">
 			<div class="row justify-content-center align-items-center text-center my-3">
 				<div class="section-header">
@@ -348,7 +476,7 @@
 	<br />
 
 	<!-- Tech Stack Section -->
-	<section id="tech-stack">
+	<section id="tech-stack" data-show="professional">
 		<div class="bg-container">
 			<div class="row text-center my-3">
 				<div class="section-header reveal-up">
@@ -740,8 +868,49 @@
 		</div>
 	</section>
 
+	<hr class="section-divider" data-show="professional" />
+
+	<!-- Education & Highlights Section (professional) -->
+	<section id="education" data-show="professional">
+		<div class="bg-container reveal-up">
+			<div class="row justify-content-center text-center my-3">
+				<div class="section-header">
+					<span class="section-tag">&lt;education&gt;</span>
+					<h2 class="glow-text section-title">Education &amp; Highlights</h2>
+				</div>
+			</div>
+			<div class="info-grid">
+				<div class="info-card">
+					<i class="fas fa-graduation-cap info-icon" aria-hidden="true"></i>
+					<h3>B.Tech</h3>
+					<p>Jawaharlal Nehru Technological University Hyderabad (JNTUH)</p>
+					<span class="timeline-date">2011 to 2015</span>
+				</div>
+				<div class="info-card">
+					<i class="fas fa-trophy info-icon" aria-hidden="true"></i>
+					<h3>First Prize, Robotics Demonstration</h3>
+					<p>The Hyderabad Student Festival</p>
+					<span class="timeline-date">2013</span>
+				</div>
+				<div class="info-card">
+					<i class="fas fa-people-group info-icon" aria-hidden="true"></i>
+					<h3>Leadership</h3>
+					<p>Leads a cross-platform team; mentors junior developers and trainees; owns sprint planning and multi-store releases.</p>
+				</div>
+			</div>
+			<div class="resume-cta">
+				<a href="assets/myresume.pdf" target="_blank" rel="noopener" class="btn contact-btn magnetic-btn ripple-btn">
+					<i class="fas fa-file-arrow-down me-2"></i>Download Full Résumé (PDF)
+				</a>
+				<button type="button" class="btn ghost-btn magnetic-btn" onclick="window.print()">
+					<i class="fas fa-print me-2"></i>Print This Page
+				</button>
+			</div>
+		</div>
+	</section>
+
 	<!-- Services Section -->
-	<section id="services">
+	<section id="services" data-show="personal">
 		<div class="bg-container">
 			<div class="row text-center my-3">
 				<div class="col-lg-12 col-sm-12">
@@ -961,21 +1130,115 @@
 		</div>
 	</section>
 
+	<!-- Consultations Section (personal) -->
+	<section id="consultations" data-show="personal">
+		<div class="bg-container reveal-up">
+			<div class="row justify-content-center text-center my-3">
+				<div class="section-header">
+					<span class="section-tag">&lt;consultations&gt;</span>
+					<h2 class="glow-text section-title">Ways to Work Together</h2>
+					<p class="lead sub-titles"><i>Pick the engagement that matches where you are</i></p>
+				</div>
+			</div>
+			<div class="offer-grid">
+				<article class="offer-card">
+					<span class="offer-meta">30 minutes · video call</span>
+					<h3>Discovery Call</h3>
+					<p>Talk through your idea or problem, get an honest take on feasibility, stack and next steps.</p>
+					<ul>
+						<li>Fit and scope check</li>
+						<li>Rough approach and timeline</li>
+					</ul>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Discovery%20Call%20Request" class="btn ghost-btn magnetic-btn">Book a call</a>
+				</article>
+				<article class="offer-card">
+					<span class="offer-meta">Fixed scope · 1 to 2 weeks</span>
+					<h3>Architecture &amp; Code Review</h3>
+					<p>A senior audit of your app, API or AI feature before you scale, raise or rewrite.</p>
+					<ul>
+						<li>Written findings report</li>
+						<li>Prioritised fix roadmap</li>
+						<li>Walkthrough session with your team</li>
+					</ul>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Architecture%20Review%20Request" class="btn ghost-btn magnetic-btn">Request a review</a>
+				</article>
+				<article class="offer-card offer-card--featured">
+					<span class="offer-meta">Milestone based</span>
+					<h3>Project Delivery</h3>
+					<p>End-to-end build of an MVP, a mobile app, a backend or a focused module, owned through release.</p>
+					<ul>
+						<li>Scope, milestones and demos</li>
+						<li>Store and production release</li>
+						<li>Documentation and handover</li>
+					</ul>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Enquiry" class="btn contact-btn magnetic-btn ripple-btn">Start a project</a>
+				</article>
+				<article class="offer-card">
+					<span class="offer-meta">Monthly retainer</span>
+					<h3>Fractional Tech Lead</h3>
+					<p>Part-time senior leadership for teams that need direction more than extra hands.</p>
+					<ul>
+						<li>Architecture and code reviews</li>
+						<li>Hiring and mentoring support</li>
+						<li>AI-assisted workflow rollout</li>
+					</ul>
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Fractional%20Tech%20Lead%20Enquiry" class="btn ghost-btn magnetic-btn">Discuss a retainer</a>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- Process Section (personal) -->
+	<section id="process" data-show="personal">
+		<div class="bg-container reveal-up">
+			<div class="row justify-content-center text-center my-3">
+				<div class="section-header">
+					<span class="section-tag">&lt;process&gt;</span>
+					<h2 class="glow-text section-title">How an Engagement Runs</h2>
+				</div>
+			</div>
+			<ol class="process-steps">
+				<li><span class="process-num">01</span><h3>Discover</h3><p>A short call to understand goals, users, constraints and what success looks like.</p></li>
+				<li><span class="process-num">02</span><h3>Scope &amp; Propose</h3><p>A written proposal with deliverables, milestones, timeline and cost, so there are no surprises.</p></li>
+				<li><span class="process-num">03</span><h3>Build in Milestones</h3><p>Regular demos and checkpoints; you see working software early and steer as we go.</p></li>
+				<li><span class="process-num">04</span><h3>Launch &amp; Hand Over</h3><p>Release to stores or production, documentation, and a clean handover or ongoing support.</p></li>
+			</ol>
+		</div>
+	</section>
+
 	<!-- Contact Section -->
 	<section id="contact">
 		<div class="contact-section reveal-up">
 			<div class="row my-4 justify-content-center text-center">
 				<div class="section-header">
 					<span class="section-tag">&lt;contact&gt;</span>
-					<h2 class="glow-text section-title">Start a Conversation</h2>
-					<p class="lead">Have a product idea, modernization effort, or delivery gap to solve? Let’s discuss
-						how I can help your team ship with confidence.</p>
+					<h2 class="glow-text section-title" data-show="professional">Let's Work Together</h2>
+					<p class="lead" data-show="professional">Hiring for a Lead, Staff or Senior engineering role in
+						mobile, full-stack or AI? I'd be glad to talk.</p>
+					<h2 class="glow-text section-title" data-show="personal">Start a Conversation</h2>
+					<p class="lead" data-show="personal">Have a product idea, modernization effort, or delivery gap to
+						solve? Let’s discuss how I can help your team ship with confidence.</p>
 				</div>
-				<div class="row col-lg-4 justify-content-center mt-3">
-					<a href="mailto:mdab.aziz01@gmail.com" class="btn contact-btn magnetic-btn ripple-btn">
-						<i class="fas fa-envelope me-2"></i>Contact Me
+				<div class="contact-actions mt-3" data-show="professional">
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Opportunity%20for%20Abdul%20Aziz"
+						class="btn contact-btn magnetic-btn ripple-btn">
+						<i class="fas fa-envelope me-2"></i>Email Me
+					</a>
+					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" rel="noopener"
+						class="btn ghost-btn magnetic-btn">
+						<i class="fab fa-linkedin me-2"></i>Connect on LinkedIn
 					</a>
 				</div>
+				<div class="contact-actions mt-3" data-show="personal">
+					<a href="mailto:mdab.aziz01@gmail.com?subject=Consultation%20Request"
+						class="btn contact-btn magnetic-btn ripple-btn">
+						<i class="fas fa-calendar-check me-2"></i>Book a Consultation
+					</a>
+				</div>
+				<p class="mode-crosslink" data-show="professional">Looking to hire me for a project instead?
+					<a href="?mode=personal" data-mode-target="personal">See my services &amp; consultations &rarr;</a></p>
+				<p class="mode-crosslink" data-show="personal">Hiring for a full-time role?
+					<a href="?mode=professional" data-mode-target="professional">See my professional profile &rarr;</a></p>
 			</div>
 		</div>
 	</section>
@@ -1011,7 +1274,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-	<script src="enhanced.js?v=20260829f"></script>
+	<script src="enhanced.js?v=20261012a"></script>
 </body>
 
 </html>
