@@ -1428,18 +1428,6 @@ button:focus-visible,
 		justify-content: center;
 	}
 
-	/* Don't treat the first chip as a persistent "selected" state on small screens */
-	.chip-link--accent,
-	.chip-link--accent:hover,
-	.chip-link--accent:focus,
-	.chip-link--accent:active {
-		border-color: rgba(var(--accent-rgb), 0.28);
-		background: var(--chip-bg);
-		color: var(--text-primary);
-		font-weight: 500;
-		box-shadow: none;
-	}
-
 	.stat-number { font-size: 1.2rem; }
 
 	.list-group-item {
@@ -1474,12 +1462,9 @@ button:focus-visible,
 	.orb { opacity: 0.08; }
 	.profile-img-wrapper:hover .profile-flip { transform: none; }
 
-	/* Touch devices keep :hover stuck after tap — match the default chip look */
-	.chip-link--accent,
-	.chip-link:hover,
-	.chip-link:focus,
-	.chip-link--accent:hover,
-	.chip-link--accent:focus {
+	/* Touch devices keep :hover stuck after tap — match the default chip look (the selected chip keeps its accent) */
+	.chip-link:not(.chip-link--accent):hover,
+	.chip-link:not(.chip-link--accent):focus {
 		border-color: rgba(var(--accent-rgb), 0.28);
 		background: var(--chip-bg);
 		color: var(--text-primary);
@@ -1839,10 +1824,10 @@ button:focus-visible,
 	box-shadow: 3px 3px 0 #000 !important;
 	-webkit-text-fill-color: #000 !important;
 }
-[data-theme="light"] .chip-link { background: #fff !important; border-color: rgba(0,0,0,0.12) !important; color: #0e0e10 !important; box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important; }
+[data-theme="light"] .chip-link:not(.chip-link--accent) { background: #fff !important; border-color: rgba(0,0,0,0.12) !important; color: #0e0e10 !important; box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important; }
 [data-theme="light"] .chip-link:hover { background: #fcee0a !important; border-color: #0e0e10 !important; color: #000 !important; box-shadow: 2px 2px 0 #000 !important; }
 [data-theme="light"] .chip-link--accent { box-shadow: 2px 2px 0 #000 !important; }
-.chip-link:hover { background: rgba(252,238,10,0.14) !important; border-color: #fcee0a !important; color: #fcee0a !important; }
+.chip-link:not(.chip-link--accent):hover { background: rgba(252,238,10,0.14) !important; border-color: #fcee0a !important; color: #fcee0a !important; }
 
 /* — brutalist CTA: yellow slab with hard shadow — */
 .contact-btn {

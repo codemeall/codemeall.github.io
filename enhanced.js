@@ -621,11 +621,18 @@
 		const items = document.querySelectorAll('.accordion-item');
 		if (!items.length) return;
 
+		const chips = document.querySelectorAll('.chip-link[data-service-collapse]');
+
 		function syncOpenState() {
 			items.forEach((item) => {
 				const collapse = item.querySelector('.accordion-collapse');
 				if (!collapse) return;
 				item.classList.toggle('is-open', collapse.classList.contains('show'));
+			});
+			// Highlight the hero chip matching the open service
+			chips.forEach((chip) => {
+				const target = document.getElementById(chip.getAttribute('data-service-collapse'));
+				chip.classList.toggle('chip-link--accent', !!target && target.classList.contains('show'));
 			});
 		}
 
