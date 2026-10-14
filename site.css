@@ -390,7 +390,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .number { padding: 40px 24px; border-left: 1px solid var(--border); }
 .number:first-child { border-left: 0; }
 .number strong { display: block; font-family: var(--font-display); font-weight: 600; font-size: clamp(2.6rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -0.04em; }
-.number span:last-child { display: block; margin-top: 10px; color: var(--muted); font-size: .9rem; }
+.number > span { display: block; margin-top: 10px; color: var(--muted); font-size: .9rem; }
 @media (max-width: 760px) {
 	.numbers-grid { grid-template-columns: 1fr 1fr; }
 	.number:nth-child(3) { border-left: 0; }
