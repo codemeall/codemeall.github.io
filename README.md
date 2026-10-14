@@ -18,23 +18,20 @@ My core areas of work include:
 
 This repository contains the source for my GitHub Pages portfolio. The site presents my background, skills, technology stack, services, résumé, contact details, and technical writing.
 
-Key features include:
+Key features of the homepage:
 
-- Two portfolio modes, switchable from the navbar or via URL: `?mode=professional` (experience, skills, tech stack, education) and `?mode=personal` (services, consultation options, engagement process). The choice is remembered per visitor.
-- Responsive portfolio and profile pages
-- Skills, services, and technology-stack showcases
-- Jekyll-powered engineering blog
-- Animated terminal preloader, matrix background, custom cursor, counters, and scroll effects
-- Reduced-motion and lower-performance device handling
-- Direct links to GitHub, LinkedIn, and email
+- One scroll-driven story aimed at both hiring managers and clients: hero, manifesto, end-to-end ownership stack, AI team, services, "where to start" guide, experience, tech stack, engagement models and contact.
+- Services that cover product engineering plus three AI offerings: hiring my hybrid (human + AI agent) team, building an AI team for your business, and mentoring/monitoring agents you already run.
+- Interactive effects with no JS dependencies: particle-network hero, typed delivery console, scroll-scrubbed manifesto, pinned 3D layer stack, orbiting agent diagram, filterable bento grid, tabbed audience guide, scroll-drawn timeline, logo marquees, spotlight cards, magnetic buttons and a custom cursor.
+- Respects `prefers-reduced-motion`, works without JavaScript, and is responsive down to small phones.
+- Jekyll-powered engineering blog and standalone profile page.
 
 ## Built With
 
 - HTML5 and CSS3
 - JavaScript
 - [Jekyll](https://jekyllrb.com/) and Kramdown
-- [Bootstrap 5](https://getbootstrap.com/)
-- [GSAP](https://gsap.com/)
+- [Bootstrap 5](https://getbootstrap.com/) and [GSAP](https://gsap.com/) (blog and profile pages)
 - Font Awesome
 - GitHub Pages
 
@@ -50,9 +47,11 @@ Key features include:
 |-- assets/           # Images, technology icons, and résumé
 |-- blog/index.html   # Blog listing page
 |-- index.html        # Main portfolio page
+|-- site.css          # Homepage styling
+|-- site.js           # Homepage animations and interactions
 |-- profile.html      # Standalone profile page
-|-- enhanced.css      # Main visual styling
-`-- enhanced.js       # Animations and interactions
+|-- enhanced.css      # Blog and profile styling
+`-- enhanced.js       # Blog and profile interactions
 ```
 
 ## Run Locally

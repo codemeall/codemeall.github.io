@@ -2,46 +2,26 @@
 <html lang="en">
 
 <head>
-	<title>Abdul Aziz | Lead Software Engineer | AI Agents, Mobile &amp; Full-Stack</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="color-scheme" content="dark light">
-	<script>
-		(function () {
-			var key = 'theme-preference';
-			var saved = null;
-			try { saved = localStorage.getItem(key); } catch (e) {}
-			var theme = (saved === 'light' || saved === 'dark')
-				? saved
-				: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			document.documentElement.setAttribute('data-theme', theme);
-
-			// Portfolio mode: "professional" (résumé) or "personal" (services & consultations)
-			var mode = null;
-			try { mode = new URLSearchParams(window.location.search).get('mode'); } catch (e) {}
-			if (mode !== 'professional' && mode !== 'personal') {
-				try { mode = localStorage.getItem('portfolio-mode'); } catch (e) {}
-			}
-			if (mode !== 'professional' && mode !== 'personal') mode = 'professional';
-			document.documentElement.setAttribute('data-mode', mode);
-		})();
-	</script>
+	<title>Abdul Aziz | Lead Engineer · End-to-End Product Delivery · AI Teams &amp; Agents</title>
+	<meta name="color-scheme" content="dark">
+	<script>document.documentElement.classList.add('js');</script>
+	<meta name="theme-color" content="#070707">
 	<meta name="description"
-		content="Abdul Aziz is a Lead Software Engineer with 10+ years shipping mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents, LLM powered features and agentic delivery workflows.">
+		content="Abdul Aziz is a Lead Software Engineer with 10+ years taking mobile, web and backend products from idea to production, now leading hybrid teams of engineers and AI agents, building AI teams that automate business work, and mentoring teams that run agents.">
 	<meta name="keywords"
-		content="Lead Software Engineer, mobile app development, full stack engineer, backend SaaS, web development, AI agents, LLM integration, open-weight models, agent orchestration, MCP, Claude Code, Cursor, Codex, React Native, Flutter, Swift, Kotlin, SDK development, Node.js, Next.js, PostgreSQL, Supabase, Cloudflare">
+		content="Lead Software Engineer, Staff Engineer, Fractional CTO, AI agents, AI team, agentic workflows, AgentOps, MCP, Claude Code, Cursor, Codex, LLM integration, React Native, Flutter, Swift, Kotlin, Node.js, Next.js, PostgreSQL, Supabase, Cloudflare, mobile app development">
 
-	<!-- Social -->
-	<meta property="og:title" content="Abdul Aziz | Lead Software Engineer | AI Agents, Mobile &amp; Full-Stack">
+	<meta property="og:title" content="Abdul Aziz | Lead Engineer · End-to-End Delivery · AI Teams">
 	<meta property="og:description"
-		content="Lead Software Engineer with 10+ years shipping mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents, LLM powered features and agentic delivery workflows.">
+		content="Products shipped end to end, with a team of engineers and a team of AI agents. Hire my hybrid team, build your own AI team, or get your agents mentored and monitored.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://codemeall.github.io/">
 	<meta property="og:image" content="https://avatars.githubusercontent.com/u/30825551?v=4">
 	<meta property="og:image:alt" content="Abdul Aziz">
 	<meta name="twitter:card" content="summary">
 
-	<!-- Structured data -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
@@ -50,1454 +30,648 @@
 		"url": "https://codemeall.github.io/",
 		"image": "https://avatars.githubusercontent.com/u/30825551?v=4",
 		"jobTitle": "Lead Software Engineer",
-		"description": "Lead Software Engineer with 10+ years shipping mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents, LLM powered features and agentic delivery workflows.",
+		"worksFor": { "@type": "Organization", "name": "Maren Solutions" },
+		"description": "Lead Software Engineer with 10+ years shipping mobile, web and backend products end to end, leading hybrid teams of engineers and AI agents.",
 		"email": "mailto:mdab.aziz01@gmail.com",
 		"sameAs": [
 			"https://github.com/codemeall",
 			"https://in.linkedin.com/in/abdulaziz-codemeall"
 		],
-		"knowsAbout": ["Mobile App Development", "Web Development", "Backend SaaS", "Node.js", "Next.js", "React Native", "Flutter", "Swift", "Kotlin", "PostgreSQL", "Supabase", "Cloudflare", "AI agents", "LLM integration", "Open-weight models", "MCP"]
+		"knowsAbout": ["Mobile App Development", "Web Development", "Backend SaaS", "AI agents", "Multi-agent systems", "AgentOps", "LLM integration", "MCP", "React Native", "Flutter", "Swift", "Kotlin", "Node.js", "Next.js", "PostgreSQL", "Cloudflare"]
 	}
 	</script>
 
-	<!-- Bootstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
-		rel="stylesheet">
-	<!-- Font Awesome -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-	<!-- Enhanced CSS -->
-	<link rel="stylesheet" href="enhanced.css?v=20261012e" />
+	<link rel="stylesheet" href="site.css?v=20261014c" />
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader-inner">
-			<div class="preloader-terminal">
-				<div class="terminal-header">
-					<span class="terminal-dot red"></span>
-					<span class="terminal-dot yellow"></span>
-					<span class="terminal-dot green"></span>
-					<span class="terminal-title">portfolio.sh</span>
-				</div>
-				<div class="terminal-body" id="terminal-output">
-					<div class="terminal-line" data-delay="0">
-						<span class="terminal-prompt">$</span> <span class="terminal-text">initializing
-							portfolio...</span>
-					</div>
-					<div class="terminal-line" data-delay="180">
-						<span class="terminal-prompt">$</span> <span class="terminal-text">loading assets <span
-								class="terminal-dots">...</span></span>
-					</div>
-					<div class="terminal-line" data-delay="360">
-						<span class="terminal-prompt">$</span> <span class="terminal-text">compiling experience <span
-								class="text-success">[10 years]</span></span>
-					</div>
-					<div class="terminal-line" data-delay="540">
-						<span class="terminal-prompt">$</span> <span class="terminal-text">mounting tech stack <span
-								class="text-success">[OK]</span></span>
-					</div>
-					<div class="terminal-line" data-delay="720">
-						<span class="terminal-prompt">$</span> <span class="terminal-text">deploying UI <span
-								class="text-success">[READY]</span></span>
-					</div>
-				</div>
-			</div>
-			<div class="preloader-progress">
-				<div class="preloader-progress-bar" id="preloader-bar"></div>
-			</div>
-		</div>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<!-- Ambient layers -->
+	<div class="ambient" aria-hidden="true">
+		<div class="ambient-grid"></div>
+		<div class="ambient-glow ambient-glow--a"></div>
+		<div class="ambient-glow ambient-glow--b"></div>
+		<div class="ambient-noise"></div>
 	</div>
+	<div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"></span></div>
+	<div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-	<!-- Custom Cursor -->
-	<div class="custom-cursor" id="cursor"></div>
-	<div class="custom-cursor-follower" id="cursor-follower"></div>
-
-	<!-- Matrix Background -->
-	<canvas id="matrix" class="matrix-bg"></canvas>
-
-	<!-- Floating Gradient Orbs -->
-	<div class="gradient-orbs">
-		<div class="orb orb-1"></div>
-		<div class="orb orb-2"></div>
-		<div class="orb orb-3"></div>
-	</div>
-
-	<!-- Scroll Progress Bar -->
-	<div class="scroll-progress" id="scroll-progress"></div>
-
-	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light sticky-top" id="main-nav">
-		<div class="container">
-			<a class="navbar-brand" href="#top">
-				<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
+	<!-- Navigation -->
+	<header class="nav" id="nav">
+		<div class="nav-inner">
+			<a class="brand" href="#top" aria-label="Abdul Aziz, back to top">
+				<span class="brand-mark">AA</span>
+				<span class="brand-name">Abdul Aziz</span>
 			</a>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#about">About&nbsp;me</a>
+			<nav class="nav-links" id="nav-links" aria-label="Primary">
+				<a href="#ownership">Approach</a>
+				<a href="#ai-team">AI Team</a>
+				<a href="#services">Services</a>
+				<a href="#experience">Experience</a>
+				<a href="#stack">Stack</a>
+				<a href="blog/">Blog</a>
+			</nav>
+			<a class="btn btn--sm btn--primary magnetic" href="#contact">Let's talk</a>
+			<button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+				<span></span><span></span>
+			</button>
+		</div>
+	</header>
+
+	<main id="main">
+
+		<!-- ============ HERO ============ -->
+		<section class="hero" id="top">
+			<canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+			<div class="container hero-inner">
+				<div class="hero-copy">
+					<p class="eyebrow hero-in" style="--i:0">
+						<span class="status-dot" aria-hidden="true"></span>
+						Available for projects, AI team builds &amp; agent mentoring
+					</p>
+					<h1 class="hero-title">
+						<span class="line"><span class="hero-in" style="--i:1">I ship products</span></span>
+						<span class="line"><span class="hero-in grad-text" style="--i:2">end to end.</span></span>
+					</h1>
+					<p class="hero-rotator hero-in" style="--i:3" aria-live="polite">
+						<span class="rotator-prefix">With</span>
+						<span class="rotator" id="rotator">
+							<span class="is-active">a team of engineers.</span>
+							<span>a team of AI agents.</span>
+							<span>one owner from idea to App Store.</span>
+							<span>review discipline on every merge.</span>
+						</span>
+					</p>
+					<p class="hero-sub hero-in" style="--i:4">
+						Lead Software Engineer with 10+ years taking mobile, web and backend products from first
+						sketch to production and scale. Today I lead hybrid teams of engineers and AI agents, build
+						AI teams that run real business work, and help companies keep their agents on track.
+					</p>
+					<div class="hero-actions hero-in" style="--i:5">
+						<a class="btn btn--primary magnetic" href="#contact"><span>Start a project</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+						<a class="btn btn--ghost magnetic" href="#ai-team"><span>Meet my AI team</span></a>
+						<a class="btn btn--link" href="assets/myresume.pdf" target="_blank" rel="noopener"><i class="fas fa-file-arrow-down" aria-hidden="true"></i>Résumé</a>
+					</div>
+				</div>
+
+				<div class="hero-visual hero-in" style="--i:3">
+					<div class="console tilt" data-tilt>
+						<div class="console-bar">
+							<span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+							<span class="console-title">aziz@delivery ~ hybrid-team</span>
+						</div>
+						<div class="console-body" id="console-body" aria-label="Animated example of a hybrid delivery run">
+							<noscript>
+								<p><b>$</b> aziz ship --team hybrid</p>
+								<p>✓ architect &nbsp;system design approved</p>
+								<p>✓ builders &nbsp;features merged, tests green</p>
+								<p>✓ reviewer &nbsp;0 blocking issues</p>
+								<p>✓ release &nbsp;App Store · Play · Web</p>
+							</noscript>
+						</div>
+						<div class="console-foot">
+							<span><i class="fas fa-user-astronaut" aria-hidden="true"></i> 1 lead</span>
+							<span><i class="fas fa-robot" aria-hidden="true"></i> 6 agents</span>
+							<span><i class="fas fa-shield-halved" aria-hidden="true"></i> human review</span>
+						</div>
+					</div>
+					<figure class="hero-avatar">
+						<img src="assets/profile.jpg" alt="Abdul Aziz" width="200" height="200">
+						<figcaption><strong>Abdul Aziz</strong><span>Lead Engineer · Hyderabad, IN</span></figcaption>
+					</figure>
+				</div>
+			</div>
+			<a class="scroll-cue" href="#manifesto" aria-label="Scroll to next section"><span></span></a>
+		</section>
+
+		<!-- ============ MANIFESTO (scroll-scrubbed words) ============ -->
+		<section class="manifesto" id="manifesto" aria-label="How I think about delivery">
+			<div class="manifesto-sticky">
+				<div class="container">
+					<p class="manifesto-text" data-scrub-words>
+						Most products don't fail because of code. They fail in the gaps between design and build,
+						mobile and backend, demo and production, people and AI.
+						<em>I work in those gaps.</em> I own the whole path, so nothing falls through.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ OWNERSHIP STACK (pinned) ============ -->
+		<section class="ownership" id="ownership" aria-labelledby="ownership-title">
+			<div class="ownership-sticky">
+				<div class="container ownership-grid">
+					<div class="ownership-copy">
+						<p class="kicker"><span>01</span> End-to-end ownership</p>
+						<h2 class="section-title" id="ownership-title">One owner.<br><span class="grad-text">Every layer.</span></h2>
+						<p class="section-lead">Lead-level engineering means holding the whole system in your head. Scroll through the stack I take responsibility for, top to bottom.</p>
+
+						<ol class="layer-list" id="layer-list">
+							<li class="is-active" data-layer="0">
+								<h3><span>01</span>Product &amp; Architecture</h3>
+								<p>Discovery, scope, system design and the technical decisions that keep you from rewriting at the first sign of traction.</p>
+							</li>
+							<li data-layer="1">
+								<h3><span>02</span>Mobile: iOS, Android, Huawei</h3>
+								<p>React Native, Flutter, Swift and Kotlin, native bridges and reusable SDKs, shipped through App Store, Play and AppGallery.</p>
+							</li>
+							<li data-layer="2">
+								<h3><span>03</span>Web Platforms</h3>
+								<p>Fast, responsive products in React, Next.js, Vue and Svelte with design systems that scale across teams.</p>
+							</li>
+							<li data-layer="3">
+								<h3><span>04</span>Backend &amp; APIs</h3>
+								<p>Secure services in Node.js, Python and PHP on PostgreSQL, MongoDB and Supabase, with clean contracts and observability.</p>
+							</li>
+							<li data-layer="4">
+								<h3><span>05</span>Cloud &amp; Release</h3>
+								<p>AWS, Cloudflare and GCP/Firebase, CI/CD, signing, environments and one-click releases with rollback.</p>
+							</li>
+							<li data-layer="5">
+								<h3><span>06</span>AI &amp; Agents</h3>
+								<p>LLM features, multi-agent workflows, MCP integrations, evals, guardrails and cost and latency budgets.</p>
+							</li>
+							<li data-layer="6">
+								<h3><span>07</span>Team &amp; Delivery</h3>
+								<p>Sprint planning, code review, mentoring and release trains, for human engineers and AI agents alike.</p>
+							</li>
+						</ol>
+					</div>
+
+					<div class="stack-stage" aria-hidden="true">
+						<div class="stack" id="stack-3d">
+							<div class="plate" style="--n:6"><span>Team &amp; Delivery</span><i class="fas fa-people-group"></i></div>
+							<div class="plate" style="--n:5"><span>AI &amp; Agents</span><i class="fas fa-robot"></i></div>
+							<div class="plate" style="--n:4"><span>Cloud &amp; Release</span><i class="fas fa-cloud"></i></div>
+							<div class="plate" style="--n:3"><span>Backend &amp; APIs</span><i class="fas fa-server"></i></div>
+							<div class="plate" style="--n:2"><span>Web Platforms</span><i class="fas fa-globe"></i></div>
+							<div class="plate" style="--n:1"><span>Mobile</span><i class="fas fa-mobile-screen"></i></div>
+							<div class="plate" style="--n:0"><span>Architecture</span><i class="fas fa-compass-drafting"></i></div>
+						</div>
+						<div class="stack-meter"><span id="stack-meter-fill"></span></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ NUMBERS ============ -->
+		<section class="numbers" aria-label="Track record">
+			<div class="container numbers-grid">
+				<div class="number reveal"><strong><span data-count="10">0</span>+</strong><span>Years shipping production software</span></div>
+				<div class="number reveal" style="--d:.08s"><strong><span data-count="50">0</span>+</strong><span>Products and modules delivered</span></div>
+				<div class="number reveal" style="--d:.16s"><strong><span data-count="30">0</span>+</strong><span>Client engagements</span></div>
+				<div class="number reveal" style="--d:.24s"><strong><span data-count="3">0</span></strong><span>App stores shipped to: Apple, Google, Huawei</span></div>
+			</div>
+		</section>
+
+		<!-- ============ AI TEAM ============ -->
+		<section class="section ai-team" id="ai-team" aria-labelledby="ai-team-title">
+			<div class="container">
+				<header class="section-head reveal">
+					<p class="kicker"><span>02</span> Hybrid delivery</p>
+					<h2 class="section-title" id="ai-team-title">Not just me.<br><span class="grad-text">Me and my AI team.</span></h2>
+					<p class="section-lead">I run delivery with a squad of specialised AI agents that I've built, tuned and supervise every day. You get the judgement of a senior lead and the throughput of a team, with a human signing off on every merge.</p>
+				</header>
+
+				<div class="orbit-wrap">
+					<div class="orbit reveal" id="orbit" aria-hidden="true">
+						<div class="orbit-rot">
+						<svg class="orbit-lines" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
+							<defs>
+								<linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="1">
+									<stop offset="0" stop-color="#fcee0a" />
+									<stop offset="1" stop-color="#00f0ff" />
+								</linearGradient>
+							</defs>
+							<circle cx="300" cy="300" r="222" class="orbit-ring" />
+							<circle cx="300" cy="300" r="130" class="orbit-ring orbit-ring--inner" />
+							<g class="orbit-links"></g>
+						</svg>
+						
+						<div class="agent" style="--a:-90deg"><div class="agent-card"><i class="fas fa-compass-drafting"></i><b>Architect</b><small>plans &amp; designs</small></div></div>
+						<div class="agent" style="--a:-30deg"><div class="agent-card"><i class="fas fa-code"></i><b>Builders</b><small>implement in parallel</small></div></div>
+						<div class="agent" style="--a:30deg"><div class="agent-card"><i class="fas fa-magnifying-glass-chart"></i><b>Reviewer</b><small>catches regressions</small></div></div>
+						<div class="agent" style="--a:90deg"><div class="agent-card"><i class="fas fa-vial-circle-check"></i><b>QA</b><small>writes &amp; runs tests</small></div></div>
+						<div class="agent" style="--a:150deg"><div class="agent-card"><i class="fas fa-rocket"></i><b>Release</b><small>CI, builds, stores</small></div></div>
+						<div class="agent" style="--a:210deg"><div class="agent-card"><i class="fas fa-book-open"></i><b>Research &amp; Docs</b><small>context &amp; handover</small></div></div>
+						</div>
+						<div class="orbit-core">
+							<img src="assets/profile.jpg" alt="" width="200" height="200">
+							<strong>Abdul</strong>
+							<span>Lead · reviews &amp; decides</span>
+						</div>
+					</div>
+
+					<div class="ai-offers">
+						<article class="offer-card spotlight reveal">
+							<span class="offer-num">A</span>
+							<h3>Hire my hybrid team</h3>
+							<p>Bring me in with my agent squad. Lean-team cost, team-sized output: architecture, parallel builds, tests and releases, all driven and reviewed by me.</p>
+							<ul class="ticks">
+								<li>Faster cycles without cutting review</li>
+								<li>One accountable lead, no hand-off chaos</li>
+								<li>You own the code, prompts and workflows</li>
+							</ul>
+						</article>
+						<article class="offer-card spotlight reveal" style="--d:.08s">
+							<span class="offer-num">B</span>
+							<h3>Build <em>your</em> AI team</h3>
+							<p>I design and deploy AI agents that manage and automate your work: support triage, operations, reporting, sales follow-ups, content, data entry and internal tooling.</p>
+							<ul class="ticks">
+								<li>Connected to your tools via MCP and APIs</li>
+								<li>Approvals, audit logs and fallbacks built in</li>
+								<li>Measured on time saved, not demos</li>
+							</ul>
+						</article>
+						<article class="offer-card spotlight reveal" style="--d:.16s">
+							<span class="offer-num">C</span>
+							<h3>Mentor &amp; oversee your agents</h3>
+							<p>Already running agents but results feel random? I guide, streamline and monitor them, and coach your people on running them well.</p>
+							<ul class="ticks">
+								<li>Skills, prompts and workflow redesign</li>
+								<li>Evals, guardrails and cost dashboards</li>
+								<li>Weekly reviews with human-in-the-loop</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+
+				<div class="agentops reveal">
+					<p class="agentops-label">How I run agents in production</p>
+					<ol class="agentops-loop">
+						<li><i class="fas fa-pen-ruler" aria-hidden="true"></i><b>Design</b><span>Roles, tools, boundaries</span></li>
+						<li><i class="fas fa-plug-circle-bolt" aria-hidden="true"></i><b>Connect</b><span>MCP, APIs, data access</span></li>
+						<li><i class="fas fa-shield-halved" aria-hidden="true"></i><b>Guard</b><span>Approvals, limits, evals</span></li>
+						<li><i class="fas fa-wave-square" aria-hidden="true"></i><b>Observe</b><span>Traces, cost, quality</span></li>
+						<li><i class="fas fa-arrows-rotate" aria-hidden="true"></i><b>Improve</b><span>Weekly tuning loop</span></li>
+					</ol>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ SERVICES ============ -->
+		<section class="section services" id="services" aria-labelledby="services-title">
+			<div class="container">
+				<header class="section-head reveal">
+					<p class="kicker"><span>03</span> Services</p>
+					<h2 class="section-title" id="services-title">Everything you need to<br><span class="grad-text">go from idea to impact.</span></h2>
+				</header>
+
+				<div class="filter reveal" role="tablist" aria-label="Filter services">
+					<span class="filter-thumb" aria-hidden="true"></span>
+					<button role="tab" aria-selected="true" data-filter="all">All</button>
+					<button role="tab" aria-selected="false" data-filter="ai">AI &amp; Agents</button>
+					<button role="tab" aria-selected="false" data-filter="build">Build</button>
+					<button role="tab" aria-selected="false" data-filter="lead">Lead &amp; Advise</button>
+				</div>
+
+				<div class="bento" id="bento">
+					<article class="tile tile--wide spotlight reveal" data-cat="build">
+						<div class="tile-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+						<h3>End-to-end product engineering</h3>
+						<p>Mobile, web and backend built and launched as one coherent product: architecture, apps, APIs, admin, cloud and store release, owned through to production.</p>
+						<div class="tags"><span>iOS</span><span>Android</span><span>Huawei</span><span>Web</span><span>APIs</span><span>Cloud</span></div>
+					</article>
+					<article class="tile tile--tall tile--accent spotlight reveal" data-cat="ai">
+						<span class="badge">New</span>
+						<div class="tile-icon"><i class="fas fa-users-gear" aria-hidden="true"></i></div>
+						<h3>AI workforce for your business</h3>
+						<p>Agents that take repetitive work off your team: inbox and ticket triage, lead follow-up, reporting, document processing, scheduling and back-office ops.</p>
+						<ul class="ticks">
+							<li>Process mapping first, agents second</li>
+							<li>Runs on your stack, your data, your rules</li>
+							<li>Dashboards for volume, accuracy and spend</li>
+						</ul>
+					</article>
+					<article class="tile spotlight reveal" data-cat="ai">
+						<div class="tile-icon"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+						<h3>AI features in your product</h3>
+						<p>In-app assistants, RAG search over your knowledge, copilots, voice and structured extraction, on hosted or open-weight models.</p>
+					</article>
+					<article class="tile spotlight reveal" data-cat="ai">
+						<div class="tile-icon"><i class="fas fa-binoculars" aria-hidden="true"></i></div>
+						<h3>Agent mentoring &amp; AgentOps</h3>
+						<p>Ongoing guidance for teams running agents: evals, monitoring, cost control, failure reviews and playbooks your people can follow.</p>
+					</article>
+					<article class="tile spotlight reveal" data-cat="ai build">
+						<div class="tile-icon"><i class="fas fa-plug-circle-bolt" aria-hidden="true"></i></div>
+						<h3>MCP servers &amp; agent-ready APIs</h3>
+						<p>Make your product usable by AI agents: MCP servers, tool schemas, auth and rate limits, so assistants like Claude and ChatGPT can work with your platform.</p>
+					</article>
+					<article class="tile spotlight reveal" data-cat="ai lead">
+						<div class="tile-icon"><i class="fas fa-terminal" aria-hidden="true"></i></div>
+						<h3>AI-native engineering rollout</h3>
+						<p>Claude Code, Cursor and Codex set up for your engineers with custom skills, hooks and review loops that keep agent output production-grade.</p>
+					</article>
+					<article class="tile spotlight reveal" data-cat="lead">
+						<div class="tile-icon"><i class="fas fa-chess-knight" aria-hidden="true"></i></div>
+						<h3>Fractional tech lead / CTO</h3>
+						<p>Part-time senior leadership: architecture, hiring, vendor choices, code review and roadmap, for teams that need direction more than hands.</p>
+					</article>
+					<article class="tile tile--wide spotlight reveal" data-cat="lead ai">
+						<div class="tile-icon"><i class="fas fa-stethoscope" aria-hidden="true"></i></div>
+						<h3>Audits, AI readiness &amp; project rescue</h3>
+						<p>A senior look at your codebase, architecture or AI feature before you scale, raise, hire or rewrite. Or take over a stalled project, recover builds and access, and get delivery moving again.</p>
+						<div class="tags"><span>Code review</span><span>Architecture</span><span>AI readiness</span><span>Security basics</span><span>Recovery plan</span></div>
+					</article>
+					<article class="tile spotlight reveal" data-cat="build">
+						<div class="tile-icon"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></div>
+						<h3>SDKs &amp; native bridges</h3>
+						<p>iOS, Android, Flutter, React Native and JS SDKs with clean APIs, versioning and sample apps.</p>
+					</article>
+					<article class="tile spotlight reveal" data-cat="build">
+						<div class="tile-icon"><i class="fas fa-store" aria-hidden="true"></i></div>
+						<h3>Store launch &amp; release automation</h3>
+						<p>Signing, listings, review rejections and CI/CD so anyone on the team can ship safely.</p>
+					</article>
+					<article class="tile spotlight reveal" data-cat="build lead">
+						<div class="tile-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div>
+						<h3>Performance &amp; modernisation</h3>
+						<p>Crash and speed fixes, dependency upgrades and step-by-step migrations without stopping releases.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ WHO I HELP ============ -->
+		<section class="section who" id="who" aria-labelledby="who-title">
+			<div class="container">
+				<header class="section-head reveal">
+					<p class="kicker"><span>04</span> Where to start</p>
+					<h2 class="section-title" id="who-title">Tell me where you are.<br><span class="grad-text">I'll meet you there.</span></h2>
+				</header>
+
+				<div class="who-shell reveal">
+					<div class="who-tabs" role="tablist" aria-label="Choose what describes you">
+						<button role="tab" id="tab-idea" aria-controls="panel-idea" aria-selected="true"><i class="fas fa-lightbulb" aria-hidden="true"></i>I have an idea</button>
+						<button role="tab" id="tab-tech" aria-controls="panel-tech" aria-selected="false" tabindex="-1"><i class="fas fa-handshake" aria-hidden="true"></i>I need a technical partner</button>
+						<button role="tab" id="tab-ai" aria-controls="panel-ai" aria-selected="false" tabindex="-1"><i class="fas fa-robot" aria-hidden="true"></i>I want AI to do the work</button>
+						<button role="tab" id="tab-agents" aria-controls="panel-agents" aria-selected="false" tabindex="-1"><i class="fas fa-binoculars" aria-hidden="true"></i>We already run AI agents</button>
+						<button role="tab" id="tab-hire" aria-controls="panel-hire" aria-selected="false" tabindex="-1"><i class="fas fa-briefcase" aria-hidden="true"></i>We're hiring a lead</button>
+					</div>
+
+					<div class="who-panels">
+						<div class="who-panel is-active" role="tabpanel" id="panel-idea" aria-labelledby="tab-idea">
+							<h3>From idea to a product people can use.</h3>
+							<p>You have the problem, the users or the funding, but no tech team. I'll turn it into a lean, launchable first version on mobile, web or both, scoped to what proves the idea and built so it won't need a rewrite.</p>
+							<ul class="ticks">
+								<li>Feature scoping and clickable flows</li>
+								<li>Production app, backend and admin</li>
+								<li>Store or web launch, typically in 4 to 10 weeks</li>
+							</ul>
+							<a class="btn btn--primary magnetic" href="mailto:mdab.aziz01@gmail.com?subject=MVP%20Idea%20-%20Let's%20talk">Talk about my idea <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="who-panel" role="tabpanel" id="panel-tech" aria-labelledby="tab-tech" hidden>
+							<h3>A senior technical partner on your side.</h3>
+							<p>Need someone who can make the calls, write the hard parts and keep vendors honest? I join as a fractional tech lead or embedded engineer, with my AI team when speed matters.</p>
+							<ul class="ticks">
+								<li>Architecture, roadmap and hiring support</li>
+								<li>Hands-on for critical modules, SDKs and releases</li>
+								<li>Monthly retainer, scale up or down</li>
+							</ul>
+							<a class="btn btn--primary magnetic" href="mailto:mdab.aziz01@gmail.com?subject=Technical%20Partner%20Enquiry">Find a partner <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="who-panel" role="tabpanel" id="panel-ai" aria-labelledby="tab-ai" hidden>
+							<h3>An AI team that takes work off your plate.</h3>
+							<p>We map where your team loses hours each week, then build agents that handle it, with approvals where it matters and dashboards that show what they did and what it cost.</p>
+							<ul class="ticks">
+								<li>Free 30-minute automation audit</li>
+								<li>Pilot one workflow in 2 to 4 weeks</li>
+								<li>Expand once the numbers prove it</li>
+							</ul>
+							<a class="btn btn--primary magnetic" href="mailto:mdab.aziz01@gmail.com?subject=AI%20Team%20%2F%20Automation%20Enquiry">Automate my work <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="who-panel" role="tabpanel" id="panel-agents" aria-labelledby="tab-agents" hidden>
+							<h3>Your agents, streamlined and supervised.</h3>
+							<p>Agents that drift, loop, burn tokens or quietly get things wrong are a management problem as much as a technical one. I review how yours work, fix the workflows and set up monitoring, then mentor your team to run them.</p>
+							<ul class="ticks">
+								<li>Agent and workflow health check</li>
+								<li>Evals, guardrails, tracing and cost alerts</li>
+								<li>Ongoing mentoring and weekly reviews</li>
+							</ul>
+							<a class="btn btn--primary magnetic" href="mailto:mdab.aziz01@gmail.com?subject=AI%20Agent%20Mentoring%20Enquiry">Get my agents reviewed <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="who-panel" role="tabpanel" id="panel-hire" aria-labelledby="tab-hire" hidden>
+							<h3>A lead who has owned it all before.</h3>
+							<p>10+ years across mobile, web, backend and now AI, leading a cross-platform team at Maren Solutions since 2019. Comfortable at lead and staff level: architecture, delivery, people and AI adoption.</p>
+							<ul class="ticks">
+								<li>See experience and stack below</li>
+								<li>Résumé available as PDF</li>
+								<li>Happy to talk on LinkedIn or email</li>
+							</ul>
+							<div class="btn-row">
+								<a class="btn btn--primary magnetic" href="#experience">View experience <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+								<a class="btn btn--ghost magnetic" href="assets/myresume.pdf" target="_blank" rel="noopener">Résumé PDF</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ EXPERIENCE ============ -->
+		<section class="section experience" id="experience" aria-labelledby="exp-title">
+			<div class="container">
+				<header class="section-head reveal">
+					<p class="kicker"><span>05</span> Experience</p>
+					<h2 class="section-title" id="exp-title">A decade of<br><span class="grad-text">shipping and leading.</span></h2>
+				</header>
+
+				<ol class="timeline" id="timeline">
+					<li class="tl-item reveal">
+						<div class="tl-date">2019 — Present</div>
+						<div class="tl-card spotlight">
+							<h3>Lead Software Engineer / Team Lead</h3>
+							<p class="tl-org">Maren Solutions Pvt Ltd · Hyderabad, India</p>
+							<p>Joined as a Full Stack Engineer and grew into leading the mobile, web and backend delivery team.</p>
+							<ul class="ticks">
+								<li>Own architecture and setup for mobile, web and backend products, from barebones to production.</li>
+								<li>Ship to App Store, Play and Huawei AppGallery; plan sprints and release trains across platforms.</li>
+								<li>Build native features and reusable SDKs that expose iOS, Android and Huawei capabilities to React Native and Flutter teams.</li>
+								<li>Run code reviews, POCs and knowledge-transfer sessions; mentor junior developers and trainees.</li>
+								<li>Introduced AI-assisted delivery with Claude Code, Cursor and Codex, custom skills, hooks and review loops, and LLM features in client products.</li>
+							</ul>
+							<div class="tags"><span>React Native</span><span>Flutter</span><span>Swift</span><span>Kotlin</span><span>Node.js</span><span>Next.js</span><span>AI Agents</span></div>
+						</div>
 					</li>
-					<li class="nav-item" data-show="professional">
-						<a class="nav-link" href="#experience">Experience</a>
+					<li class="tl-item reveal">
+						<div class="tl-date">2016 — 2019</div>
+						<div class="tl-card spotlight">
+							<h3>Full Stack Developer</h3>
+							<p class="tl-org">Sizmic Labs</p>
+							<ul class="ticks">
+								<li>Built and maintained web applications, custom websites and SaaS products across frontend and backend.</li>
+								<li>Designed APIs connecting product components and third-party systems.</li>
+								<li>Developed custom WordPress themes and plugins; kept client sites fast and secure.</li>
+								<li>Automated internal workflows and built crawlers that supplied data to marketing.</li>
+							</ul>
+							<div class="tags"><span>PHP</span><span>Laravel</span><span>Python</span><span>JavaScript</span><span>MySQL</span><span>WordPress</span></div>
+						</div>
 					</li>
-					<li class="nav-item" data-show="professional">
-						<a class="nav-link" href="#skills">Skills</a>
+					<li class="tl-item reveal">
+						<div class="tl-date">2011 — 2015</div>
+						<div class="tl-card spotlight">
+							<h3>B.Tech</h3>
+							<p class="tl-org">Jawaharlal Nehru Technological University Hyderabad (JNTUH)</p>
+							<p><i class="fas fa-trophy" aria-hidden="true"></i> First Prize, Robotics Demonstration, The Hyderabad Student Festival (2013)</p>
+						</div>
 					</li>
-					<li class="nav-item" data-show="professional">
-						<a class="nav-link" href="#tech-stack">Tech&nbsp;Stack</a>
-					</li>
-					<li class="nav-item" data-show="professional">
-						<a class="nav-link" href="#education">Education</a>
-					</li>
-					<li class="nav-item" data-show="personal">
-						<a class="nav-link" href="#services">Services</a>
-					</li>
-					<li class="nav-item" data-show="personal">
-						<a class="nav-link" href="#consultations">Consultations</a>
-					</li>
-					<li class="nav-item" data-show="personal">
-						<a class="nav-link" href="#process">Process</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="blog/index.html">Blog</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#contact">Contact&nbsp;me</a>
-					</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- ============ STACK ============ -->
+		<section class="section stack-sec" id="stack" aria-labelledby="stack-title">
+			<div class="container">
+				<header class="section-head reveal">
+					<p class="kicker"><span>06</span> Tech stack</p>
+					<h2 class="section-title" id="stack-title">Fluent across<br><span class="grad-text">the whole stack.</span></h2>
+				</header>
+			</div>
+
+			<div class="marquee" data-speed="38">
+				<div class="marquee-track">
+					<span class="chip"><img src="assets/react-native-2.png" alt="" loading="lazy">React Native</span>
+					<span class="chip"><img src="assets/flutter.png" alt="" loading="lazy">Flutter</span>
+					<span class="chip"><img src="assets/swift.png" alt="" loading="lazy">Swift</span>
+					<span class="chip"><img src="assets/kotlin.jpeg" alt="" loading="lazy">Kotlin</span>
+					<span class="chip"><img src="assets/dart.png" alt="" loading="lazy">Dart</span>
+					<span class="chip"><img src="assets/react.png" alt="" loading="lazy">React</span>
+					<span class="chip"><img src="assets/nextjs.png" alt="" loading="lazy">Next.js</span>
+					<span class="chip"><img src="assets/vue.png" alt="" loading="lazy">Vue</span>
+					<span class="chip"><img src="assets/svelte.png" alt="" loading="lazy">Svelte</span>
+					<span class="chip"><img src="assets/js.png" alt="" loading="lazy">JavaScript</span>
+					<span class="chip"><img src="assets/cordova.png" alt="" loading="lazy">Cordova</span>
+					<span class="chip"><img src="assets/nativescript.png" alt="" loading="lazy">NativeScript</span>
+				</div>
+			</div>
+			<div class="marquee marquee--reverse" data-speed="44">
+				<div class="marquee-track">
+					<span class="chip"><img src="assets/node.png" alt="" loading="lazy">Node.js</span>
+					<span class="chip"><img src="assets/express.png" alt="" loading="lazy">Express</span>
+					<span class="chip"><img src="assets/bun.png" alt="" loading="lazy">Bun</span>
+					<span class="chip"><img src="assets/deno.png" alt="" loading="lazy">Deno</span>
+					<span class="chip"><img src="assets/python.png" alt="" loading="lazy">Python</span>
+					<span class="chip"><img src="assets/django.png" alt="" loading="lazy">Django</span>
+					<span class="chip"><img src="assets/php.png" alt="" loading="lazy">PHP</span>
+					<span class="chip"><img src="assets/laravel.png" alt="" loading="lazy">Laravel</span>
+					<span class="chip"><i class="fas fa-database" aria-hidden="true"></i>PostgreSQL</span>
+					<span class="chip"><i class="fas fa-bolt" aria-hidden="true"></i>Supabase</span>
+					<span class="chip"><img src="assets/mongodb.png" alt="" loading="lazy">MongoDB</span>
+					<span class="chip"><img src="assets/sqlite.jpeg" alt="" loading="lazy">SQLite</span>
+					<span class="chip"><img src="assets/aws.png" alt="" loading="lazy">AWS</span>
+					<span class="chip"><i class="fas fa-cloud" aria-hidden="true"></i>Cloudflare</span>
+					<span class="chip"><img src="assets/googlecloud.png" alt="" loading="lazy">GCP · Firebase</span>
+				</div>
+			</div>
+			<div class="marquee marquee--ai" data-speed="34">
+				<div class="marquee-track">
+					<span class="chip chip--ai"><i class="fas fa-terminal" aria-hidden="true"></i>Claude Code</span>
+					<span class="chip chip--ai"><i class="fas fa-i-cursor" aria-hidden="true"></i>Cursor</span>
+					<span class="chip chip--ai"><i class="fas fa-code" aria-hidden="true"></i>Codex</span>
+					<span class="chip chip--ai"><i class="fas fa-plug" aria-hidden="true"></i>MCP Servers</span>
+					<span class="chip chip--ai"><i class="fas fa-brain" aria-hidden="true"></i>Anthropic</span>
+					<span class="chip chip--ai"><i class="fas fa-brain" aria-hidden="true"></i>OpenAI</span>
+					<span class="chip chip--ai"><i class="fas fa-brain" aria-hidden="true"></i>xAI Grok</span>
+					<span class="chip chip--ai"><i class="fas fa-cubes" aria-hidden="true"></i>Hugging Face</span>
+					<span class="chip chip--ai"><i class="fas fa-server" aria-hidden="true"></i>Ollama</span>
+					<span class="chip chip--ai"><i class="fas fa-route" aria-hidden="true"></i>OpenRouter</span>
+					<span class="chip chip--ai"><i class="fas fa-robot" aria-hidden="true"></i>Hermes Agent</span>
+					<span class="chip chip--ai"><i class="fas fa-robot" aria-hidden="true"></i>OpenClaw</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ ENGAGE ============ -->
+		<section class="section engage" id="engage" aria-labelledby="engage-title">
+			<div class="container">
+				<header class="section-head reveal">
+					<p class="kicker"><span>07</span> Working together</p>
+					<h2 class="section-title" id="engage-title">Pick the shape<br><span class="grad-text">that fits your team.</span></h2>
+				</header>
+
+				<div class="models">
+					<article class="model spotlight reveal">
+						<span class="model-meta">30 min · free</span>
+						<h3>Discovery call</h3>
+						<p>Talk through the idea, problem or automation opportunity. Honest take on feasibility, stack and next steps.</p>
+						<a href="mailto:mdab.aziz01@gmail.com?subject=Discovery%20Call%20Request" class="model-link">Book a call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+					</article>
+					<article class="model spotlight reveal" style="--d:.06s">
+						<span class="model-meta">Fixed scope · 1–2 weeks</span>
+						<h3>Audit &amp; AI readiness</h3>
+						<p>Written findings and a prioritised roadmap for your app, API, AI feature or agent setup.</p>
+						<a href="mailto:mdab.aziz01@gmail.com?subject=Audit%20Request" class="model-link">Request an audit <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+					</article>
+					<article class="model model--featured spotlight reveal" style="--d:.12s">
+						<span class="model-meta">Milestone based</span>
+						<h3>Project delivery</h3>
+						<p>A defined outcome (MVP, AI team, SDK, service or launch) owned end to end with my hybrid team.</p>
+						<a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Enquiry" class="model-link">Start a project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+					</article>
+					<article class="model spotlight reveal" style="--d:.18s">
+						<span class="model-meta">Monthly retainer</span>
+						<h3>Fractional lead &amp; agent oversight</h3>
+						<p>Ongoing leadership, mentoring and monitoring for your engineers and your AI agents.</p>
+						<a href="mailto:mdab.aziz01@gmail.com?subject=Retainer%20Enquiry" class="model-link">Discuss a retainer <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+					</article>
+				</div>
+
+				<ol class="process reveal">
+					<li><span>01</span><b>Discover</b><p>Goals, users, constraints and what success looks like.</p></li>
+					<li><span>02</span><b>Propose</b><p>Written scope, milestones, timeline and cost. No surprises.</p></li>
+					<li><span>03</span><b>Build</b><p>Weekly demos; working software early, steered by you.</p></li>
+					<li><span>04</span><b>Launch &amp; hand over</b><p>Release, docs and a clean handover or ongoing support.</p></li>
+				</ol>
+
+				<ul class="assurances reveal">
+					<li><i class="fas fa-file-signature" aria-hidden="true"></i>NDA on request</li>
+					<li><i class="fas fa-code" aria-hidden="true"></i>You own the code, prompts and IP</li>
+					<li><i class="fas fa-comments" aria-hidden="true"></i>Weekly updates and demos</li>
+					<li><i class="fas fa-receipt" aria-hidden="true"></i>Written quote before work starts</li>
 				</ul>
 			</div>
-			<div class="navbar-actions">
-				<div class="mode-switch" role="radiogroup" aria-label="Portfolio mode">
-					<span class="mode-switch-thumb" aria-hidden="true"></span>
-					<button type="button" class="mode-switch-btn" role="radio" data-mode-target="professional"
-						title="Professional: experience, skills and education">
-						<i class="fas fa-briefcase" aria-hidden="true"></i><span>Professional</span>
-					</button>
-					<button type="button" class="mode-switch-btn" role="radio" data-mode-target="personal"
-						title="Personal: services, consultations and process">
-						<i class="fas fa-handshake" aria-hidden="true"></i><span>Personal</span>
-					</button>
+		</section>
+
+		<!-- ============ CONTACT ============ -->
+		<section class="contact" id="contact" aria-labelledby="contact-title">
+			<div class="container contact-inner">
+				<p class="kicker reveal"><span>08</span> Contact</p>
+				<h2 class="contact-title reveal" id="contact-title">
+					Have an idea?<br>
+					<span class="grad-text">Let's make it ship.</span>
+				</h2>
+				<p class="section-lead reveal">Founders, product teams, businesses exploring AI, teams that need a technical lead or a mentor for their agents: write to me and I'll reply within one business day.</p>
+				<div class="contact-actions reveal">
+					<a class="btn btn--primary btn--lg magnetic" href="mailto:mdab.aziz01@gmail.com?subject=Hello%20Abdul"><i class="fas fa-envelope" aria-hidden="true"></i><span>mdab.aziz01@gmail.com</span></a>
+					<button type="button" class="btn btn--ghost btn--lg magnetic" data-copy="mdab.aziz01@gmail.com"><i class="far fa-copy" aria-hidden="true"></i><span>Copy email</span></button>
 				</div>
-				<button type="button" class="theme-toggle magnetic-btn" id="theme-toggle"
-					aria-label="Switch color theme">
-					<i class="fas fa-sun theme-icon-sun" aria-hidden="true"></i>
-					<i class="fas fa-moon theme-icon-moon" aria-hidden="true"></i>
-				</button>
-				<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-		</div>
-	</nav>
-
-	<!-- Hero / About Section -->
-	<section id="about">
-		<div class="container p-2">
-			<div class="row p-2">
-				<div class="col-lg-3 col-md-12 col-sm-12 text-center mb-4">
-					<div class="profile-card reveal-up">
-						<div class="profile-img-wrapper">
-							<div class="profile-flip mt-4 mb-sm-3">
-								<img class="profile-face profile-face-front"
-									src="data:image/jpeg;base64,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"
-									alt="Abdul Aziz" />
-								<img class="profile-face profile-face-back"
-									src="https://avatars.githubusercontent.com/u/30825551?v=4" alt="Abdul Aziz pixel avatar" />
-							</div>
-							<div class="profile-img-ring"></div>
-						</div>
-						<h4 class="mb-2 mt-2 glow-text">Abdul Aziz</h4>
-						<p class="sub-titles small mb-1">
-							<span id="typed-role"></span>
-						</p>
-
-						<div class="justify-content-evenly social-links">
-							<a target="_blank" rel="noopener" href="https://github.com/codemeall" class="social-link magnetic-btn"
-								aria-label="GitHub">
-								<img class="social-icons m-2" src="assets/git.png" alt="GitHub" />
-							</a>
-							<a target="_blank" rel="noopener" href="https://in.linkedin.com/in/abdulaziz-codemeall"
-								class="social-link magnetic-btn" aria-label="LinkedIn">
-								<img class="social-icons m-2" src="assets/linkedin.png" alt="LinkedIn" />
-							</a>
-							<a href="mailto:mdab.aziz01@gmail.com" class="social-link magnetic-btn" aria-label="Email">
-								<img class="social-icons m-2" src="assets/gmail.png" alt="Email" />
-							</a>
-						</div>
-
-						<hr class="divider mb-1 mt-1" />
-
-						<!-- Stats Counter -->
-						<div class="stats-row">
-							<div class="stat-item">
-								<span class="stat-number counter" data-target="10">0</span><span
-									class="stat-suffix">+</span>
-								<span class="stat-label">Years Exp</span>
-							</div>
-							<div class="stat-item">
-								<span class="stat-number counter" data-target="50">0</span><span
-									class="stat-suffix">+</span>
-								<span class="stat-label">Projects</span>
-							</div>
-							<div class="stat-item">
-								<span class="stat-number counter" data-target="30">0</span><span
-									class="stat-suffix">+</span>
-								<span class="stat-label">Clients</span>
-							</div>
-						</div>
-
-						<!-- -->
-					</div>
-				</div>
-
-				<div class="col-lg-9 col-md-12 col-sm-12 my-auto px-lg-5">
-					<div class="hero-text">
-						<h1 class="hero-greeting reveal-up">
-							Hi, I'm <span class="highlight-name">Abdul Aziz</span>
-						</h1>
-						<div class="audience-switch reveal-up" style="--delay: 0.05s" role="radiogroup"
-							aria-label="What brings you here?">
-							<span class="audience-switch-label">What brings you here?</span>
-							<div class="audience-switch-track">
-								<span class="audience-switch-thumb" aria-hidden="true"></span>
-								<button type="button" class="audience-option" role="radio" data-mode-target="professional">
-									<i class="fas fa-briefcase" aria-hidden="true"></i>
-									<span class="audience-option-text">
-										<strong>Hiring for a role</strong>
-										<small>Experience, skills &amp; education</small>
-									</span>
-								</button>
-								<button type="button" class="audience-option" role="radio" data-mode-target="personal">
-									<i class="fas fa-rocket" aria-hidden="true"></i>
-									<span class="audience-option-text">
-										<strong>Building a product</strong>
-										<small>Services, engagements &amp; process</small>
-									</span>
-								</button>
-							</div>
-						</div>
-						<div class="hero-tagline reveal-up" style="--delay: 0.1s" data-show="professional">
-							<span class="tagline-decorator">//</span> Lead Software Engineer with 10+ years shipping
-							mobile-first products, scalable web platforms and backend SaaS, complemented by AI agents,
-							LLM powered features and agentic delivery workflows with high performing engineering teams.
-						</div>
-						<div class="hero-tagline reveal-up" style="--delay: 0.1s" data-show="personal">
-							<span class="tagline-decorator">//</span> I help founders and product teams plan, build and
-							rescue mobile apps, web platforms and AI features, from a one-hour architecture call to
-							end-to-end delivery.
-						</div>
-						<div class="hero-actions reveal-up" style="--delay: 0.12s" data-show="professional">
-							<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" rel="noopener"
-								class="btn contact-btn magnetic-btn ripple-btn">
-								<i class="fab fa-linkedin me-2"></i>Connect on LinkedIn
-							</a>
-							<a href="mailto:mdab.aziz01@gmail.com?subject=Hello%20Abdul"
-								class="btn ghost-btn magnetic-btn">
-								<i class="fas fa-envelope me-2"></i>Email Me
-							</a>
-							<button type="button" class="btn ghost-btn magnetic-btn" data-print-resume>
-								<i class="fas fa-file-arrow-down me-2"></i>Résumé PDF
-							</button>
-							<span class="availability-badge"><i class="fas fa-briefcase" aria-hidden="true"></i>Lead
-								Software Engineer at Maren Solutions</span>
-						</div>
-						<div class="hero-actions reveal-up" style="--delay: 0.12s" data-show="personal">
-							<a href="mailto:mdab.aziz01@gmail.com?subject=Consultation%20Request"
-								class="btn contact-btn magnetic-btn ripple-btn">
-								<i class="fas fa-calendar-check me-2"></i>Book a Consultation
-							</a>
-							<a href="#consultations" class="btn ghost-btn magnetic-btn">
-								<i class="fas fa-list-check me-2"></i>See Engagement Options
-							</a>
-						</div>
-						<div class="quick-chips reveal-up" style="--delay: 0.15s" data-show="personal">
-							<a href="#service-mobile" class="chip-link chip-link--accent magnetic-btn"
-								data-service-collapse="collapseOne">Mobile</a>
-							<a href="#service-fullstack" class="chip-link magnetic-btn"
-								data-service-collapse="collapseTwo">Full Stack</a>
-							<a href="#service-backend" class="chip-link magnetic-btn"
-								data-service-collapse="collapseThree">Backend</a>
-							<a href="#service-ai" class="chip-link magnetic-btn"
-								data-service-collapse="collapseAI">AI &amp; Agents</a>
-							<a href="#service-sdk" class="chip-link magnetic-btn"
-								data-service-collapse="collapseFour">SDK</a>
-							<a href="#need-publish" class="chip-link magnetic-btn">Publish App</a>
-							<a href="#consultations" class="chip-link magnetic-btn">Consulting</a>
-						</div>
-					</div>
-
-					<div class="about-content" data-show="professional">
-						<div class="about-block reveal-left" style="--delay: 0.2s">
-							<div class="about-block-indicator"></div>
-							<p class="lh-base">I am a Lead Software Engineer with 10+ years shipping production grade products across mobile, web and backend. I lead end to end delivery from architecture and native bridging to App Store, Play and Huawei AppGallery release, accountable for performance, stability and maintainability at scale.</p>
-						</div>
-
-						<div class="about-block reveal-left" style="--delay: 0.3s">
-							<div class="about-block-indicator"></div>
-							<p>My core strength is mobile engineering at scale. I ship with React Native, Flutter, Swift and Kotlin, plus Cordova and NativeScript where it fits, and build reusable SDKs that expose native capabilities to cross platform teams for faster, consistent delivery.</p>
-						</div>
-
-						<div class="about-block reveal-left" style="--delay: 0.4s">
-							<div class="about-block-indicator"></div>
-							<p>Beyond mobile, I deliver full stack web and backend SaaS platforms as primary deliveries: responsive web with React, Next.js, Vue and Svelte; services and APIs in Node.js, Python and PHP; data on PostgreSQL, MongoDB and Supabase; and cloud native delivery on AWS, Cloudflare and GCP with Firebase.</p>
-						</div>
-
-						<div class="about-block reveal-left" style="--delay: 0.5s">
-							<div class="about-block-indicator"></div>
-							<p>AI complements my delivery. I design agents and multi agent workflows with MCP and tool use, and deliver LLM features including function calling, structured outputs and streaming UX on OpenAI, Anthropic and open weight models, with evals, guardrails and cost and latency budgets. Day to day I run delivery in Claude Code, Cursor and Codex with custom skills, hooks and review loops, and roll out the same agentic workflows for client teams.</p>
-						</div>
-					</div>
-					<div class="about-content" data-show="personal">
-						<div class="about-block reveal-left" style="--delay: 0.2s">
-							<div class="about-block-indicator"></div>
-							<p class="lh-base"><strong>Founders &amp; startups:</strong> turn an idea into a shippable MVP on iOS, Android and web, with an architecture that won't need a rewrite at the first sign of traction.</p>
-						</div>
-
-						<div class="about-block reveal-left" style="--delay: 0.3s">
-							<div class="about-block-indicator"></div>
-							<p><strong>Product &amp; engineering teams:</strong> add senior hands for a critical module, an SDK, a native bridge, a store launch or a performance problem, then hand it back cleanly documented.</p>
-						</div>
-
-						<div class="about-block reveal-left" style="--delay: 0.4s">
-							<div class="about-block-indicator"></div>
-							<p><strong>Teams adopting AI:</strong> scope and ship LLM features and agent workflows that are measurable and safe, and set up Claude Code, Cursor or Codex workflows your engineers will actually use.</p>
-						</div>
-					</div>
+				<div class="contact-socials reveal">
+					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" rel="noopener" class="magnetic"><i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
+					<a href="https://github.com/codemeall" target="_blank" rel="noopener" class="magnetic"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a>
+					<a href="blog/" class="magnetic"><i class="fas fa-pen-nib" aria-hidden="true"></i>Blog</a>
+					<a href="assets/myresume.pdf" target="_blank" rel="noopener" class="magnetic"><i class="fas fa-file-lines" aria-hidden="true"></i>Résumé</a>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</main>
 
-	<hr class="section-divider" data-show="professional" />
-
-	<!-- Experience Section (professional) -->
-	<section id="experience" data-show="professional">
-		<div class="bg-container reveal-up">
-			<div class="row justify-content-center text-center my-3">
-				<div class="section-header">
-					<span class="section-tag">&lt;experience&gt;</span>
-					<h2 class="glow-text section-title">Experience</h2>
-					<p class="lead sub-titles"><i>10+ years building and leading production software</i></p>
-				</div>
-			</div>
-			<ol class="timeline">
-				<li class="timeline-item">
-					<div class="timeline-marker" aria-hidden="true"></div>
-					<div class="timeline-card">
-						<div class="timeline-head">
-							<div>
-								<h3 class="timeline-role">Lead Software Engineer / Team Lead</h3>
-								<p class="timeline-org">Maren Solutions Pvt Ltd · Hyderabad, India</p>
-							</div>
-							<span class="timeline-date">2019 to Present</span>
-						</div>
-						<p class="timeline-summary">Joined as a Full Stack Software Engineer and grew into leading the mobile, web and backend delivery team.</p>
-						<ul class="timeline-points">
-							<li>Own architecture and project setup for mobile, web and backend products, from barebones to production.</li>
-							<li>Ship to App Store, Play Store and Huawei AppGallery; plan sprints and release trains across platforms.</li>
-							<li>Build native features and reusable SDKs that expose iOS, Android and Huawei capabilities to React Native and Flutter teams.</li>
-							<li>Run code reviews, POCs for new requirements and knowledge-transfer sessions; mentor junior developers and trainees.</li>
-							<li>Introduced AI-assisted delivery (Claude Code, Cursor, Codex) with custom skills, hooks and review loops, and LLM features in client products.</li>
-						</ul>
-						<div class="timeline-tags">
-							<span>React Native</span><span>Flutter</span><span>Swift</span><span>Kotlin</span><span>Node.js</span><span>Next.js</span><span>AI Agents</span>
-						</div>
-					</div>
-				</li>
-				<li class="timeline-item">
-					<div class="timeline-marker" aria-hidden="true"></div>
-					<div class="timeline-card">
-						<div class="timeline-head">
-							<div>
-								<h3 class="timeline-role">Full Stack Developer</h3>
-								<p class="timeline-org">Sizmic Labs</p>
-							</div>
-							<span class="timeline-date">2016 to 2019</span>
-						</div>
-						<ul class="timeline-points">
-							<li>Built and maintained web applications, custom websites and SaaS products across frontend and backend.</li>
-							<li>Designed and implemented APIs connecting product components and third-party systems.</li>
-							<li>Developed custom WordPress themes and plugins; kept client sites fast and secure.</li>
-							<li>Automated internal workflows with scripts and built crawlers that supplied data to the marketing team.</li>
-						</ul>
-						<div class="timeline-tags">
-							<span>PHP</span><span>Laravel</span><span>Python</span><span>JavaScript</span><span>MySQL</span><span>WordPress</span>
-						</div>
-					</div>
-				</li>
-			</ol>
-		</div>
-	</section>
-
-	<hr class="section-divider" data-show="professional" />
-
-	<!-- Skills Section -->
-	<section id="skills" data-show="professional">
-		<div class="bg-container reveal-up">
-			<div class="row justify-content-center align-items-center text-center my-3">
-				<div class="section-header">
-					<span class="section-tag">&lt;skills&gt;</span>
-					<h2 class="glow-text section-title">Skills</h2>
-					<p class="lead sub-titles"><i>Core capabilities I bring to product and engineering teams</i></p>
-				</div>
-			</div>
-			<p class="skills-intro">I build and lead delivery with mobile as primary, followed by web and backend systems, complemented by AI agents, LLM powered features and agentic workflows that compress delivery time without cutting review discipline.</p>
-			<div class="skill-grid">
-				<article class="skill-card reveal-up" style="--delay: 0.00s">
-					<span class="skill-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></span>
-					<h3>Mobile App Development</h3>
-					<p>Design and delivery of production grade applications for iOS, Android and Huawei, including third party integrations such as Firebase, AWS Amplify and payment gateways.</p>
-				</article>
-				<article class="skill-card reveal-up" style="--delay: 0.05s">
-					<span class="skill-icon"><i class="fas fa-desktop" aria-hidden="true"></i></span>
-					<h3>Web &amp; Desktop Applications</h3>
-					<p>Delivery of responsive, high performance interfaces for web and desktop products with consistent cross device experiences.</p>
-				</article>
-				<article class="skill-card reveal-up" style="--delay: 0.10s">
-					<span class="skill-icon"><i class="fas fa-server" aria-hidden="true"></i></span>
-					<h3>Backend &amp; API Development</h3>
-					<p>Architecture and implementation of secure, scalable APIs and backend services for reliable integrations and data workflows.</p>
-				</article>
-				<article class="skill-card reveal-up" style="--delay: 0.15s">
-					<span class="skill-icon"><i class="fas fa-robot" aria-hidden="true"></i></span>
-					<h3>AI Agents &amp; LLM Features</h3>
-					<p>Agents, multi agent workflows and LLM features built for real products including tool and function calling, MCP server integration, structured outputs and open weight models where cost or privacy rules out hosted APIs, shipped with guardrails, evals and cost and latency budgets.</p>
-				</article>
-				<article class="skill-card reveal-up" style="--delay: 0.00s">
-					<span class="skill-icon"><i class="fas fa-terminal" aria-hidden="true"></i></span>
-					<h3>AI-Augmented Delivery</h3>
-					<p>Day to day engineering inside AI harnesses like Claude Code, Cursor and Codex, extended with custom skills, hooks and slash commands, and rolled out to client teams with review loops that keep agent output production grade.</p>
-				</article>
-				<article class="skill-card reveal-up" style="--delay: 0.05s">
-					<span class="skill-icon"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></span>
-					<h3>Custom SDKs</h3>
-					<p>Development of reusable SDKs tailored to product requirements, enabling faster implementation and extensible platform capabilities.</p>
-				</article>
-				<article class="skill-card reveal-up" style="--delay: 0.10s">
-					<span class="skill-icon"><i class="fas fa-gears" aria-hidden="true"></i></span>
-					<h3>Automation &amp; Scripting</h3>
-					<p>Workflow automation through scripting, bots, agentic pipelines, and integration tooling to reduce manual effort and improve delivery velocity.</p>
-				</article>
-				<article class="skill-card reveal-up" style="--delay: 0.15s">
-					<span class="skill-icon"><i class="fab fa-wordpress" aria-hidden="true"></i></span>
-					<h3>WordPress Development</h3>
-					<p>Delivery of business, blog, and e-commerce sites using custom WordPress themes and plugins.</p>
-				</article>
-			</div>
-		</div>
-	</section>
-
-	<br />
-
-	<!-- Tech Stack Section -->
-	<section id="tech-stack" data-show="professional">
-		<div class="bg-container">
-			<div class="row text-center my-3 tech-grid">
-				<div class="section-header reveal-up">
-					<span class="section-tag">&lt;tech-stack&gt;</span>
-					<h2 class="glow-text section-title">My Tech Stack</h2>
-					<p class="lead sub-titles"><i>Core Technologies Behind My Work</i></p>
-				</div>
-
-				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.1s">
-						<div class="tech-card-glow"></div>
-						<div class="text-start">
-							<p class="lead"><i class="fas fa-brain me-2"></i>AI &amp; Agents</p>
-						</div>
-						<ul class="list-group list-group">
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Grok Bot</div>
-								</div>
-								<img src="https://x.ai/favicon.ico" alt="Grok" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Hermes Agent</div>
-								</div>
-								<img src="https://cdn.simpleicons.org/robotframework" alt="Hermes Agent" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">OpenClaw</div>
-								</div>
-								<img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/openclaw.svg" alt="OpenClaw" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">MCP Servers</div>
-								</div>
-								<img src="https://raw.githubusercontent.com/modelcontextprotocol/docs/main/logo/light.svg" alt="MCP" height="32" width="32" style="object-fit:contain; background:#fff; border-radius:6px; padding:4px" loading="lazy" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto text-start">
-									<div class="fw-bold">Hosted LLM APIs</div>
-									<p class="mb-0"><i style="font-size:0.75rem">OpenAI • Anthropic • xAI</i></p>
-								</div>
-								<div class="d-flex align-items-center gap-1">
-									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="OpenAI" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="OpenAI" loading="lazy" />
-									<img src="https://cdn.simpleicons.org/anthropic" alt="Anthropic" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="Anthropic" loading="lazy" />
-									<img src="https://x.ai/favicon.ico" alt="xAI" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="xAI Grok" loading="lazy" />
-								</div>
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto text-start">
-									<div class="fw-bold">Open Models</div>
-									<p class="mb-0"><i style="font-size:0.75rem">Hugging Face • Ollama • OpenRouter</i></p>
-								</div>
-								<div class="d-flex align-items-center gap-1">
-									<img src="https://cdn.simpleicons.org/huggingface" alt="Hugging Face" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="Hugging Face" loading="lazy" />
-									<img src="https://cdn.simpleicons.org/ollama" alt="Ollama" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="Ollama" loading="lazy" />
-									<img src="https://cdn.simpleicons.org/openrouter" alt="OpenRouter" height="28" width="28" style="object-fit:contain; background:#fff; border-radius:6px; padding:3px" title="OpenRouter" loading="lazy" />
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.2s">
-						<div class="tech-card-glow"></div>
-						<div class="text-start">
-							<p class="lead"><i class="fas fa-code me-2"></i>Software Languages</p>
-						</div>
-						<ul class="list-group list-group">
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">JavaScript</div>
-								</div>
-								<img src="./assets/js.png" alt="JavaScript" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Swift</div>
-								</div>
-								<img src="./assets/swift.png" alt="Swift" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Kotlin</div>
-								</div>
-								<img src="./assets/kotlin.jpeg" alt="Kotlin" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Python</div>
-								</div>
-								<img src="./assets/python.png" alt="Python" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Dart</div>
-								</div>
-								<img src="./assets/dart.png" alt="Dart" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">PHP</div>
-								</div>
-								<img src="./assets/php.png" alt="PHP" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">SQL</div>
-								</div>
-								<img src="./assets/sql.png" alt="SQL" height="40" width="40" />
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-12 align-items-start">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.3s">
-						<div class="tech-card-glow"></div>
-						<div class="text-start mt-4">
-							<p class="lead"><i class="fas fa-mobile-alt me-2"></i>Mobile App Development</p>
-						</div>
-						<ul class="list-group list-group">
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">React Native</div>
-								</div>
-								<img src="./assets/react-native-2.png" alt="React Native" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Flutter</div>
-								</div>
-								<img src="./assets/flutter.png" alt="Flutter" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Swift - iOS</div>
-								</div>
-								<img src="./assets/swift.png" alt="Swift" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Kotlin - Android</div>
-								</div>
-								<img src="./assets/kotlin.jpeg" alt="Kotlin" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Cordova</div>
-								</div>
-								<img src="./assets/cordova.png" alt="Cordova" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">NativeScript</div>
-								</div>
-								<img src="./assets/nativescript.png" alt="NativeScript" height="40" width="40" />
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.4s">
-						<div class="tech-card-glow"></div>
-						<div class="text-start mt-4">
-							<p class="lead"><i class="fas fa-server me-2"></i>Backend API Development</p>
-						</div>
-						<ul class="list-group list-group">
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Express</div>
-								</div>
-								<img src="./assets/express.png" alt="Express" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Deno</div>
-								</div>
-								<img src="./assets/deno.png" alt="Deno" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Bun</div>
-								</div>
-								<img src="./assets/bun.png" alt="Bun" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Laravel</div>
-								</div>
-								<img src="./assets/laravel.png" alt="Laravel" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Django</div>
-								</div>
-								<img src="./assets/django.png" alt="Django" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">CodeIgniter</div>
-								</div>
-								<img src="./assets/codeigniter.png" alt="CodeIgniter" height="40" width="40" />
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-12">
-					<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.5s">
-						<div class="tech-card-glow"></div>
-						<div class="text-start mt-4">
-							<p class="lead"><i class="fas fa-globe me-2"></i>Web App Development</p>
-						</div>
-						<ul class="list-group list-group">
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">React.js</div>
-								</div>
-								<img src="./assets/react.png" alt="React" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Vue.js</div>
-								</div>
-								<img src="./assets/vue.png" alt="Vue" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Vuetify</div>
-								</div>
-								<img src="./assets/vuetify.png" alt="Vuetify" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Next.js</div>
-								</div>
-								<img src="./assets/nextjs.png" alt="Next.js" height="40" width="40" />
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-start">
-								<div class="ms-2 me-auto my-auto">
-									<div class="fw-bold">Svelte</div>
-								</div>
-								<img src="./assets/svelte.png" alt="Svelte" height="40" width="40" />
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<!-- Row 2 of tech cards -->
-				<div class="row my-5 col-lg-12 col-sm-12 tech-grid-contents">
-					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.1s">
-							<div class="tech-card-glow"></div>
-							<div class="text-start">
-								<p class="lead"><i class="fas fa-database me-2"></i>Database</p>
-							</div>
-						<ul class="list-group list-group">
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">PostgreSQL</div>
-									</div>
-									<i class="fas fa-database tech-icon-fa" aria-hidden="true"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Supabase</div>
-									</div>
-									<i class="fas fa-bolt tech-icon-fa" aria-hidden="true"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">MySQL</div>
-									</div>
-									<i class="fas fa-table tech-icon-fa" aria-hidden="true"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">MongoDB</div>
-									</div>
-									<img src="./assets/mongodb.png" alt="MongoDB" height="40" width="40" />
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">SQLite</div>
-									</div>
-									<img src="./assets/sqlite.jpeg" alt="SQLite" height="40" width="40" />
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Realm</div>
-									</div>
-									<img src="./assets/realm.png" alt="Realm" height="40" width="40" />
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.2s">
-							<div class="tech-card-glow"></div>
-							<div class="text-start mt-4">
-								<p class="lead"><i class="fas fa-code-branch me-2"></i>Version Control</p>
-							</div>
-						<ul class="list-group list-group">
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Git</div>
-									</div>
-									<img src="./assets/gitcmd.png" alt="Git" height="40" width="40" />
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">GitLab</div>
-									</div>
-									<img src="./assets/gitla.jpeg" alt="GitLab" height="40" width="40" />
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Sourcetree</div>
-									</div>
-									<img src="./assets/sourcetree.jpeg" alt="Sourcetree" height="40" width="40" />
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto">
-										<div class="fw-bold">Fork</div>
-									</div>
-									<img src="./assets/fork.jpeg" alt="Fork" height="40" width="40" />
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.3s">
-							<div class="tech-card-glow"></div>
-							<div class="text-start mt-4">
-								<p class="lead"><i class="fas fa-cloud me-2"></i>Cloud Service</p>
-							</div>
-						<ul class="list-group list-group">
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto text-start">
-										<div class="fw-bold">AWS</div>
-										<p><i>EC2, Lambda functions, Amplify</i></p>
-									</div>
-									<img src="./assets/aws.png" alt="AWS" height="40" width="40" />
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto text-start">
-										<div class="fw-bold">Cloudflare</div>
-										<p><i>Workers, R2, D1, KV, CDN, Pages for backend SaaS</i></p>
-									</div>
-									<i class="fas fa-cloud tech-icon-fa" aria-hidden="true"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto text-start">
-										<div class="fw-bold">Google Cloud Services</div>
-										<p><i>Firebase, Functions, Firestore, Realtime DB, Analytics</i></p>
-									</div>
-									<img src="./assets/googlecloud.png" alt="Google Cloud" height="40" width="40" />
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-sm-12">
-						<div class="tech-card tilt-card p-3 mb-4 reveal-up" style="--delay: 0.4s">
-							<div class="tech-card-glow"></div>
-							<div class="text-start mt-4">
-								<p class="lead"><i class="fab fa-wordpress me-2"></i>CMS</p>
-							</div>
-						<ul class="list-group list-group">
-								<li class="list-group-item d-flex justify-content-between align-items-start">
-									<div class="ms-2 me-auto my-auto text-start">
-										<div class="fw-bold">WordPress</div>
-										<p><i>Custom Theme and Plugin Development</i></p>
-									</div>
-									<img src="./assets/wordpress.png" alt="WordPress" height="40" width="40" />
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<hr class="section-divider" data-show="professional" />
-
-	<!-- Education & Highlights Section (professional) -->
-	<section id="education" data-show="professional">
-		<div class="bg-container reveal-up">
-			<div class="row justify-content-center text-center my-3">
-				<div class="section-header">
-					<span class="section-tag">&lt;education&gt;</span>
-					<h2 class="glow-text section-title">Education &amp; Highlights</h2>
-				</div>
-			</div>
-			<div class="info-grid">
-				<div class="info-card">
-					<i class="fas fa-graduation-cap info-icon" aria-hidden="true"></i>
-					<h3>B.Tech</h3>
-					<p>Jawaharlal Nehru Technological University Hyderabad (JNTUH)</p>
-					<span class="timeline-date">2011 to 2015</span>
-				</div>
-				<div class="info-card">
-					<i class="fas fa-trophy info-icon" aria-hidden="true"></i>
-					<h3>First Prize, Robotics Demonstration</h3>
-					<p>The Hyderabad Student Festival</p>
-					<span class="timeline-date">2013</span>
-				</div>
-				<div class="info-card">
-					<i class="fas fa-people-group info-icon" aria-hidden="true"></i>
-					<h3>Leadership</h3>
-					<p>Leads a cross-platform team; mentors junior developers and trainees; owns sprint planning and multi-store releases.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Services Section -->
-	<section id="services" data-show="personal">
-		<div class="bg-container">
-			<div class="row text-center my-3">
-				<div class="col-lg-12 col-sm-12">
-					<div class="section-header reveal-up">
-						<span class="section-tag">&lt;services&gt;</span>
-						<h2 class="glow-text section-title">Services I Offer</h2>
-						<p><i>I help teams design, build, and scale software products end-to-end. I can lead delivery
-								independently or collaborate with existing engineering teams for full products or
-								focused modules, on contract or milestone-based engagements.</i></p>
-						<p class="services-intro-note">Each engagement includes clear scope, delivery checkpoints, and
-							implementation ownership.</p>
-						<p class="services-proof"><strong>Proof of execution:</strong> 10+ years experience, 50+
-							deliveries, 30+ client engagements.</p>
-					</div>
-
-					<div class="accordion reveal-up" style="--delay: 0.2s" id="accordionExample">
-						<div class="accordion-item anchor-target" id="service-mobile">
-							<h2 class="accordion-header">
-								<button class="accordion-button" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseOne">
-									<i class="fas fa-mobile-alt me-2"></i> Mobile App Development
-								</button>
-							</h2>
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I lead end-to-end mobile delivery across iOS, Android, and Huawei, from technical
-										discovery and architecture to production release. You get performant
-										applications, stable release cycles, and maintainable codebases that support
-										long-term product growth.</p>
-									<p class="service-context"><strong>Best fit:</strong> Mobile-first products that
-										need reliable cross-platform delivery.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Solution
-										architecture, release plan, production-ready mobile app, store submission
-										package.</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item anchor-target" id="service-fullstack">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseTwo" aria-expanded="false">
-									<i class="fas fa-globe me-2"></i> Full-Stack Web Application Development
-								</button>
-							</h2>
-							<div id="collapseTwo" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I build full-stack web products with modern frontend frameworks and robust
-										backend services, ensuring clean architecture and dependable integrations. The
-										result is faster feature delivery, better user experience quality, and a
-										platform that scales with product demand.</p>
-									<p class="service-context"><strong>Best fit:</strong> Teams building new products or
-										modernizing legacy web stacks.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Frontend
-										architecture, API integration layer, deployment-ready app, handover
-										documentation.</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item anchor-target" id="service-backend">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseThree" aria-expanded="false">
-									<i class="fas fa-server me-2"></i> Backend &amp; API Development
-								</button>
-							</h2>
-							<div id="collapseThree" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I design secure, well-structured APIs and backend services using Node.js, Python,
-										and PHP with strong observability and operational reliability. This enables
-										resilient integrations, predictable performance under load, and clean service
-										contracts for faster team execution.</p>
-									<p class="service-context"><strong>Best fit:</strong> Products requiring secure
-										integrations and scalable backend foundations.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> API contracts,
-										service architecture, integration workflows, monitoring-ready backend endpoints.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item anchor-target" id="service-ai">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseAI" aria-expanded="false">
-									<i class="fas fa-robot me-2"></i> AI Agent Development &amp; LLM Integration
-								</button>
-							</h2>
-							<div id="collapseAI" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I take AI from demo to production. That covers three lanes: agents and multi-agent
-										workflows wired into your systems via tool use and MCP servers; LLM features inside
-										your mobile or web product, such as in-app assistants, summarization, and features
-										running on open-weight models where cost or data privacy matters;
-										and agentic delivery setups for your engineering team on Claude Code, Cursor, or
-										Codex with custom skills, hooks, and review loops. Every build ships with structured
-										outputs, guardrails, and explicit cost and latency budgets.</p>
-									<p class="service-context"><strong>Best fit:</strong> Teams adding AI capability to an
-										existing product, or adopting agentic workflows in how they deliver software.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Agent and workflow
-										design, MCP and tool integrations, a production AI feature (e.g. an in-app assistant
-										or an open-weight model integration), team harness setup with documentation and
-										handover.</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item anchor-target" id="service-sdk">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseFour" aria-expanded="false">
-									<i class="fas fa-puzzle-piece me-2"></i> Custom SDK and Library Development
-								</button>
-							</h2>
-							<div id="collapseFour" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I build custom SDKs and shared libraries that encapsulate complex platform
-										behavior into reusable, well-documented modules. This reduces implementation
-										time for product teams, improves integration consistency, and lowers long-term
-										maintenance risk.</p>
-									<p class="service-context"><strong>Best fit:</strong> Multi-team products that need
-										reusable platform capabilities.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Versioned SDK
-										package, integration guide, sample implementation, maintenance strategy.</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseFive" aria-expanded="false">
-									<i class="fas fa-plug me-2"></i> Third-Party Integrations
-								</button>
-							</h2>
-							<div id="collapseFive" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I integrate third-party platforms such as Firebase, AWS, analytics suites, and
-										payment gateways with production-grade validation and monitoring. The focus is
-										safe rollout, reliable data flow, and reduced integration risk across
-										environments.</p>
-									<p class="service-context"><strong>Best fit:</strong> Products adding payments,
-										analytics, notifications, or cloud services.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Integration
-										design, secure configuration, validation checklist, rollout support.</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseSix" aria-expanded="false">
-									<i class="fas fa-rocket me-2"></i> Support &amp; MVP Development
-								</button>
-							</h2>
-							<div id="collapseSix" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I provide structured maintenance, targeted optimization, and MVP execution to
-										help teams move from instability to predictable delivery. This includes issue
-										triage, performance tuning, and scoped release planning that accelerates time to
-										value.</p>
-									<p class="service-context"><strong>Best fit:</strong> Teams needing fast
-										stabilization or lean MVP execution.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Prioritized
-										backlog, optimization roadmap, MVP release package, ongoing support cadence.</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseSeven" aria-expanded="false">
-									<i class="fas fa-store me-2"></i> Mobile Application Publishing
-								</button>
-							</h2>
-							<div id="collapseSeven" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I manage end-to-end publishing for the App Store, Google Play, and Huawei
-										AppGallery, including compliance checks, release preparation, and submission
-										handling. This improves approval confidence and reduces launch delays during
-										critical release windows.</p>
-									<p class="service-context"><strong>Best fit:</strong> Teams preparing launches and
-										update cycles across multiple stores.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Store readiness
-										checklist, release assets, submission support, post-release review.</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-									data-bs-target="#collapseEight" aria-expanded="false">
-									<i class="fab fa-wordpress me-2"></i> CMS &amp; WordPress Development
-								</button>
-							</h2>
-							<div id="collapseEight" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body text-start">
-									<p>I deliver WordPress implementations for business, content, and e-commerce use
-										cases, including custom themes and plugin-level extensions. The emphasis is
-										clean UX, editor-friendly workflows, and technical foundations that remain
-										stable as content and traffic grow.</p>
-									<p class="service-context"><strong>Best fit:</strong> Content-driven businesses that
-										need speed, flexibility, and maintainability.</p>
-									<p class="service-context"><strong>Typical deliverables:</strong> Custom
-										theme/plugin package, CMS workflow setup, performance optimization, deployment
-										handoff.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Consultations Section (personal) -->
-	<section id="consultations" data-show="personal">
-		<div class="bg-container reveal-up">
-			<div class="row justify-content-center text-center my-3">
-				<div class="section-header">
-					<span class="section-tag">&lt;consultations&gt;</span>
-					<h2 class="glow-text section-title">Ways to Work Together</h2>
-					<p class="lead sub-titles"><i>Start from the problem you have; I'll take it from there</i></p>
-				</div>
-			</div>
-
-			<div class="audience-filter" role="group" aria-label="Show engagements for">
-				<span class="audience-filter-label">I'm a</span>
-				<button type="button" class="chip-link chip-link--accent" data-audience-filter="all" aria-pressed="true">Anyone</button>
-				<button type="button" class="chip-link" data-audience-filter="individual" aria-pressed="false">Founder / Individual</button>
-				<button type="button" class="chip-link" data-audience-filter="startup" aria-pressed="false">Startup</button>
-				<button type="button" class="chip-link" data-audience-filter="company" aria-pressed="false">Company / Team</button>
-			</div>
-
-			<div class="need-grid" aria-live="polite">
-				<article class="need-card" id="need-mvp" data-audience="individual startup">
-					<i class="fas fa-lightbulb need-icon" aria-hidden="true"></i>
-					<h3>Turn an Idea into an MVP</h3>
-					<p class="need-pain">&ldquo;I have the idea and the users, but no tech team.&rdquo;</p>
-					<p>A lean, launchable first version on mobile, web or both, scoped to what proves the idea.</p>
-					<ul>
-						<li>Feature scoping and clickable flow</li>
-						<li>Production app, backend and admin</li>
-						<li>Store or web launch</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 4 to 10 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=MVP%20Build%20Enquiry" class="need-link">Plan my MVP &rarr;</a>
-				</article>
-				<article class="need-card" id="need-backend" data-audience="startup company">
-					<i class="fas fa-server need-icon" aria-hidden="true"></i>
-					<h3>Build a Backend Service or API</h3>
-					<p class="need-pain">&ldquo;Our app has outgrown Firebase and spreadsheets.&rdquo;</p>
-					<p>A secure, documented service with auth, data model, background jobs and admin tooling.</p>
-					<ul>
-						<li>API design (REST or GraphQL) and docs</li>
-						<li>Auth, roles and data model</li>
-						<li>Deployed with logging and monitoring</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 3 to 8 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Backend%20Service%20Enquiry" class="need-link">Build my service &rarr;</a>
-				</article>
-				<article class="need-card" id="need-sdk" data-audience="startup company">
-					<i class="fas fa-puzzle-piece need-icon" aria-hidden="true"></i>
-					<h3>Develop an SDK or Library</h3>
-					<p class="need-pain">&ldquo;Partners keep struggling to integrate with our platform.&rdquo;</p>
-					<p>An iOS, Android, Flutter, React Native or JS SDK that makes your platform easy to adopt.</p>
-					<ul>
-						<li>Clean public API and versioning</li>
-						<li>Sample app and integration guide</li>
-						<li>Published to npm, CocoaPods, SPM or Maven</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 3 to 6 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=SDK%20Development%20Enquiry" class="need-link">Scope my SDK &rarr;</a>
-				</article>
-				<article class="need-card" id="need-publish" data-audience="individual startup company">
-					<i class="fas fa-store need-icon" aria-hidden="true"></i>
-					<h3>Publish Your App to the Stores</h3>
-					<p class="need-pain">&ldquo;Apple rejected us again and launch day is close.&rdquo;</p>
-					<p>Get your app live on the App Store, Google Play and Huawei AppGallery, and keep it there.</p>
-					<ul>
-						<li>Developer accounts, signing and builds</li>
-						<li>Listings, privacy forms and review notes</li>
-						<li>Rejection fixes and resubmission</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 3 days to 2 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=App%20Publishing%20Help" class="need-link">Get my app live &rarr;</a>
-				</article>
-				<article class="need-card" id="need-rescue" data-audience="individual startup company">
-					<i class="fas fa-life-ring need-icon" aria-hidden="true"></i>
-					<h3>Rescue a Stalled Project</h3>
-					<p class="need-pain">&ldquo;The previous developer left and nobody understands the code.&rdquo;</p>
-					<p>I take over the codebase, find out what actually works, and get delivery moving again.</p>
-					<ul>
-						<li>Codebase and infrastructure audit</li>
-						<li>Access, builds and deploys recovered</li>
-						<li>Prioritised recovery plan, then delivery</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Audit in 1 week</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Rescue%20Enquiry" class="need-link">Rescue my project &rarr;</a>
-				</article>
-				<article class="need-card" id="need-ai" data-audience="startup company">
-					<i class="fas fa-robot need-icon" aria-hidden="true"></i>
-					<h3>Add AI to Your Product</h3>
-					<p class="need-pain">&ldquo;Our AI demo works, but we can't ship it to customers.&rdquo;</p>
-					<p>Production LLM features and agents with guardrails, evaluation, and cost and latency budgets.</p>
-					<ul>
-						<li>In-app assistant, search or automation</li>
-						<li>Agents, tool use and MCP integrations</li>
-						<li>Evals, monitoring and cost controls</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 2 to 8 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=AI%20Feature%20Enquiry" class="need-link">Ship my AI feature &rarr;</a>
-				</article>
-				<article class="need-card" id="need-stability" data-audience="startup company">
-					<i class="fas fa-gauge-high need-icon" aria-hidden="true"></i>
-					<h3>Fix Crashes &amp; Performance</h3>
-					<p class="need-pain">&ldquo;Our reviews are full of crashes and slow screens.&rdquo;</p>
-					<p>Find and fix the crashes, memory leaks and slow paths that cost you ratings and retention.</p>
-					<ul>
-						<li>Crash and performance triage</li>
-						<li>Fixes shipped in a stability release</li>
-						<li>Crash reporting and alerts set up</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 4 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=App%20Stability%20Enquiry" class="need-link">Stabilise my app &rarr;</a>
-				</article>
-				<article class="need-card" id="need-modernize" data-audience="company startup">
-					<i class="fas fa-arrows-rotate need-icon" aria-hidden="true"></i>
-					<h3>Modernise a Legacy App</h3>
-					<p class="need-pain">&ldquo;Every change breaks something and the SDKs are years out of date.&rdquo;</p>
-					<p>Upgrade or migrate step by step, such as native to Flutter or React Native, without stopping releases.</p>
-					<ul>
-						<li>Migration plan with risk map</li>
-						<li>Incremental rewrite or upgrade</li>
-						<li>Tests and CI added along the way</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Phased, from 4 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Modernisation%20Enquiry" class="need-link">Plan a migration &rarr;</a>
-				</article>
-				<article class="need-card" id="need-integrations" data-audience="individual startup company">
-					<i class="fas fa-plug need-icon" aria-hidden="true"></i>
-					<h3>Payments, Auth &amp; Integrations</h3>
-					<p class="need-pain">&ldquo;We need subscriptions, logins and push notifications working properly.&rdquo;</p>
-					<p>Payments, in-app purchases, social login, maps, analytics and notifications wired in safely.</p>
-					<ul>
-						<li>Stripe, Razorpay, IAP and subscriptions</li>
-						<li>Firebase, OAuth and push notifications</li>
-						<li>Tested rollout across environments</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 3 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Integration%20Enquiry" class="need-link">Add an integration &rarr;</a>
-				</article>
-				<article class="need-card" id="need-devops" data-audience="startup company">
-					<i class="fas fa-code-branch need-icon" aria-hidden="true"></i>
-					<h3>CI/CD &amp; Release Automation</h3>
-					<p class="need-pain">&ldquo;Releases take a whole day and only one person knows how.&rdquo;</p>
-					<p>Automated builds, tests and store or cloud deploys so anyone on the team can ship safely.</p>
-					<ul>
-						<li>GitHub Actions, Fastlane or Codemagic</li>
-						<li>Environments, secrets and signing</li>
-						<li>One-click releases with rollback</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 2 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=CI%2FCD%20Setup%20Enquiry" class="need-link">Automate releases &rarr;</a>
-				</article>
-				<article class="need-card" id="need-website" data-audience="individual startup">
-					<i class="fas fa-globe need-icon" aria-hidden="true"></i>
-					<h3>Website, Landing Page or Store</h3>
-					<p class="need-pain">&ldquo;I need a fast site I can update myself, before launch.&rdquo;</p>
-					<p>A business site, product landing page or online store on WordPress or a modern web stack.</p>
-					<ul>
-						<li>Responsive, SEO-ready build</li>
-						<li>Editor-friendly CMS setup</li>
-						<li>Domain, hosting and analytics</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-clock" aria-hidden="true"></i>Typically 1 to 3 weeks</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Website%20Enquiry" class="need-link">Build my site &rarr;</a>
-				</article>
-				<article class="need-card" id="need-maintenance" data-audience="individual startup company">
-					<i class="fas fa-screwdriver-wrench need-icon" aria-hidden="true"></i>
-					<h3>Ongoing Maintenance &amp; Support</h3>
-					<p class="need-pain">&ldquo;Every new iOS or Android version breaks something.&rdquo;</p>
-					<p>Keep your app current, secure and compliant with store policy, without a full-time hire.</p>
-					<ul>
-						<li>OS, SDK and dependency updates</li>
-						<li>Bug fixes and small features</li>
-						<li>Monitoring and store compliance</li>
-					</ul>
-					<span class="need-meta"><i class="far fa-calendar" aria-hidden="true"></i>Monthly plan</span>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Maintenance%20Plan%20Enquiry" class="need-link">Set up support &rarr;</a>
-				</article>
-			</div>
-			<p class="need-empty" hidden>Nothing here fits? <a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Enquiry">Tell me what you need</a>.</p>
-
-			<div class="section-header models-header">
-				<h3 class="models-title">Pick How We Work</h3>
-				<p class="sub-titles"><i>Any of the above can run under whichever model suits your budget and team</i></p>
-			</div>
-			<div class="offer-grid">
-				<article class="offer-card">
-					<span class="offer-meta">30 minutes · video call</span>
-					<h3>Discovery Call</h3>
-					<p>Talk through your idea or problem, get an honest take on feasibility, stack and next steps.</p>
-					<ul>
-						<li>Fit and scope check</li>
-						<li>Rough approach and timeline</li>
-					</ul>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Discovery%20Call%20Request" class="btn ghost-btn magnetic-btn">Book a call</a>
-				</article>
-				<article class="offer-card">
-					<span class="offer-meta">Fixed scope · 1 to 2 weeks</span>
-					<h3>Audit &amp; Code Review</h3>
-					<p>A senior audit of your app, API or AI feature before you scale, raise, hire or rewrite.</p>
-					<ul>
-						<li>Written findings report</li>
-						<li>Prioritised fix roadmap</li>
-						<li>Walkthrough session with your team</li>
-					</ul>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Architecture%20Review%20Request" class="btn ghost-btn magnetic-btn">Request a review</a>
-				</article>
-				<article class="offer-card offer-card--featured">
-					<span class="offer-meta">Fixed price · milestone based</span>
-					<h3>Project Delivery</h3>
-					<p>A defined outcome, such as an MVP, SDK, service or store launch, owned end to end through release.</p>
-					<ul>
-						<li>Scope, milestones and demos</li>
-						<li>Store and production release</li>
-						<li>Documentation and handover</li>
-					</ul>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Project%20Enquiry" class="btn contact-btn magnetic-btn ripple-btn">Start a project</a>
-				</article>
-				<article class="offer-card">
-					<span class="offer-meta">Part or full time · monthly</span>
-					<h3>Dedicated Developer</h3>
-					<p>A senior engineer embedded in your team, standups and tools, for as long as you need the capacity.</p>
-					<ul>
-						<li>Works inside your sprint process</li>
-						<li>Scale up or down month to month</li>
-						<li>No recruiting or notice periods</li>
-					</ul>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Dedicated%20Developer%20Enquiry" class="btn ghost-btn magnetic-btn">Add capacity</a>
-				</article>
-				<article class="offer-card">
-					<span class="offer-meta">Monthly retainer</span>
-					<h3>Fractional Tech Lead</h3>
-					<p>Part-time senior leadership for teams that need direction more than extra hands.</p>
-					<ul>
-						<li>Architecture and code reviews</li>
-						<li>Hiring, vendor and mentoring support</li>
-						<li>AI-assisted workflow rollout</li>
-					</ul>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Fractional%20Tech%20Lead%20Enquiry" class="btn ghost-btn magnetic-btn">Discuss a retainer</a>
-				</article>
-				<article class="offer-card">
-					<span class="offer-meta">Hourly · on demand</span>
-					<h3>Ad-hoc Expert Help</h3>
-					<p>Unblock a specific issue fast: a build that won't sign, a failing integration, a tricky bug.</p>
-					<ul>
-						<li>Pay only for hours used</li>
-						<li>Pairing or hands-off fix</li>
-						<li>Short sessions or half-day blocks</li>
-					</ul>
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Ad-hoc%20Help%20Request" class="btn ghost-btn magnetic-btn">Get unblocked</a>
-				</article>
-			</div>
-
-			<ul class="engagement-assurances">
-				<li><i class="fas fa-file-signature" aria-hidden="true"></i>NDA on request</li>
-				<li><i class="fas fa-code" aria-hidden="true"></i>You own the code and IP</li>
-				<li><i class="fas fa-comments" aria-hidden="true"></i>Weekly updates and demos</li>
-				<li><i class="fas fa-receipt" aria-hidden="true"></i>Written quote before work starts</li>
-			</ul>
-		</div>
-	</section>
-
-	<!-- Process Section (personal) -->
-	<section id="process" data-show="personal">
-		<div class="bg-container reveal-up">
-			<div class="row justify-content-center text-center my-3">
-				<div class="section-header">
-					<span class="section-tag">&lt;process&gt;</span>
-					<h2 class="glow-text section-title">How an Engagement Runs</h2>
-				</div>
-			</div>
-			<ol class="process-steps">
-				<li><span class="process-num">01</span><h3>Discover</h3><p>A short call to understand goals, users, constraints and what success looks like.</p></li>
-				<li><span class="process-num">02</span><h3>Scope &amp; Propose</h3><p>A written proposal with deliverables, milestones, timeline and cost, so there are no surprises.</p></li>
-				<li><span class="process-num">03</span><h3>Build in Milestones</h3><p>Regular demos and checkpoints; you see working software early and steer as we go.</p></li>
-				<li><span class="process-num">04</span><h3>Launch &amp; Hand Over</h3><p>Release to stores or production, documentation, and a clean handover or ongoing support.</p></li>
-			</ol>
-		</div>
-	</section>
-
-	<!-- Contact Section -->
-	<section id="contact">
-		<div class="contact-section reveal-up">
-			<div class="row my-4 justify-content-center text-center">
-				<div class="section-header">
-					<span class="section-tag">&lt;contact&gt;</span>
-					<h2 class="glow-text section-title" data-show="professional">Get in Touch</h2>
-					<p class="lead" data-show="professional">Want to talk mobile, full-stack or AI engineering, or
-						compare notes on building and leading teams? I'm always happy to connect.</p>
-					<h2 class="glow-text section-title" data-show="personal">Start a Conversation</h2>
-					<p class="lead" data-show="personal">Have a product idea, modernization effort, or delivery gap to
-						solve? Let’s discuss how I can help your team ship with confidence.</p>
-				</div>
-				<div class="contact-actions mt-3" data-show="professional">
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Hello%20Abdul"
-						class="btn contact-btn magnetic-btn ripple-btn">
-						<i class="fas fa-envelope me-2"></i>Email Me
-					</a>
-					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" rel="noopener"
-						class="btn ghost-btn magnetic-btn">
-						<i class="fab fa-linkedin me-2"></i>Connect on LinkedIn
-					</a>
-				</div>
-				<div class="contact-actions mt-3" data-show="personal">
-					<a href="mailto:mdab.aziz01@gmail.com?subject=Consultation%20Request"
-						class="btn contact-btn magnetic-btn ripple-btn">
-						<i class="fas fa-calendar-check me-2"></i>Book a Consultation
-					</a>
-				</div>
-				<div class="email-copy">
-					<span class="email-copy-address">mdab.aziz01@gmail.com</span>
-					<button type="button" class="email-copy-btn" data-copy="mdab.aziz01@gmail.com"
-						aria-label="Copy email address">
-						<i class="far fa-copy" aria-hidden="true"></i><span>Copy</span>
-					</button>
-				</div>
-				<p class="mode-crosslink" data-show="professional">Looking to hire me for a project instead?
-					<a href="?mode=personal" data-mode-target="personal">See my services &amp; consultations &rarr;</a></p>
-				<p class="mode-crosslink" data-show="personal">Want to know more about my background?
-					<a href="?mode=professional" data-mode-target="professional">See my professional profile &rarr;</a></p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Footer -->
-	<footer class="enhanced-footer">
-		<div class="container">
-			<div class="footer-content">
-				<div class="footer-brand">
-					<span class="brand-bracket">&lt;</span>Abdul Aziz<span class="brand-bracket"> /&gt;</span>
-				</div>
-				<div class="footer-links">
-					<a href="https://github.com/codemeall" target="_blank" rel="noopener" class="footer-link magnetic-btn" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-					<a href="https://in.linkedin.com/in/abdulaziz-codemeall" target="_blank" rel="noopener"
-						class="footer-link magnetic-btn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-					<a href="mailto:mdab.aziz01@gmail.com" class="footer-link magnetic-btn" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-				</div>
-				<p class="footer-copy">&copy; <span data-year>2026</span> Abdul Aziz &middot; Lead Software Engineer &middot; Hyderabad, India</p>
-			</div>
+	<footer class="footer">
+		<div class="container footer-inner">
+			<span class="brand"><span class="brand-mark">AA</span><span class="brand-name">Abdul Aziz</span></span>
+			<p>&copy; <span data-year>2026</span> Abdul Aziz · Lead Software Engineer · Hyderabad, India</p>
+			<a href="#top" class="to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
 		</div>
 	</footer>
 
-	<!-- Mode change announcement -->
-	<div class="mode-toast" id="mode-toast" role="status" aria-live="polite"></div>
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-	<!-- Back to Top Button -->
-	<button class="back-to-top magnetic-btn" id="back-to-top" aria-label="Back to top">
-		<i class="fas fa-chevron-up"></i>
-	</button>
-
-	<!-- Scripts -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-	<script src="enhanced.js?v=20261012e"></script>
+	<script src="site.js?v=20261014c" defer></script>
 </body>
 
 </html>
