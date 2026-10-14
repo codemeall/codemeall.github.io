@@ -217,16 +217,16 @@
 				for (var j = i + 1; j < pts.length; j++) {
 					var q = pts[j], ex = p.x - q.x, ey = p.y - q.y, d = Math.sqrt(ex * ex + ey * ey);
 					if (d < LINK) {
-						ctx.strokeStyle = 'rgba(61,245,255,' + (1 - d / LINK) * .16 + ')';
+						ctx.strokeStyle = 'rgba(252,238,10,' + (1 - d / LINK) * .14 + ')';
 						ctx.lineWidth = 1;
 						ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
 					}
 				}
 				if (d2 < 32000) {
-					ctx.strokeStyle = 'rgba(139,92,246,' + (1 - d2 / 32000) * .5 + ')';
+					ctx.strokeStyle = 'rgba(0,240,255,' + (1 - d2 / 32000) * .5 + ')';
 					ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
 				}
-				ctx.fillStyle = p.hue ? 'rgba(255,61,154,.8)' : 'rgba(61,245,255,.75)';
+				ctx.fillStyle = p.hue ? 'rgba(0,240,255,.8)' : 'rgba(252,238,10,.75)';
 				ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
 			}
 		})();
