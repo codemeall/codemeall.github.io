@@ -1,0 +1,79 @@
+# Pages CMS (https://app.pagescms.org) — write, edit and publish posts from the browser.
+# Only GitHub accounts with write access to this repository can sign in and save.
+
+media:
+  input: assets/images
+  output: /assets/images
+  categories: [image]
+
+content:
+  - name: drafts
+    label: Drafts (preview only)
+    description: Not published. Each draft renders at /preview/<file-name>/ for review. Use "Publish" when it is ready.
+    type: collection
+    path: _previews
+    filename: "{primary}.md"
+    exclude: [.gitkeep]
+    view:
+      fields: [title, author, category]
+      default:
+        sort: title
+    fields: &post_fields
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        options:
+          time: true
+          format: "yyyy-MM-dd HH:mm:ss xx"
+      - name: category
+        label: Category
+        type: string
+        default: General
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: description
+        label: Summary
+        description: One or two sentences shown on the blog card and in search results.
+        type: text
+      - name: image
+        label: Cover image
+        type: image
+      - name: read_time
+        label: Read time
+        type: string
+        default: "5 min read"
+      - name: author
+        label: Written by
+        description: Who drafted this (you or the name of the agent).
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
+    actions:
+      - name: publish
+        label: Publish
+        workflow: publish-draft.yml
+        scope: entry
+        confirm:
+          title: Publish this draft?
+          message: It moves into _posts/ with today's date and goes live on the blog.
+          button: Publish
+
+  - name: posts
+    label: Published posts
+    description: Live on /blog. Anything you save here is public within a minute or two.
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, category]
+      default:
+        sort: date
+        order: desc
+    fields: *post_fields

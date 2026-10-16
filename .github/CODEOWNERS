@@ -1,0 +1,4 @@
+# Published posts and publishing tooling need the owner's review.
+/_posts/ @codemeall
+/.pages.yml @codemeall
+/.github/ @codemeall

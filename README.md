@@ -41,7 +41,10 @@ Key features of the homepage:
 .
 |-- _config.yml       # Jekyll site configuration
 |-- _layouts/         # Shared blog and page layouts
-|-- _posts/           # Markdown blog posts
+|-- _posts/           # Published blog posts
+|-- _previews/        # Unpublished drafts, rendered at /preview/
+|-- .pages.yml        # Pages CMS (browser editor) configuration
+|-- AGENTS.md         # Rules for AI agents writing drafts
 |-- _scripts/         # Content utility scripts
 |-- _templates/       # Blog post templates
 |-- assets/           # Images, technology icons, and résumé
@@ -67,20 +70,57 @@ Open `http://localhost:4000` in a browser. Jekyll watches the project files and 
 
 ## Publishing Blog Posts
 
-Add Markdown files to `_posts` using Jekyll's `YYYY-MM-DD-title.md` naming convention. A starter template is available at `_templates/Jekyll Post Template.md`.
+There are three ways to write, and only the owner can publish.
+
+| Folder | What it is | Where it shows |
+| --- | --- | --- |
+| `_posts/` | Published posts | `/blog`, RSS feed, search engines |
+| `_previews/` | Drafts, including ones written by AI agents | `/preview/<file-name>/` only (unlisted, `noindex`) |
+
+### From the browser (Pages CMS)
+
+1. Open [app.pagescms.org](https://app.pagescms.org), sign in with GitHub and pick this repository.
+2. **Drafts** holds unpublished posts; **Published posts** is what is live. Images upload to `assets/images/`.
+3. Open a draft and press **Publish** to move it into `_posts/` with the current date.
+
+Only GitHub accounts with write access to this repository can sign in and save.
+
+### From Obsidian
+
+The QuickAdd "New Jekyll Post" command still creates a post straight in `_posts/` using
+`_templates/Jekyll Post Template.md`, and obsidian-git pushes it.
+
+### From AI agents
+
+Agents follow [`AGENTS.md`](AGENTS.md): they write drafts in `_previews/<slug>.md` and never touch `_posts/`.
+Review every draft at `/preview/`, then publish it from Pages CMS or from
+**Actions → Publish draft → Run workflow** (enter the draft's file name).
+
+Guard rails:
+
+- The **Publish draft** workflow refuses to run for anyone but the repository owner.
+- The **Guard published posts** check fails any pull request that changes `_posts/` from another
+  account or from an agent branch (`claude/`, `codex/`, `copilot/`, `cursor/` …). To make it binding,
+  protect `master` under Settings → Branches and require this check.
+- An agent that pushes straight to `master` with your own credentials can't be stopped by a check.
+  Only give agents a token that can push branches and open pull requests, not one that writes to `master`.
+
+### Front matter
 
 ```yaml
 ---
-layout: post
 title: "Post title"
-date: 2026-06-06 10:00:00 +0530
+date: 2026-06-06 10:00:00 +0530   # stamped automatically when a draft is published
 category: General
+tags: [Tag1, Tag2]
 read_time: "5 min read"
 description: "A short summary of the post."
+image: /assets/images/cover.png   # optional
 ---
 ```
 
-Changes pushed to the repository's GitHub Pages branch are published at [codemeall.github.io](https://codemeall.github.io).
+`layout: post` is applied automatically. Changes pushed to `master` are published at
+[codemeall.github.io](https://codemeall.github.io).
 
 ## Contact
 
