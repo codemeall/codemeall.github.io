@@ -1,0 +1,34 @@
+name: Guard published posts
+
+# Only the owner publishes. A pull request that adds or edits files in _posts/
+# fails this check when it comes from someone else or from an AI agent's branch.
+# Agents should put drafts in _previews/ instead (see AGENTS.md).
+# Make it binding: Settings → Branches → protect master → require this check.
+
+on:
+  pull_request:
+    paths:
+      - "_posts/**"
+
+permissions: {}
+
+jobs:
+  owner-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check who is changing published posts
+        env:
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          OWNER: ${{ github.repository_owner }}
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          if [ "${AUTHOR,,}" != "${OWNER,,}" ]; then
+            echo "::error::Only @$OWNER can change _posts/. Put the post in _previews/ as a draft instead."
+            exit 1
+          fi
+          case "$BRANCH" in
+            claude/*|codex/*|copilot/*|cursor/*|devin/*|agent/*|ai/*)
+              echo "::error::Branch '$BRANCH' looks like an AI agent's branch. Agents write drafts in _previews/; @$OWNER publishes them."
+              exit 1 ;;
+          esac
+          echo "OK: @$AUTHOR on '$BRANCH' may change published posts."

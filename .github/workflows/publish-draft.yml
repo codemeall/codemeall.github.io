@@ -1,0 +1,115 @@
+name: Publish draft
+
+# Moves a reviewed draft from _previews/ into _posts/ so it goes live on /blog.
+# Run it from the "Publish" button in Pages CMS, or from the Actions tab
+# (Run workflow → enter the draft's file name). Only the repository owner can publish.
+
+on:
+  workflow_dispatch:
+    inputs:
+      draft:
+        description: "Draft file name in _previews/ (for example: my-post.md)"
+        required: false
+        type: string
+      payload:
+        description: "Sent by Pages CMS. Leave empty when running by hand."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publish-draft
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve draft and check who is publishing
+        id: draft
+        env:
+          ACTOR: ${{ github.actor }}
+          OWNER: ${{ github.repository_owner }}
+          DRAFT_INPUT: ${{ inputs.draft }}
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          set -euo pipefail
+          publisher="$ACTOR"
+          path=""
+          if [ -n "$PAYLOAD" ]; then
+            path=$(jq -r '.context.path // empty' <<<"$PAYLOAD")
+            # Pages CMS may dispatch through its GitHub App; then the real person is in the payload.
+            if [[ "$ACTOR" == *"[bot]" ]]; then
+              publisher=$(jq -r '.triggeredBy.githubUsername // empty' <<<"$PAYLOAD")
+            fi
+          fi
+          if [ -z "$path" ] && [ -n "$DRAFT_INPUT" ]; then
+            path="_previews/${DRAFT_INPUT#_previews/}"
+          fi
+
+          if [ "${publisher,,}" != "${OWNER,,}" ]; then
+            echo "::error::Only @$OWNER can publish posts (requested by '${publisher:-unknown}')."
+            exit 1
+          fi
+          if [[ ! "$path" =~ ^_previews/[A-Za-z0-9._-]+\.md$ ]]; then
+            echo "::error::'$path' is not a draft in _previews/. Pass a file name like my-post.md."
+            exit 1
+          fi
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+
+      - name: Move draft into _posts
+        id: move
+        env:
+          DRAFT: ${{ steps.draft.outputs.path }}
+          TZ: Asia/Kolkata
+        run: |
+          set -euo pipefail
+          if [ ! -f "$DRAFT" ]; then
+            echo "::error::$DRAFT does not exist on ${GITHUB_REF_NAME}."
+            exit 1
+          fi
+          target="_posts/$(date +%F)-$(basename "$DRAFT")"
+          if [ -e "$target" ]; then
+            echo "::error::$target already exists. Rename the draft and try again."
+            exit 1
+          fi
+
+          # Stamp the publish time into the front matter (adds a date line if there is none).
+          python3 - "$DRAFT" "$(date '+%F %T %z')" <<'PY'
+          import re, sys
+          path, stamp = sys.argv[1], sys.argv[2]
+          text = open(path, encoding="utf-8").read()
+          match = re.match(r"^---\n(.*?)\n---\n", text, re.S)
+          if not match:
+              sys.exit(f"::error::{path} has no front matter block.")
+          lines = [l for l in match.group(1).split("\n") if not l.startswith(("date:", "noindex:"))]
+          lines.append(f"date: {stamp}")
+          open(path, "w", encoding="utf-8").write("---\n" + "\n".join(lines) + "\n---\n" + text[match.end():])
+          PY
+
+          git mv "$DRAFT" "$target"
+          echo "target=$target" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        env:
+          DRAFT: ${{ steps.draft.outputs.path }}
+          TARGET: ${{ steps.move.outputs.target }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A _previews _posts
+          git commit -m "Publish $(basename "$TARGET")" -m "Moved $DRAFT to $TARGET."
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Rebuild GitHub Pages
+        # Pushes made with GITHUB_TOKEN may not start a Pages build on their own.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent

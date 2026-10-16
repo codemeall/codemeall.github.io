@@ -4,6 +4,38 @@ baseurl: ""
 url: "https://codemeall.github.io"
 permalink: /blog/:title/
 
+# Agent-written and in-progress drafts. They render at /preview/<name>/ so they
+# can be reviewed on the live site, but they are never listed on /blog, never in
+# the RSS feed, and carry a noindex tag. Publishing moves a file into _posts/.
+collections:
+  previews:
+    output: true
+    permalink: /preview/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: previews
+    values:
+      layout: post
+      noindex: true
+
+exclude:
+  - AGENTS.md
+  - CLAUDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .obsidian
+  - _templates
+  - _scripts
+  - vendor
+
 markdown: kramdown
 theme: null
 

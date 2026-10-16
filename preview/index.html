@@ -1,0 +1,40 @@
+---
+layout: default
+title: "Draft previews | Abdul Aziz"
+description: "Unpublished drafts waiting for review."
+noindex: true
+---
+
+<section class="container my-5 pt-5">
+	<div class="row justify-content-center text-center my-3">
+		<div class="section-header reveal-up">
+			<span class="section-tag">&lt;drafts&gt;</span>
+			<h2 class="glow-text section-title">Draft previews</h2>
+			<p class="lead sub-titles"><i>Not published. Review these, then publish the ones that are ready.</i></p>
+		</div>
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="col-lg-8 col-md-10">
+			{% assign drafts = site.previews | sort: "date" | reverse %}
+			{% for draft in drafts %}
+			<div class="tech-card p-4 mb-3 reveal-up">
+				<div class="d-flex flex-wrap align-items-center gap-2 mb-2 text-muted small">
+					<span class="badge bg-warning text-dark">Draft</span>
+					{% if draft.author %}<span>by {{ draft.author }}</span>{% endif %}
+					<span>•</span>
+					<code>{{ draft.path | remove_first: "_previews/" }}</code>
+				</div>
+				<h3 class="h5 mb-2">
+					<a href="{{ draft.url | relative_url }}" class="text-decoration-none hover-green">{{ draft.title }}</a>
+				</h3>
+				{% if draft.description %}<p class="small text-muted mb-0">{{ draft.description }}</p>{% endif %}
+			</div>
+			{% else %}
+			<div class="tech-card p-5 text-center reveal-up">
+				<p class="lead mb-0">No drafts waiting for review.</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

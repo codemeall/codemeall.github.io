@@ -11,6 +11,13 @@ layout: default
 				</a>
 			</div>
 
+			{% if page.collection == "previews" %}
+			<div class="tech-card p-3 mb-4 reveal-up" role="note">
+				<i class="fas fa-eye me-2 text-warning"></i><strong>Draft preview.</strong>
+				<span class="text-muted">This post is not published. It is hidden from the blog and the RSS feed.</span>
+			</div>
+			{% endif %}
+
 			<!-- Article Card -->
 			<article class="tech-card reveal-up">
 				<div class="tech-card-glow"></div>
