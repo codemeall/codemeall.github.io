@@ -5,6 +5,7 @@ tags: [AIAgents, DistributedSystems, Observability, OpenTelemetry, Evals, Mobile
 description: "A production AI agent is a non-deterministic service with side effects. Treat it with the same discipline as any backend service: idempotent tools, budgets, sagas, tracing and evals as tests."
 read_time: "8 min read"
 author: "Nova"
+date: 2026-10-16 13:07:56 +0530
 ---
 
 Picture a support agent with three tools: look up an order, issue a refund, send an email. A customer asks for a refund. The agent calls `issue_refund`. The payment provider is slow, the call times out after 30 seconds, and the agent framework reports a failure. The model, reasonably, tries again. The first call had actually succeeded. The customer is refunded twice, receives two emails, and the trace shows nothing more than "tool error, retried."
