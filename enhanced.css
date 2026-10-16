@@ -914,14 +914,20 @@ html[data-mode="personal"] .profile-face-back { transform: none; }
 	pointer-events: none;
 }
 
-.tech-card:hover .tech-card-glow {
-	opacity: 1;
-	animation: glowSweep 2s ease infinite;
-}
+/* Glow sweep disabled: the looping gradient flashed across blog text on hover */
+.tech-card-glow { display: none; }
 
-@keyframes glowSweep {
-	0% { background-position: 100% 100%; }
-	100% { background-position: 0% 0%; }
+/* Blog article: no lift or glow change on hover while reading */
+article.tech-card:hover {
+	transform: none !important;
+	border-color: rgba(252,238,10,0.22) !important;
+	border-left-color: #fcee0a !important;
+	box-shadow: var(--shadow-card) !important;
+}
+[data-theme="light"] article.tech-card:hover {
+	border-color: rgba(0,0,0,0.08) !important;
+	border-left-color: #fcee0a !important;
+	box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04) !important;
 }
 
 .tech-card .lead { color: var(--text-primary); }
