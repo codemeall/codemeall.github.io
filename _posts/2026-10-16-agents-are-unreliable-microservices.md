@@ -1,13 +1,21 @@
 ---
-title: "Agents Are Unreliable Microservices"
-category: "AI Engineering"
-tags: [AIAgents, DistributedSystems, Observability, OpenTelemetry, Evals, MobileEngineering, SoftwareArchitecture]
-description: "A production AI agent is a non-deterministic service with side effects. Treat it with the same discipline as any backend service: idempotent tools, budgets, sagas, tracing and evals as tests."
-read_time: "8 min read"
-author: "Nova"
-date: 2026-10-16 13:07:56 +0530
+title: Agents Are Unreliable Microservices
+date: 2026-10-16 07:37:00 +0000
+category: AI Engineering
+tags:
+  - AIAgents
+  - DistributedSystems
+  - Observability
+  - OpenTelemetry
+  - Evals
+  - MobileEngineering
+  - SoftwareArchitecture
+description: "A production AI agent is a non-deterministic service with side
+  effects. Treat it with the same discipline as any backend service: idempotent
+  tools, budgets, sagas, tracing and evals as tests."
+read_time: 8 min read
+author: Nova
 ---
-
 Picture a support agent with three tools: look up an order, issue a refund, send an email. A customer asks for a refund. The agent calls `issue_refund`. The payment provider is slow, the call times out after 30 seconds, and the agent framework reports a failure. The model, reasonably, tries again. The first call had actually succeeded. The customer is refunded twice, receives two emails, and the trace shows nothing more than "tool error, retried."
 
 This scenario is hypothetical, but every part of it is ordinary, and none of it is a prompt problem. No system prompt fixes a missing idempotency key.
@@ -86,12 +94,12 @@ Stream state, not raw tokens. Send typed events (`step_started`, `tool_pending_a
    |  start run -> run_id ; subscribe(run_id, last_event_id)
    v
  API + Run Queue ----------------------------+
-   |                                         |
+|  |
    v                                         v
  Orchestrator (agent loop)          Event Stream (SSE)
    | - budgets: steps, tokens, time, $       ^
-   | - saga log + compensations              |
-   | - emits OTel spans                      |
+| - saga log + compensations |
+| - emits OTel spans |
    v                                         |
  Tool Gateway -------------------------------+
    | - schema validation, authz
@@ -114,31 +122,32 @@ For a prototype, most of this is overhead. For an agent that writes to productio
 
 ## Checklist
 
-- [ ] Every write tool takes an orchestrator-generated idempotency key
-- [ ] Timeouts on every tool call and every run, with an explicit "unknown" state
-- [ ] Hard budgets for steps, tokens, time and cost, enforced outside the model
-- [ ] Circuit breakers on external tools, surfaced to the model as clear errors
-- [ ] Agent runs execute on a durable queue with backoff and a dead-letter path
-- [ ] Multi-step writes modeled as sagas with compensating actions
-- [ ] Re-read and version-check before every write
-- [ ] One trace per run, using OpenTelemetry GenAI conventions, metadata-only by default
-- [ ] Runs are persisted and replayable with recorded tool results
-- [ ] Golden-task evals gate every prompt, tool and model change in CI, including cost and latency
-- [ ] Mobile clients resume by run ID and event sequence, and approvals are idempotent
+- Every write tool takes an orchestrator-generated idempotency key
+- Timeouts on every tool call and every run, with an explicit "unknown" state
+- Hard budgets for steps, tokens, time and cost, enforced outside the model
+- Circuit breakers on external tools, surfaced to the model as clear errors
+- Agent runs execute on a durable queue with backoff and a dead-letter path
+- Multi-step writes modeled as sagas with compensating actions
+- Re-read and version-check before every write
+- One trace per run, using OpenTelemetry GenAI conventions, metadata-only by default
+- Runs are persisted and replayable with recorded tool results
+- Golden-task evals gate every prompt, tool and model change in CI, including cost and latency
+- Mobile clients resume by run ID and event sequence, and approvals are idempotent
 
 Better prompts make agents more capable. Engineering discipline makes them safe to depend on.
 
 ## Sources
 
-- Stripe API reference, "Idempotent requests": <https://docs.stripe.com/api/idempotent_requests> (accessed October 16, 2026)
-- Martin Fowler, "Circuit Breaker," March 6, 2014: <https://martinfowler.com/bliki/CircuitBreaker.html>
-- Hector Garcia-Molina and Kenneth Salem, "Sagas," Proceedings of ACM SIGMOD 1987: <https://doi.org/10.1145/38713.38742>
-- Chris Richardson, "Pattern: Saga," microservices.io: <https://microservices.io/patterns/data/saga.html> (accessed October 16, 2026)
-- OpenTelemetry GenAI semantic conventions, agent spans and attribute registry (status: Development): <https://github.com/open-telemetry/semantic-conventions-genai> (accessed October 16, 2026)
-- Claude Code v2.1.300 release notes, October 14, 2026: <https://github.com/anthropics/claude-code/releases/tag/v2.1.300>
-- Claude Platform release notes (OpenTelemetry export beta, October 14, 2026; Managed Agents session budgets, August 7, 2026): <https://platform.claude.com/docs/en/release-notes/overview>
-- Anthropic, "Agent observability on the Claude Platform," October 14, 2026: <https://claude.com/resources/articles/agent-observability-on-the-claude-platform>
-- Claude docs, "OpenTelemetry for the Claude API" (content modes): <https://platform.claude.com/docs/en/manage-claude/opentelemetry> (accessed October 16, 2026)
-- WHATWG HTML Living Standard, "Server-sent events" and the `Last-Event-ID` header: <https://html.spec.whatwg.org/multipage/server-sent-events.html> (accessed October 16, 2026)
-- Apple Developer, "Extending your app's background execution time": <https://developer.apple.com/documentation/uikit/extending-your-app-s-background-execution-time> (accessed October 16, 2026)
-- Android Developers, "Task scheduling" (WorkManager), last updated February 26, 2026: <https://developer.android.com/develop/background-work/background-tasks/persistent>
+- Stripe API reference, "Idempotent requests": [https://docs.stripe.com/api/idempotent_requests](https://docs.stripe.com/api/idempotent_requests) (accessed October 16, 2026)
+- Martin Fowler, "Circuit Breaker," March 6, 2014: [https://martinfowler.com/bliki/CircuitBreaker.html](https://martinfowler.com/bliki/CircuitBreaker.html)
+- Hector Garcia-Molina and Kenneth Salem, "Sagas," Proceedings of ACM SIGMOD 1987: [https://doi.org/10.1145/38713.38742](https://doi.org/10.1145/38713.38742)
+- Chris Richardson, "Pattern: Saga," microservices.io: [https://microservices.io/patterns/data/saga.html](https://microservices.io/patterns/data/saga.html) (accessed October 16, 2026)
+- OpenTelemetry GenAI semantic conventions, agent spans and attribute registry (status: Development): [https://github.com/open-telemetry/semantic-conventions-genai](https://github.com/open-telemetry/semantic-conventions-genai) (accessed October 16, 2026)
+- Claude Code v2.1.300 release notes, October 14, 2026: [https://github.com/anthropics/claude-code/releases/tag/v2.1.300](https://github.com/anthropics/claude-code/releases/tag/v2.1.300)
+- Claude Platform release notes (OpenTelemetry export beta, October 14, 2026; Managed Agents session budgets, August 7, 2026): [https://platform.claude.com/docs/en/release-notes/overview](https://platform.claude.com/docs/en/release-notes/overview)
+- Anthropic, "Agent observability on the Claude Platform," October 14, 2026: [https://claude.com/resources/articles/agent-observability-on-the-claude-platform](https://claude.com/resources/articles/agent-observability-on-the-claude-platform)
+- Claude docs, "OpenTelemetry for the Claude API" (content modes): [https://platform.claude.com/docs/en/manage-claude/opentelemetry](https://platform.claude.com/docs/en/manage-claude/opentelemetry) (accessed October 16, 2026)
+- WHATWG HTML Living Standard, "Server-sent events" and the `Last-Event-ID` header: [https://html.spec.whatwg.org/multipage/server-sent-events.html](https://html.spec.whatwg.org/multipage/server-sent-events.html) (accessed October 16, 2026)
+- Apple Developer, "Extending your app's background execution time": [https://developer.apple.com/documentation/uikit/extending-your-app-s-background-execution-time](https://developer.apple.com/documentation/uikit/extending-your-app-s-background-execution-time) (accessed October 16, 2026)
+- Android Developers, "Task scheduling" (WorkManager), last updated February 26, 2026: [https://developer.android.com/develop/background-work/background-tasks/persistent](https://developer.android.com/develop/background-work/background-tasks/persistent)
+
