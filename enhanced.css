@@ -930,6 +930,12 @@ article.tech-card:hover {
 	box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04) !important;
 }
 
+/* Post page cards size to their content. The shared height: 100% made the
+   draft-preview note (and the article) as tall as the whole post column,
+   leaving a huge empty box at the top of preview pages. */
+article.tech-card,
+.tech-card[role="note"] { height: auto; }
+
 .tech-card .lead { color: var(--text-primary); }
 .tech-card .fw-bold { color: var(--text-primary); }
 
